@@ -1,0 +1,78 @@
+/* Promo banner — carousel */
+.promo-banner{position:relative;overflow:hidden;isolation:isolate;min-height:260px;display:flex;align-items:center;
+ border-radius:var(--radius-lg);background-position:left center;background-size:cover;background-repeat:no-repeat;
+ box-shadow:var(--shadow);padding:36px 0;transition:background-image .3s ease}
+.promo-content{position:relative;z-index:1;margin-left:auto;width:58%;padding:0 min(6%,56px)}
+.promo-eyebrow{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#e7cd8f;background:rgba(214,182,111,.14);border:1px solid rgba(214,182,111,.5);border-radius:30px;padding:6px 13px;margin-bottom:14px}
+.promo-content h2{font-family:"Cormorant Garamond",serif;color:#fff;font-size:clamp(22px,2.6vw,32px);line-height:1.1;margin:0 0 10px}
+.promo-desc{color:#dfe7e3;font-size:13px;line-height:1.75;margin:0 0 20px;max-width:420px}
+.promo-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:18px;display:grid;place-items:center;transition:.2s}
+.promo-nav:hover{background:#e7cd8f;color:#1d2928;border-color:#e7cd8f}
+.promo-nav.prev{left:16px}
+.promo-nav.next{right:16px}
+.promo-dots{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:1;display:flex;gap:6px}
+.promo-dots span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)}
+.promo-dots span.on{background:#e7cd8f;width:18px;border-radius:4px}
+@media(max-width:900px){
+ .promo-content{width:100%}
+}
+@media(max-width:640px){
+ .promo-banner{min-height:auto;padding:44px 0 30px;border-radius:var(--radius-md)}
+ .promo-content{padding:0 40px;max-width:none}
+ .promo-desc{max-width:none}
+ .promo-nav{width:32px;height:32px;font-size:15px}
+ .promo-nav.prev{left:8px}
+ .promo-nav.next{right:8px}
+}
+
+/* Tenant cards */
+.tenant-card{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.tenant-card:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(38,45,41,.14)}
+.tenant-card .pic{position:relative;height:170px;background-size:cover;background-position:center}
+.tenant-badge{position:absolute;left:12px;top:12px;background:#fff;color:#8b6831;border-color:transparent}
+.tenant-card .body{padding:18px}
+.tenant-card h3{font-weight:800;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:#8b6831;margin:0 0 8px}
+.tenant-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px}
+.tenant-loc{font-size:11px;color:var(--navy);font-weight:600}
+
+/* About page */
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+.about-stats div{padding:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff}
+.about-stats strong{display:block;font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--navy)}
+.about-stats span{font-size:11px;color:var(--muted)}
+.collage{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:12px;min-height:360px}
+.collage-a{grid-row:1/3;background:center/cover no-repeat;border-radius:var(--radius-lg)}
+.collage-b,.collage-c{background:center/cover no-repeat;border-radius:var(--radius-md)}
+
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.timeline-item{border-left:2px solid rgba(214,182,111,.5);padding:4px 0 4px 18px}
+.timeline-year{font-family:"Cormorant Garamond",serif;font-size:26px;color:#d7b66f;margin-bottom:6px}
+.timeline-item h3{font-size:14px;margin:0 0 6px;color:#fff}
+.timeline-item p{font-size:12px;color:#b9cbd6;line-height:1.6;margin:0}
+
+/* Fasilitas — horizontal scroll */
+.facility-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px}
+.facility-slide{flex:0 0 250px;height:320px;border-radius:var(--radius-lg);background-size:cover;background-position:center;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;color:#fff;scroll-snap-align:start}
+.facility-slide-icon{position:absolute;top:16px;left:16px;width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;font-size:18px}
+.facility-slide-eyebrow{font-size:9px;font-weight:800;letter-spacing:.16em;color:#e7cd8f;margin-bottom:6px}
+.facility-slide h3{font-family:"Cormorant Garamond",serif;font-size:22px;margin:0 0 6px}
+.facility-slide p{font-size:11px;color:#e4ddcd;line-height:1.6;margin:0}
+.scroll-hint{text-align:center;font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:-4px}
+
+/* Tips & Berita featured */
+.tip-featured{display:block;min-height:280px;border-radius:var(--radius-lg);background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:#fff;margin-bottom:24px}
+.tip-featured h2{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,3vw,34px);margin:10px 0}
+.tip-featured p{font-size:13px;color:#e4ddcd;max-width:560px;line-height:1.7;margin:0 0 10px}
+.tip-tag{display:inline-block;align-self:flex-start;background:rgba(214,182,111,.18);border:1px solid rgba(214,182,111,.55);color:#e7cd8f;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:30px}
+.tip-grid{margin-top:0}
+.tip-card{position:relative}
+.tip-tag-card{position:absolute;left:12px;top:12px;background:#fff;color:#8b6831;border-color:transparent}
+
+/* Facility tile — image-based mini card (home) */
+.facility-tile{position:relative;min-height:190px;border-radius:var(--radius-md);background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff}
+.facility-tile-eyebrow{font-size:9px;font-weight:800;letter-spacing:.14em;color:#e7cd8f;margin-bottom:4px}
+.facility-tile h3{font-family:"Cormorant Garamond",serif;font-size:18px;margin:0}
+
+/* Gallery zoom */
+.gallery .g.zoom{overflow:hidden;background-size:cover;transition:transform .35s ease}
+.gallery .g.zoom:hover{transform:scale(1.02)}

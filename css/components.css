@@ -1,0 +1,136 @@
+/* Grand Galaxy City — reusable components */
+.topbar{background:#1d2928;color:#d9d1bc;padding:9px 0;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.navbar{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(182,148,84,.22)}
+.nav-inner{height:86px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo-img{height:52px;width:auto;object-fit:contain;border-radius:var(--radius-sm)}
+.logo-chip{display:inline-flex;align-items:center;background:#fff;padding:7px 12px;border-radius:var(--radius-md)}
+.footer .logo-img{height:40px}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{padding:11px 12px;border-radius:var(--radius-sm);font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:#68736e;font-weight:600}
+.nav-links a:hover,.nav-links a.active{background:#eee9dd;color:#8b6831}
+.nav-cta{background:#263331;color:#fff;border:0;border-radius:var(--radius-sm);padding:13px 17px;letter-spacing:.06em;text-transform:uppercase;font-size:10px;font-weight:700}
+.menu{display:none;background:none;border:0;font-size:25px;color:var(--navy)}
+
+.hero{min-height:540px;display:flex;align-items:center;background-position:center 58%;background-size:cover}
+.hero.small{min-height:330px}
+.hero-content{color:#fff;max-width:700px;padding:90px 0}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#d7b66f;margin-bottom:13px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(48px,6vw,78px);line-height:.92;letter-spacing:.01em;margin:0 0 16px}
+.hero p{font-size:14px;line-height:1.8;color:#f4f0e7;max-width:540px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;max-width:100%;border:0;border-radius:var(--radius-sm);padding:13px 19px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:10px;text-align:center;white-space:normal;word-break:break-word}
+.btn-primary{background:#c09d5d;color:#fff}
+.btn-dark{background:#263331;color:#fff}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.62)}
+.btn-light{background:#fff;color:var(--navy)}
+
+.section{padding:78px 0}
+.section.compact{padding:52px 0}
+.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+.section-head h2,.copy h2{font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1;margin:0;color:var(--navy)}
+.section-head p{max-width:600px;margin:8px 0 0;color:var(--muted);line-height:1.65;font-size:14px}
+.kicker{font-size:10px;color:#9b7739;font-weight:800;text-transform:uppercase;letter-spacing:.2em}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-42px;position:relative}
+.stat{padding:24px 16px;text-align:center}
+.stat strong{display:block;color:var(--navy);font-family:"Cormorant Garamond",serif;font-size:27px}
+.stat span{font-size:11px;color:var(--muted)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+.image-card{overflow:hidden;border-radius:var(--radius-md)}
+.image-card .pic{height:180px;background-size:cover;background-position:center;filter:saturate(.9)}
+.image-card .body{padding:20px}
+.image-card h3{font-family:"Cormorant Garamond",serif;font-size:20px;margin:0 0 7px;color:var(--navy)}
+.image-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:30px;background:#f0eadc;color:#947037;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+
+.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.pill{border:1px solid #cfc7b7;background:transparent;color:#607482;border-radius:30px;padding:9px 15px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.pill.active{background:#263331;color:#fff;border-color:#263331}
+
+.split-image{min-height:360px;border-radius:var(--radius-lg);background:center/cover no-repeat}
+.copy p{color:var(--muted);font-size:14px;line-height:1.8}
+.commitment-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-md);padding:22px}
+.commitment-card .facility-icon{background:rgba(255,255,255,.1);color:#e7cd8f}
+.commitment-card h3{color:#fff;font-family:"Cormorant Garamond",serif;font-size:18px;margin:0 0 8px}
+.commitment-card p{color:#b9cbd6;font-size:12px;line-height:1.6;margin:0}
+
+.map-box{height:330px;border-radius:var(--radius-lg);overflow:hidden;position:relative;background:
+linear-gradient(25deg,transparent 42%,rgba(255,255,255,.75) 43%,rgba(255,255,255,.75) 46%,transparent 47%),
+linear-gradient(115deg,transparent 38%,rgba(255,255,255,.65) 39%,rgba(255,255,255,.65) 42%,transparent 43%),
+#b7dca7}
+.map-legend{position:absolute;left:16px;top:16px;background:#fff;border-radius:var(--radius-sm);padding:12px;box-shadow:var(--shadow);font-size:10px}
+.map-legend div{margin:5px 0}
+.map-embed{padding:0;background:#e7e7e7}
+.map-embed:before,.map-embed:after{content:none}
+.map-embed iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.15) contrast(1.03)}
+
+.dark-band{background:var(--navy);color:#fff}
+.dark-band .section-head h2,.dark-band h2{color:#fff}
+.dark-band p{color:#b9cbd6}
+
+.cta{background:linear-gradient(90deg,rgba(4,39,63,.85),rgba(4,39,63,.5)),url("../assets/images/real/09_danau_grand_galaxy.jpg") center/cover;border-radius:var(--radius-lg);padding:52px;color:#fff}
+.cta h2{font-family:"Cormorant Garamond",serif;margin:0 0 8px;font-size:38px}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery .g{height:190px;border-radius:var(--radius-md);background:center/cover no-repeat}
+.gallery .g.tall{grid-row:span 2;height:390px}
+
+.footer{background:#1d2928;color:#b8cbd6;padding:48px 0 18px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+.footer h3{color:#fff;font-size:13px;margin:0 0 15px}
+.footer p,.footer a{font-size:11px;line-height:1.7}
+.footer a{display:block;margin:7px 0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:14px;font-size:10px;display:flex;justify-content:space-between}
+
+.news-list{display:grid;gap:10px}
+.news-row{display:grid;grid-template-columns:150px 1fr auto;gap:15px;align-items:center;padding:12px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md)}
+.news-row .thumb{height:90px;border-radius:var(--radius-sm);background:center/cover}
+.news-row h3{font-family:"Cormorant Garamond",serif;font-size:20px;margin:0 0 5px;color:var(--navy)}
+.news-row p{font-size:11px;color:var(--muted);margin:0}
+.news-row .date{font-size:10px;color:#7c8e98}
+
+.event-list{display:grid;gap:12px}
+.event{display:grid;grid-template-columns:64px 62px 1fr auto;gap:15px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:14px}
+.event-thumb{width:64px;height:64px;border-radius:var(--radius-sm);background:center/cover}
+.event-date{background:var(--navy);color:#fff;border-radius:var(--radius-sm);text-align:center;padding:9px 5px}
+.event-date b{display:block;font-family:"Cormorant Garamond",serif;font-size:19px}
+.event-date span{font-size:8px}
+.event h3{margin:0 0 4px;color:var(--navy);font-family:"Cormorant Garamond",serif;font-size:20px}
+.event p{margin:0;color:var(--muted);font-size:11px}
+
+.article{max-width:780px;margin:auto}
+.article h2{font-family:"Cormorant Garamond",serif;color:var(--navy);font-size:30px}
+.article p{line-height:1.85;color:var(--muted);font-size:14px}
+
+.facility-icon{height:48px;width:48px;border-radius:var(--radius-sm);background:#eee9dd;color:#96763e;display:grid;place-items:center;font-size:22px;margin-bottom:15px}
+.facility{padding:20px}
+.facility h3{font-family:"Cormorant Garamond",serif;font-size:20px;margin:0 0 7px}
+.facility p{font-size:11px;color:var(--muted);line-height:1.6;margin:0}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;font-weight:700;color:var(--navy)}
+.field input,.field textarea,.field select{border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px;outline:none;background:#fff}
+.field textarea{min-height:120px;resize:vertical}
+.contact-info{display:grid;gap:12px}
+.contact-item{display:flex;gap:12px;padding:15px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff}
+.contact-item b{font-size:12px;color:var(--navy)}
+.contact-item span{font-size:11px;color:var(--muted);display:block;margin-top:3px}
+
+.empty{min-height:540px;display:grid;place-items:center;text-align:center}
+.empty-icon{font-size:70px}
+.empty h1{font-size:50px;color:var(--navy);margin:8px 0}
+.empty p{color:var(--muted);max-width:430px;line-height:1.7}
+
+.toast{position:fixed;right:20px;bottom:20px;background:#263331;color:#fff;padding:13px 17px;border-radius:var(--radius-sm);box-shadow:var(--shadow);font-size:12px;transform:translateY(100px);opacity:0;transition:.25s;z-index:100}
+.toast.show{transform:translateY(0);opacity:1}
+
+.link-btn{display:inline-block;margin-top:12px;color:#96733a;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.breadcrumb{font-size:10px;color:#77909d;margin-bottom:18px}
