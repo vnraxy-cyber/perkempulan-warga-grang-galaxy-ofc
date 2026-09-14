@@ -48,9 +48,8 @@ function tipsPage(){
 }
 
 function galleryPage(){
- let imgs=[REAL.gate,REAL.mall,REAL.clusterExterior,REAL.clusterStreet,REAL.taman,REAL.danau,REAL.playground,REAL.lapangan,REAL.ruko,REAL.jalanUtama,REAL.mallMalam,REAL.signage,REAL.mallEntrance,REAL.clusterGate,REAL.danauArea,REAL.jalanKawasan];
  return `${hero("Galeri","Lihat berbagai suasana hunian, fasilitas, ruang hijau, dan aktivitas di Grand Galaxy City.",REAL.gate,true)}
- <section class="section"><div class="container"><div class="pills"><button class="pill active">Semua</button><button class="pill">Kawasan</button><button class="pill">Fasilitas</button><button class="pill">Event</button><button class="pill">Aktivitas</button></div><div class="gallery">${imgs.map((x,i)=>`<div class="g zoom ${i===0?'tall':''}" style="background-image:url('${x}')"></div>`).join("")}</div></div></section>`;
+ <section class="section"><div class="container"><div class="pills">${galleryCategories.map((c,i)=>`<button class="pill ${i===0?'active':''}" onclick="filterGallery('${c}',this)">${c}</button>`).join("")}</div><div id="galleryGrid" class="gallery">${galleryImages.map(galleryItem).join("")}</div></div></section>`;
 }
 
 function berita(){

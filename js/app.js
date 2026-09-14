@@ -19,6 +19,11 @@ function filterFacilities(cat,el){
  const list=cat==="Semua"?facilities:facilities.filter(f=>f[4]===cat);
  document.getElementById("facilityScroll").innerHTML=list.map(f=>`<div class="facility-slide" style="background-image:linear-gradient(180deg,rgba(19,28,27,0) 38%,rgba(19,28,27,.92) 100%),url('${f[3]}')"><span class="facility-slide-icon">${f[0]}</span><span class="facility-slide-eyebrow">FASILITAS</span><h3>${f[1]}</h3><p>${f[2]}</p></div>`).join("");
 }
+function filterGallery(cat,el){
+ el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+ const list=cat==="Semua"?galleryImages:galleryImages.filter(g=>g[1]===cat);
+ document.getElementById("galleryGrid").innerHTML=list.map(galleryItem).join("");
+}
 function changePromo(dir){
  const el=document.getElementById("promoBanner");
  if(!el)return;

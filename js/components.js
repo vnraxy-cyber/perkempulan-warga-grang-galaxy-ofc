@@ -45,6 +45,10 @@ function iconBox(icon){
  return icon.startsWith("assets/")?`<span class="facility-icon-img" style="-webkit-mask-image:url('${icon}');mask-image:url('${icon}')"></span>`:`<i class="${icon}"></i>`;
 }
 
+function galleryItem([img],i){
+ return `<div class="g zoom ${i===0?'tall':''}" style="background-image:url('${img}')"></div>`;
+}
+
 function facilityTile(f){
  return `<div class="facility-tile" style="background-image:linear-gradient(180deg,rgba(19,28,27,0) 40%,rgba(19,28,27,.9) 100%),url('${f[3]}')"><span class="facility-tile-eyebrow">FASILITAS</span><h3>${f[1]}</h3></div>`;
 }

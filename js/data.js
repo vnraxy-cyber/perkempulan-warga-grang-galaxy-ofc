@@ -37,6 +37,28 @@ const tenantCategories = ["Semua","Kuliner","Pendidikan","Kesehatan & Kecantikan
 
 const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekreasi","Ibadah"];
 
+const galleryCategories = ["Semua","Kawasan","Fasilitas","Event","Aktivitas"];
+
+/* [foto, kategori] */
+const galleryImages = [
+ [REAL.gate,"Kawasan"],
+ [REAL.mall,"Fasilitas"],
+ [REAL.clusterExterior,"Kawasan"],
+ [REAL.clusterStreet,"Kawasan"],
+ [REAL.taman,"Fasilitas"],
+ [REAL.danau,"Fasilitas"],
+ [REAL.playground,"Aktivitas"],
+ [REAL.lapangan,"Aktivitas"],
+ [REAL.ruko,"Fasilitas"],
+ [REAL.jalanUtama,"Kawasan"],
+ [REAL.mallMalam,"Event"],
+ [REAL.signage,"Kawasan"],
+ [REAL.mallEntrance,"Fasilitas"],
+ [REAL.clusterGate,"Kawasan"],
+ [REAL.danauArea,"Aktivitas"],
+ [REAL.jalanKawasan,"Kawasan"]
+];
+
 /* [emoji, judul, deskripsi, foto, kategori] */
 const facilities = [
   ["🏫","Sekolah & Ibadah","Fasilitas pendidikan dan tempat ibadah untuk mendukung keluarga.", REAL.signage, "Pendidikan"],

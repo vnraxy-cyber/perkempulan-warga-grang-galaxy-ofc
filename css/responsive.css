@@ -17,6 +17,7 @@
  .hero{min-height:510px}
  .hero-content{padding:55px 0}
  .hero h1{font-size:39px}
+ .section-head{flex-direction:column;align-items:flex-start;gap:8px}
  .stats,.grid-2,.grid-3,.grid-4,.checks,.footer-grid,.form-grid,.about-stats,.timeline,.collage{grid-template-columns:1fr}
  .collage{grid-template-rows:220px 220px 220px}
  .collage-a{grid-row:auto}
