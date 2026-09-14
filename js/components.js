@@ -16,7 +16,7 @@ function nav(){
 function footer(){
  return `<footer class="footer"><div class="container">
   <div class="footer-grid">
-  <div><a class="logo" href="#/" aria-label="Grand Galaxy City"><span class="logo-chip"><img class="logo-img" src="${LOGO}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></span></a><p>Hunian modern, fasilitas lengkap, dan lingkungan yang dirancang untuk kehidupan keluarga yang lebih nyaman.</p></div>
+  <div><a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img" src="${LOGO_LIGHT}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a><p>Hunian modern, fasilitas lengkap, dan lingkungan yang dirancang untuk kehidupan keluarga yang lebih nyaman.</p></div>
    <div><h3>Menu</h3><a href="#/tentang">Tentang Kami</a><a href="#/kawasan">Kawasan</a><a href="#/fasilitas">Fasilitas</a><a href="#/galeri">Galeri</a></div>
    <div><h3>Informasi</h3><a href="#/berita">Berita & Promo</a><a href="#/event">Event</a><a href="#/tips">Tips Hunian</a><a href="#/kontak">Kontak</a></div>
    <div><h3>Hubungi Kami</h3><p>Grand Galaxy City, Bekasi Selatan<br>Jawa Barat, Indonesia</p><p>021 1234 5678<br>info@grandgalaxycity.id</p></div>
@@ -39,6 +39,10 @@ function promoBanner(){
   <button class="promo-nav next" onclick="changePromo(1)" aria-label="Promo berikutnya">›</button>
   <div class="promo-dots" id="promoDots">${promos.map((_,i)=>`<span class="${i===0?'on':''}"></span>`).join("")}</div>
  </div>`;
+}
+
+function iconBox(icon){
+ return icon.startsWith("assets/")?`<span class="facility-icon-img" style="-webkit-mask-image:url('${icon}');mask-image:url('${icon}')"></span>`:`<i class="${icon}"></i>`;
 }
 
 function facilityTile(f){

@@ -28,6 +28,7 @@ const REAL = {
 };
 
 const LOGO = "assets/images/brand/logo-perkumpulan.png";
+const LOGO_LIGHT = "assets/images/brand/logo-perkumpulan-light.png";
 
 const MAP_EMBED = "https://www.google.com/maps?q=Grand+Galaxy+City,+Bekasi+Selatan,+Jawa+Barat&output=embed";
 const MAP_LINK = "https://www.google.com/maps/search/Grand+Galaxy+City+Bekasi+Selatan";

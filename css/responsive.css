@@ -5,9 +5,12 @@
  .nav-cta{display:none}
  .grid-4{grid-template-columns:repeat(2,1fr)}
  .grid-3{grid-template-columns:repeat(2,1fr)}
- .footer-grid{grid-template-columns:1fr 1fr}
- .timeline{grid-template-columns:1fr 1fr}
+ .footer-grid{grid-template-columns:1fr;gap:34px}
  .collage{grid-template-columns:1fr 1fr}
+ .timeline{grid-template-columns:1fr;gap:26px;margin-top:0}
+ .timeline:before{top:0;bottom:0;left:9px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,rgba(214,182,111,0),rgba(214,182,111,.55) 6%,rgba(214,182,111,.55) 94%,rgba(214,182,111,0))}
+ .timeline-item{text-align:left;padding:0 0 0 34px}
+ .timeline-item:before{top:4px;left:9px;transform:translateX(-50%)}
 }
 @media(max-width:640px){
  .container{width:min(var(--container),calc(100% - 28px))}
