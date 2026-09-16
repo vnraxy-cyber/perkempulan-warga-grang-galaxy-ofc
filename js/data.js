@@ -33,7 +33,7 @@ const LOGO_LIGHT = "assets/images/brand/logo-perkumpulan-light.png";
 const MAP_EMBED = "https://www.google.com/maps?q=Grand+Galaxy+City,+Bekasi+Selatan,+Jawa+Barat&output=embed";
 const MAP_LINK = "https://www.google.com/maps/search/Grand+Galaxy+City+Bekasi+Selatan";
 
-const tenantCategories = ["Semua","Kuliner","Pendidikan","Kesehatan & Kecantikan","Retail & Fashion","Jasa & Perkantoran"];
+const tenantCategories = ["Semua","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Travel & Tour","Florist & Tanaman","Lifestyle & Hobi"];
 
 const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekreasi","Ibadah"];
 
@@ -61,18 +61,18 @@ const galleryImages = [
 
 /* [emoji, judul, deskripsi, foto, kategori] */
 const facilities = [
-  ["🏫","Sekolah & Ibadah","Fasilitas pendidikan dan tempat ibadah untuk mendukung keluarga.", REAL.signage, "Pendidikan"],
-  ["🏬","Grand Galaxy Mall","Pusat belanja, kuliner, dan hiburan.", REAL.mall, "Komersial"],
-  ["🛒","Pasar","Pusat kebutuhan sehari-hari yang mudah dijangkau warga.", REAL.ruko, "Komersial"],
-  ["🏢","Ruko & Office","Area komersial untuk kebutuhan bisnis.", REAL.jalanKawasan, "Komersial"],
-  ["🕌","Tempat Ibadah","Akses tempat ibadah yang nyaman.", REAL.clusterGate, "Ibadah"],
-  ["🏃","Sarana Olahraga","Fasilitas untuk menjaga gaya hidup aktif.", REAL.lapangan, "Rekreasi"],
-  ["🏥","Fasilitas Kesehatan","Pilihan layanan kesehatan di sekitar kawasan.", IMG.interior, "Kesehatan"],
-  ["🚗","Akses Strategis","Terhubung ke berbagai area penting Bekasi.", REAL.jalanUtama, "Komersial"],
-  ["🎪","Taman Bermain Anak","Area bermain aman dan nyaman untuk anak-anak.", REAL.playground, "Rekreasi"],
-  ["🏊","Kolam Renang","Fasilitas kolam renang untuk keluarga dan komunitas.", IMG.pool, "Rekreasi"],
-  ["🍽️","Foodcourt","Beragam pilihan kuliner dalam satu area yang nyaman.", REAL.ruko, "Komersial"],
-  ["🏥","Klinik 24 Jam","Layanan kesehatan darurat siap sedia setiap saat.", IMG.modern, "Kesehatan"]
+  ["fa-solid fa-school","Sekolah & Ibadah","Fasilitas pendidikan dan tempat ibadah untuk mendukung keluarga.", REAL.signage, "Pendidikan"],
+  ["fa-solid fa-store","Grand Galaxy Mall","Pusat belanja, kuliner, dan hiburan.", REAL.mall, "Komersial"],
+  ["fa-solid fa-cart-shopping","Pasar","Pusat kebutuhan sehari-hari yang mudah dijangkau warga.", REAL.ruko, "Komersial"],
+  ["fa-solid fa-building","Ruko & Office","Area komersial untuk kebutuhan bisnis.", REAL.jalanKawasan, "Komersial"],
+  ["fa-solid fa-mosque","Tempat Ibadah","Akses tempat ibadah yang nyaman.", REAL.clusterGate, "Ibadah"],
+  ["fa-solid fa-person-running","Sarana Olahraga","Fasilitas untuk menjaga gaya hidup aktif.", REAL.lapangan, "Rekreasi"],
+  ["fa-solid fa-hospital","Fasilitas Kesehatan","Pilihan layanan kesehatan di sekitar kawasan.", IMG.interior, "Kesehatan"],
+  ["fa-solid fa-car","Akses Strategis","Terhubung ke berbagai area penting Bekasi.", REAL.jalanUtama, "Komersial"],
+  ["fa-solid fa-child-reaching","Taman Bermain Anak","Area bermain aman dan nyaman untuk anak-anak.", REAL.playground, "Rekreasi"],
+  ["fa-solid fa-person-swimming","Kolam Renang","Fasilitas kolam renang untuk keluarga dan komunitas.", IMG.pool, "Rekreasi"],
+  ["fa-solid fa-utensils","Foodcourt","Beragam pilihan kuliner dalam satu area yang nyaman.", REAL.ruko, "Komersial"],
+  ["fa-solid fa-truck-medical","Klinik 24 Jam","Layanan kesehatan darurat siap sedia setiap saat.", IMG.modern, "Kesehatan"]
 ];
 
 /* Slide promo — [eyebrow, judul, deskripsi, teks tombol, tautan, foto] */
@@ -107,14 +107,32 @@ const events = [
 
 /* [nama toko, deskripsi, lokasi, kategori, foto] */
 const tenants = [
-  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Kuliner", IMG.interior],
-  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Kuliner", REAL.ruko],
-  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Pendidikan", IMG.building],
-  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan", IMG.modern],
-  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Kecantikan", IMG.modern],
-  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Kesehatan & Kecantikan", IMG.house],
-  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Retail & Fashion", IMG.villa],
-  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Retail & Fashion", IMG.building],
-  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Jasa & Perkantoran", IMG.interior],
-  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa & Perkantoran", IMG.building]
+  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior],
+  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko],
+  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Stationery & Buku", IMG.building],
+  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan & Bimbel", IMG.modern],
+  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Apotek", IMG.modern],
+  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Beauty & Salon", IMG.house],
+  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Fashion", IMG.villa],
+  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Elektronik & Gadget", IMG.building],
+  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Laundry", IMG.interior],
+  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa Profesional", IMG.building]
+];
+
+/* Struktur Organisasi — [jabatan, nama] */
+const orgStructure = [
+ ["Ketua", "Bapak Hendra Wijaya"],
+ ["Wakil Ketua", "Bapak Susanto Halim"],
+ ["Sekretaris", "Ibu Ratna Kusuma"],
+ ["Bendahara", "Ibu Melinda Sari"],
+ ["Koordinator Keamanan", "Bapak Agus Prasetyo"],
+ ["Koordinator Lingkungan", "Ibu Dewi Anggraini"]
+];
+
+/* Sewa / Jual — [nama tempat, tipe ("Disewakan"/"Dijual"), luas bangunan, harga, kontak (nomor WA), foto] */
+const listings = [
+  ["Ruko 2 Lantai Blok A No. 5", "Disewakan", "72 m²", "Rp 45 Juta / tahun", "6281234500001", REAL.ruko],
+  ["Ruko Sudut Blok D No. 2", "Dijual", "96 m²", "Rp 2.1 Miliar", "6281234500002", REAL.jalanKawasan],
+  ["Ruko 3 Lantai Blok B No. 12", "Disewakan", "84 m²", "Rp 65 Juta / tahun", "6281234500003", REAL.mall],
+  ["Ruko Blok E No. 4", "Dijual", "60 m²", "Rp 1.5 Miliar", "6281234500004", REAL.clusterStreet]
 ];

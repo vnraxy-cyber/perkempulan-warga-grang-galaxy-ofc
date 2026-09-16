@@ -25,8 +25,10 @@
  .promo-nav.next{right:8px}
 }
 
-/* Tenant cards */
-.tenant-card{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
+/* Tenant cards — horizontal scroll */
+.tenant-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px}
+.tenant-scroll .tenant-card{flex:0 0 260px;scroll-snap-align:start}
+.tenant-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
 .tenant-card:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(38,45,41,.14)}
 .tenant-card .pic{position:relative;height:170px;background-size:cover;background-position:center}
 .tenant-badge{position:absolute;left:12px;top:12px;background:#fff;color:#8b6831;border-color:transparent}
@@ -35,9 +37,19 @@
 .tenant-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px}
 .tenant-loc{font-size:11px;color:var(--navy);font-weight:600}
 
+/* About page — struktur organisasi */
+.org-infographic{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(var(--org-rows,3),auto);gap:20px 24px}
+.org-item{display:flex;align-items:center;min-width:0}
+.org-item-right{flex-direction:row-reverse}
+.org-circle{flex:0 0 60px;width:60px;height:60px;border-radius:50%;color:#fff;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:700;display:grid;place-items:center;z-index:1;box-shadow:var(--shadow)}
+.org-bar{flex:1;min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:30px;padding:14px 20px 14px 40px;margin-left:-26px;box-shadow:var(--shadow)}
+.org-item-right .org-bar{margin-left:0;margin-right:-26px;padding:14px 40px 14px 20px}
+.org-bar b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--navy)}
+.org-bar span{font-size:12px;color:var(--muted)}
+
 /* About page */
 .about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
-.about-stats div{padding:14px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff}
+.about-stats div{padding:14px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface)}
 .about-stats strong{display:block;font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--navy)}
 .about-stats span{font-size:11px;color:var(--muted)}
 .collage{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:12px;min-height:360px}
@@ -47,7 +59,7 @@
 .timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
 .timeline:before{content:"";position:absolute;top:9px;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(214,182,111,0),rgba(214,182,111,.55) 6%,rgba(214,182,111,.55) 94%,rgba(214,182,111,0))}
 .timeline-item{position:relative;text-align:center;padding:32px 10px 0}
-.timeline-item:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:#d7b66f;border:4px solid #202c2d;box-shadow:0 0 0 3px rgba(214,182,111,.35)}
+.timeline-item:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:#d7b66f;border:4px solid var(--ink);box-shadow:0 0 0 3px rgba(214,182,111,.35)}
 .timeline-year{font-family:"Cormorant Garamond",serif;font-size:26px;color:#d7b66f;margin-bottom:6px}
 .timeline-item h3{font-size:14px;margin:0 0 6px;color:#fff}
 .timeline-item p{font-size:12px;color:#b9cbd6;line-height:1.6;margin:0}
@@ -77,4 +89,33 @@
 
 /* Gallery zoom */
 .gallery .g.zoom{overflow:hidden;background-size:cover;transition:transform .35s ease}
+
+/* Sewa & Jual listing cards */
+.listing-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden}
+.listing-card .pic{position:relative;height:170px;background-size:cover;background-position:center}
+.listing-badge{position:absolute;left:12px;top:12px;background:#263331;color:#fff;border-color:transparent}
+.listing-badge-sale{background:#9b7739}
+.listing-card .body{padding:18px}
+.listing-card h3{font-family:"Cormorant Garamond",serif;font-size:19px;margin:0 0 8px;color:var(--navy)}
+.listing-meta{font-size:12px;color:var(--muted);margin-bottom:8px}
+.listing-price{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--navy);margin-bottom:14px}
+.listing-wa{width:100%;display:flex;align-items:center;justify-content:center;gap:8px}
+
+/* Auth pages */
+.auth-shell{min-height:70vh;display:flex;align-items:center;padding:70px 0}
+.auth-card{max-width:440px;margin:auto;padding:40px 36px}
+.auth-card .kicker{text-align:center;margin-bottom:10px}
+.auth-card h2{font-family:"Cormorant Garamond",serif;font-size:28px;margin:0 0 6px;color:var(--navy);text-align:center}
+.auth-sub{font-size:13px;color:var(--muted);margin:0 0 26px;text-align:center}
+.auth-form{display:flex;flex-direction:column;gap:16px}
+.auth-submit{width:100%;margin-top:6px}
+.auth-switch{text-align:center;font-size:12px;color:var(--muted);margin:20px 0 0}
+.auth-switch a{color:#96733a;font-weight:700}
+
+/* Sitemap / struktur situs */
+.sitemap-group{padding:24px}
+.sitemap-group h3{font-family:"Cormorant Garamond",serif;font-size:20px;margin:0 0 12px;color:var(--navy)}
+.sitemap-group ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sitemap-group a{font-size:13px;color:var(--muted)}
+.sitemap-group a:hover{color:#96733a}
 .gallery .g.zoom:hover{transform:scale(1.02)}

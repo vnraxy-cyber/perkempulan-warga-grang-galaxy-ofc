@@ -1,14 +1,21 @@
 function nav(){
   return `<div class="topbar"><div class="container">Kawasan hunian terpadu & modern di Bekasi Selatan</div></div>
   <header class="navbar"><div class="container nav-inner">
-    <a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img" src="${LOGO}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a>
-    <button class="menu" onclick="toggleMenu()">☰</button>
+    <a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img logo-on-light" src="${LOGO}" alt="Perkumpulan Warga Ruko Grand Galaxy City"><img class="logo-img logo-on-dark" src="${LOGO_LIGHT}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a>
     <nav class="nav-links" id="navLinks">
       ${[
-        ["Beranda","#/"],["Tentang","#/tentang"],["Kawasan","#/kawasan"],["Fasilitas","#/fasilitas"],
+        ["Beranda","#/"],["Tentang","#/tentang"],["Kawasan","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"],
         ["Tips","#/tips"],["Galeri","#/galeri"],["Berita","#/berita"],["Event","#/event"],["Kontak","#/kontak"]
       ].map(([x,y])=>`<a href="${y}" data-route="${y}">${x}</a>`).join("")}
+      <div class="nav-links-auth"><a href="#/login" data-route="#/login">Masuk / Daftar</a></div>
     </nav>
+    <div class="nav-utility">
+      <div class="nav-auth-group">
+        <a class="nav-auth-desktop" href="#/login">Masuk</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Ganti mode terang/gelap"><i class="fa-solid fa-moon"></i></button>
+      <button class="menu" onclick="toggleMenu()">☰</button>
+    </div>
     <a class="nav-cta" href="#/kawasan">Jelajahi Kawasan</a>
   </div></header>`;
 }
@@ -17,8 +24,8 @@ function footer(){
  return `<footer class="footer"><div class="container">
   <div class="footer-grid">
   <div><a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img" src="${LOGO_LIGHT}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a><p>Hunian modern, fasilitas lengkap, dan lingkungan yang dirancang untuk kehidupan keluarga yang lebih nyaman.</p></div>
-   <div><h3>Menu</h3><a href="#/tentang">Tentang Kami</a><a href="#/kawasan">Kawasan</a><a href="#/fasilitas">Fasilitas</a><a href="#/galeri">Galeri</a></div>
-   <div><h3>Informasi</h3><a href="#/berita">Berita & Promo</a><a href="#/event">Event</a><a href="#/tips">Tips Hunian</a><a href="#/kontak">Kontak</a></div>
+   <div><h3>Menu</h3><a href="#/tentang">Tentang Kami</a><a href="#/kawasan">Kawasan</a><a href="#/sewa-jual">Sewa & Jual</a><a href="#/fasilitas">Fasilitas</a><a href="#/galeri">Galeri</a></div>
+   <div><h3>Informasi</h3><a href="#/berita">Berita & Promo</a><a href="#/event">Event</a><a href="#/tips">Tips Hunian</a><a href="#/kontak">Kontak</a><a href="#/struktur">Struktur Situs</a></div>
    <div><h3>Hubungi Kami</h3><p>Grand Galaxy City, Bekasi Selatan<br>Jawa Barat, Indonesia</p><p>021 1234 5678<br>info@grandgalaxycity.id</p></div>
   </div>
   <div class="footer-bottom"><span>© 2026 Grand Galaxy City. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
@@ -45,12 +52,27 @@ function iconBox(icon){
  return icon.startsWith("assets/")?`<span class="facility-icon-img" style="-webkit-mask-image:url('${icon}');mask-image:url('${icon}')"></span>`:`<i class="${icon}"></i>`;
 }
 
+const ORG_COLORS=["#c9a35f","#5b8c86","#3b4a4a","#c1784f","#7c5b82","#46607a","#a3763f","#4f7d6b"];
+function orgItem([jabatan,nama],num,side){
+ return `<div class="org-item org-item-${side}"><div class="org-circle" style="background:${ORG_COLORS[(num-1)%ORG_COLORS.length]}">${num}</div><div class="org-bar"><b>${jabatan}</b><span>${nama}</span></div></div>`;
+}
+function orgInfographic(){
+ const half=Math.ceil(orgStructure.length/2);
+ const items=orgStructure.map((o,i)=>orgItem(o,i+1,i<half?"left":"right")).join("");
+ return `<div class="org-infographic" style="--org-rows:${half}">${items}</div>`;
+}
+
 function galleryItem([img],i){
  return `<div class="g zoom ${i===0?'tall':''}" style="background-image:url('${img}')"></div>`;
 }
 
 function facilityTile(f){
  return `<div class="facility-tile" style="background-image:linear-gradient(180deg,rgba(19,28,27,0) 40%,rgba(19,28,27,.9) 100%),url('${f[3]}')"><span class="facility-tile-eyebrow">FASILITAS</span><h3>${f[1]}</h3></div>`;
+}
+
+function listingCard([nama,tipe,luas,harga,kontak,foto]){
+ const waLink=`https://wa.me/${kontak}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama+' yang '+tipe.toLowerCase()+'. Apakah masih tersedia?')}`;
+ return `<div class="listing-card"><div class="pic" style="background-image:url('${foto}')"><span class="badge listing-badge ${tipe==='Dijual'?'listing-badge-sale':''}">${tipe}</span></div><div class="body"><h3>${nama}</h3><div class="listing-meta"><span><i class="fa-solid fa-ruler-combined"></i> ${luas}</span></div><div class="listing-price">${harga}</div><a class="btn btn-dark listing-wa" href="${waLink}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp</a></div></div>`;
 }
 
 function mapEmbed(title){
@@ -62,7 +84,7 @@ function hero(title, subtitle, image=REAL.gate, small=false){
 }
 
 function tenantCard(t){
- return `<a class="tenant-card reveal" href="#/coming-soon"><div class="pic" style="background-image:url('${t[4]}')"><span class="badge tenant-badge">${t[3]}</span></div><div class="body"><h3>${t[0]}</h3><p>${t[1]}</p><span class="tenant-loc">📍 ${t[2]}</span></div></a>`;
+ return `<a class="tenant-card reveal" href="#/coming-soon"><div class="pic" style="background-image:url('${t[4]}')"><span class="badge tenant-badge">${t[3]}</span></div><div class="body"><h3>${t[0]}</h3><p>${t[1]}</p><span class="tenant-loc"><i class="fa-solid fa-location-dot"></i> ${t[2]}</span></div></a>`;
 }
 
 function newsRow(n){

@@ -2,6 +2,7 @@
 :root{
  --navy:#202c2d;
  --navy2:#2e4140;
+ --ink:#202c2d;
  --blue:#526d68;
  --sky:#f3f0e8;
  --cream:#fbfaf5;
@@ -11,15 +12,36 @@
  --muted:#77817c;
  --line:#e4dfd3;
  --white:#fff;
+ --bg:#f7f5ef;
+ --surface:#fff;
+ --border:var(--line);
+ --cta-bg:#263331;
+ --cta-text:#fff;
  --shadow:0 18px 45px rgba(38,45,41,.09);
  --radius-sm:10px;
  --radius-md:18px;
  --radius-lg:28px;
  --container:1120px;
 }
+:root[data-theme="dark"]{
+ --navy:#f3f1e8;
+ --navy2:#e2dcc8;
+ --text:#dfe3de;
+ --muted:#96a49e;
+ --line:#2c3735;
+ --bg:#101717;
+ --surface:#1c2624;
+ --border:#334140;
+ --shadow:0 18px 45px rgba(0,0,0,.45);
+ --navbar-bg:rgba(16,23,23,.92);
+ --nav-link-color:#9caaa3;
+ --nav-link-hover-bg:#26312f;
+ --cta-bg:#c9a35f;
+ --cta-text:#151d1c;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Manrope",sans-serif;color:var(--text);background:#f7f5ef}
+body{margin:0;font-family:"Manrope",sans-serif;color:var(--text);background:var(--bg);transition:background .2s,color .2s}
 a{text-decoration:none;color:inherit}
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
