@@ -33,7 +33,7 @@ const LOGO_LIGHT = "assets/images/brand/logo-perkumpulan-light.png";
 const MAP_EMBED = "https://www.google.com/maps?q=Grand+Galaxy+City,+Bekasi+Selatan,+Jawa+Barat&output=embed";
 const MAP_LINK = "https://www.google.com/maps/search/Grand+Galaxy+City+Bekasi+Selatan";
 
-const tenantCategories = ["Semua","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Travel & Tour","Florist & Tanaman","Lifestyle & Hobi"];
+const tenantCategories = ["Semua","Kawasan","Traveling","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Florist & Tanaman","Lifestyle & Hobi"];
 
 const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekreasi","Ibadah"];
 
@@ -105,18 +105,20 @@ const events = [
   ["05","SEP","Lomba Mewarnai Anak","Grand Galaxy Mall","09.00–12.00 WIB", REAL.playground]
 ];
 
-/* [nama toko, deskripsi, lokasi, kategori, foto] */
+/* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional)] */
 const tenants = [
-  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior],
-  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko],
-  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Stationery & Buku", IMG.building],
-  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan & Bimbel", IMG.modern],
-  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Apotek", IMG.modern],
-  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Beauty & Salon", IMG.house],
-  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Fashion", IMG.villa],
-  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Elektronik & Gadget", IMG.building],
-  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Laundry", IMG.interior],
-  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa Profesional", IMG.building]
+  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Ruko Blok A No. 1", "Kawasan", "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728"],
+  ["Kawasan Travel & Tour", "Layanan tiket, tur, dan perjalanan wisata untuk warga kawasan.", "Ruko Blok A No. 2", "Traveling", IMG.modern, null, "6287800092728"],
+  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior, null, "6287800092728"],
+  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko, null, "6287800092728"],
+  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Stationery & Buku", IMG.building, null, "6287800092728"],
+  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan & Bimbel", IMG.modern, null, "6287800092728"],
+  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Apotek", IMG.modern, null, "6287800092728"],
+  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Beauty & Salon", IMG.house, null, "6287800092728"],
+  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Fashion", IMG.villa, null, "6287800092728"],
+  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Elektronik & Gadget", IMG.building, null, "6287800092728"],
+  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Laundry", IMG.interior, null, "6287800092728"],
+  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa Profesional", IMG.building, null, "6287800092728"]
 ];
 
 /* Struktur Organisasi — [jabatan, nama] */

@@ -84,7 +84,16 @@ function hero(title, subtitle, image=REAL.gate, small=false){
 }
 
 function tenantCard(t){
- return `<a class="tenant-card reveal" href="#/coming-soon"><div class="pic" style="background-image:url('${t[4]}')"><span class="badge tenant-badge">${t[3]}</span></div><div class="body"><h3>${t[0]}</h3><p>${t[1]}</p><span class="tenant-loc"><i class="fa-solid fa-location-dot"></i> ${t[2]}</span></div></a>`;
+ const [nama,desc,lokasi,kategori,foto,link,kontak] = t;
+ const external = !!link;
+ const href = external ? link : "#/coming-soon";
+ const attrs = external ? `href="${href}" target="_blank" rel="noopener"` : `href="${href}"`;
+ const inner = `<div class="pic" style="background-image:url('${foto}')"><span class="badge tenant-badge">${kategori}</span></div><div class="body"><h3>${nama}</h3><p>${desc}</p><span class="tenant-loc"><i class="fa-solid fa-location-dot"></i> ${lokasi}</span></div>`;
+ if(kontak){
+  const waLink=`https://wa.me/${kontak}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama+'. Boleh info lebih lanjut?')}`;
+  return `<div class="tenant-card reveal"><a class="tenant-card-link" ${attrs}>${inner}</a><a class="btn btn-dark tenant-wa" href="${waLink}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp</a></div>`;
+ }
+ return `<a class="tenant-card reveal" ${attrs}>${inner}</a>`;
 }
 
 function newsRow(n){

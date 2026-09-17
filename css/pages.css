@@ -25,9 +25,10 @@
  .promo-nav.next{right:8px}
 }
 
-/* Tenant cards — horizontal scroll */
-.tenant-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px}
-.tenant-scroll .tenant-card{flex:0 0 260px;scroll-snap-align:start}
+/* Tenant cards — 2 baris x 3 kolom, geser ke samping */
+.tenant-scroll{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,1fr);grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tenant-scroll::-webkit-scrollbar{display:none}
+.tenant-scroll .tenant-card{scroll-snap-align:start;scroll-snap-stop:always}
 .tenant-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s}
 .tenant-card:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(38,45,41,.14)}
 .tenant-card .pic{position:relative;height:170px;background-size:cover;background-position:center}
@@ -36,6 +37,8 @@
 .tenant-card h3{font-weight:800;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:#8b6831;margin:0 0 8px}
 .tenant-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px}
 .tenant-loc{font-size:11px;color:var(--navy);font-weight:600}
+.tenant-card-link{display:block}
+.tenant-wa{width:calc(100% - 36px);margin:0 18px 18px;display:flex;align-items:center;justify-content:center;gap:8px}
 
 /* About page — struktur organisasi */
 .org-infographic{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(var(--org-rows,3),auto);gap:20px 24px}
