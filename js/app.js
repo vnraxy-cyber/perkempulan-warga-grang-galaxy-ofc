@@ -29,7 +29,7 @@ function submitLogin(e){e.preventDefault();e.target.reset();showToast("Berhasil 
 function submitRegister(e){e.preventDefault();e.target.reset();showToast("Pendaftaran berhasil. Silakan masuk.");location.hash="#/login"}
 function filterTenants(cat,el){
  el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
- const list=cat==="Semua"?tenants:tenants.filter(t=>t[3]===cat);
+ const list=cat==="Semua"?tenants:tenants.filter(t=>Array.isArray(t[3])?t[3].includes(cat):t[3]===cat);
  document.getElementById("tenantGrid").innerHTML=list.map(tenantCard).join("");
 }
 function filterFacilities(cat,el){

@@ -4,7 +4,7 @@ function nav(){
     <a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img logo-on-light" src="${LOGO}" alt="Perkumpulan Warga Ruko Grand Galaxy City"><img class="logo-img logo-on-dark" src="${LOGO_LIGHT}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a>
     <nav class="nav-links" id="navLinks">
       ${[
-        ["Beranda","#/"],["Tentang","#/tentang"],["Kawasan","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"],
+        ["Beranda","#/"],["Tentang","#/tentang"],["Tenant","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"],
         ["Tips","#/tips"],["Galeri","#/galeri"],["Berita","#/berita"],["Event","#/event"],["Kontak","#/kontak"]
       ].map(([x,y])=>`<a href="${y}" data-route="${y}">${x}</a>`).join("")}
       <div class="nav-links-auth"><a href="#/login" data-route="#/login">Masuk / Daftar</a></div>
@@ -16,7 +16,7 @@ function nav(){
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Ganti mode terang/gelap"><i class="fa-solid fa-moon"></i></button>
       <button class="menu" onclick="toggleMenu()">☰</button>
     </div>
-    <a class="nav-cta" href="#/kawasan">Jelajahi Kawasan</a>
+    <a class="nav-cta" href="#/kawasan">Jelajahi Tenant</a>
   </div></header>`;
 }
 
@@ -85,10 +85,11 @@ function hero(title, subtitle, image=REAL.gate, small=false){
 
 function tenantCard(t){
  const [nama,desc,lokasi,kategori,foto,link,kontak] = t;
+ const badge = Array.isArray(kategori) ? kategori.join(" / ") : kategori;
  const external = !!link;
  const href = external ? link : "#/coming-soon";
  const attrs = external ? `href="${href}" target="_blank" rel="noopener"` : `href="${href}"`;
- const inner = `<div class="pic" style="background-image:url('${foto}')"><span class="badge tenant-badge">${kategori}</span></div><div class="body"><h3>${nama}</h3><p>${desc}</p><span class="tenant-loc"><i class="fa-solid fa-location-dot"></i> ${lokasi}</span></div>`;
+ const inner = `<div class="pic" style="background-image:url('${foto}')"><span class="badge tenant-badge">${badge}</span></div><div class="body"><h3>${nama}</h3><p>${desc}</p><span class="tenant-loc"><i class="fa-solid fa-location-dot"></i> ${lokasi}</span></div>`;
  if(kontak){
   const waLink=`https://wa.me/${kontak}?text=${encodeURIComponent('Halo, saya tertarik dengan '+nama+'. Boleh info lebih lanjut?')}`;
   return `<div class="tenant-card reveal"><a class="tenant-card-link" ${attrs}>${inner}</a><a class="btn btn-dark tenant-wa" href="${waLink}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp</a></div>`;

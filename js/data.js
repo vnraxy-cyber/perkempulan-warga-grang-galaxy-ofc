@@ -33,7 +33,7 @@ const LOGO_LIGHT = "assets/images/brand/logo-perkumpulan-light.png";
 const MAP_EMBED = "https://www.google.com/maps?q=Grand+Galaxy+City,+Bekasi+Selatan,+Jawa+Barat&output=embed";
 const MAP_LINK = "https://www.google.com/maps/search/Grand+Galaxy+City+Bekasi+Selatan";
 
-const tenantCategories = ["Semua","Kawasan","Traveling","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Florist & Tanaman","Lifestyle & Hobi"];
+const tenantCategories = ["Semua","Traveling","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Agency Digital Marketing","Florist & Tanaman","Lifestyle & Hobi"];
 
 const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekreasi","Ibadah"];
 
@@ -107,7 +107,7 @@ const events = [
 
 /* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional)] */
 const tenants = [
-  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Ruko Blok A No. 1", "Kawasan", "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728"],
+  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Ruko Blok A No. 1", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728"],
   ["Kawasan Travel & Tour", "Layanan tiket, tur, dan perjalanan wisata untuk warga kawasan.", "Ruko Blok A No. 2", "Traveling", IMG.modern, null, "6287800092728"],
   ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior, null, "6287800092728"],
   ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko, null, "6287800092728"],
