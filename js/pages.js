@@ -17,7 +17,7 @@ function home(){
 }
 
 function about(){
- return `${hero("Tentang Kami","Mengenal Grand Galaxy City lebih dekat — kawasan yang dirancang untuk menghadirkan kehidupan modern dan nyaman.",REAL.jalanUtama,true)}
+ return `${hero("Tentang Kami","Mengenal Grand Galaxy City lebih dekat — kawasan yang dirancang untuk menghadirkan kehidupan modern dan nyaman.",REAL.tentangKami,true)}
  <section class="section"><div class="container"><div class="grid-2"><div class="copy"><div class="kicker">Sejarah Grand Galaxy City</div><h2>Ruang Hidup yang Tumbuh Bersama Keluarga</h2><p>Grand Galaxy City merupakan kawasan terpadu di Bekasi Selatan yang menggabungkan hunian, ruang komersial, fasilitas pendidikan, rekreasi, dan ruang terbuka hijau.</p><p>Dengan perencanaan kawasan yang matang, setiap area dirancang agar aktivitas sehari-hari menjadi lebih mudah dan menyenangkan.</p><div class="about-stats">${[["500+ Ha","Total Kawasan"],["50+","Tenant Usaha"],["20+","Titik Fasilitas"],["10K+","Keluarga Bergabung"]].map(([a,b])=>`<div><strong>${a}</strong><span>${b}</span></div>`).join("")}</div></div><div class="collage"><div class="collage-a" style="background-image:url('${REAL.gate}')"></div><div class="collage-b" style="background-image:url('${REAL.clusterExterior}')"></div><div class="collage-c" style="background-image:url('${REAL.taman}')"></div></div></div></div></section>
  <section class="section compact dark-band"><div class="container"><div class="section-head"><div><div class="kicker">Perjalanan Kami</div><h2>Tumbuh Bersama Bekasi Selatan</h2></div></div><div class="timeline">${[["2016","Peletakan Batu Pertama","Grand Galaxy City mulai dibangun sebagai kawasan hunian terpadu."],["2019","Fasilitas Utama Rampung","Grand Galaxy Mall dan area komersial resmi beroperasi."],["2022","Ekspansi Kawasan","Penambahan area ruko dan tenant usaha baru dengan konsep modern."],["2026","Kawasan Matang","Ribuan keluarga menetap dengan fasilitas lengkap dan lingkungan asri."]].map(([y,t,d])=>`<div class="timeline-item"><div class="timeline-year">${y}</div><h3>${t}</h3><p>${d}</p></div>`).join("")}</div></div></section>
  <section class="section compact"><div class="container"><div class="grid-3">${[["assets/icon/visi.png","Visi Kami","Membangun lingkungan hidup yang nyaman dan berkelanjutan."],["assets/icon/mission.png","Misi Kami","Menghadirkan hunian dan fasilitas yang mendukung kualitas hidup."],["assets/icon/profit.png","Nilai Kami","Kenyamanan, keamanan, kebersamaan, dan pertumbuhan."]].map(([i,a,b])=>`<div class="card facility"><div class="facility-icon">${iconBox(i)}</div><h3>${a}</h3><p>${b}</p></div>`).join("")}</div></div></section>
@@ -27,13 +27,13 @@ function about(){
 }
 
 function kawasan(){
- return `${hero("Tenant Kawasan","Temukan berbagai tenant dan usaha pilihan di kawasan Ruko Grand Galaxy City, Bekasi Selatan.",REAL.ruko,true)}
+ return `${hero("Tenant Kawasan","Temukan berbagai tenant dan usaha pilihan di kawasan Ruko Grand Galaxy City, Bekasi Selatan.",REAL.tenant,true)}
  <section class="section"><div class="container"><div class="pills">${tenantCategories.map((c,i)=>`<button class="pill ${i===0?'active':''}" onclick="filterTenants('${c}',this)">${c}</button>`).join("")}</div><div id="tenantGrid" class="tenant-scroll">${tenants.map(tenantCard).join("")}</div><p class="scroll-hint">← Geser untuk melihat tenant lainnya →</p></div></section>
  <section class="section compact"><div class="container"><div class="section-head"><div><div class="kicker">Peta Kawasan</div><h2>Lokasi Strategis</h2></div><a class="link-btn" href="${MAP_LINK}" target="_blank" rel="noopener">Buka di Google Maps →</a></div>${mapEmbed('Peta Lokasi Grand Galaxy City')}</div></section>`;
 }
 
 function fasilitas(){
- return `${hero("Fasilitas Kawasan","Dilengkapi berbagai fasilitas modern untuk menunjang kebutuhan keluarga.",REAL.mallEntrance,true)}
+ return `${hero("Fasilitas Kawasan","Dilengkapi berbagai fasilitas modern untuk menunjang kebutuhan keluarga.",REAL.fasilitas,true)}
  <section class="section"><div class="container"><div class="pills">${facilityCategories.map((c,i)=>`<button class="pill ${i===0?'active':''}" onclick="filterFacilities('${c}',this)">${c}</button>`).join("")}</div>
  <div class="facility-scroll" id="facilityScroll">${facilities.map(([i,t,p,img])=>`<div class="facility-slide" style="background-image:linear-gradient(180deg,rgba(19,28,27,0) 38%,rgba(19,28,27,.92) 100%),url('${img}')"><span class="facility-slide-icon"><i class="${i}"></i></span><span class="facility-slide-eyebrow">FASILITAS</span><h3>${t}</h3><p>${p}</p></div>`).join("")}</div>
  <p class="scroll-hint">← Geser untuk melihat fasilitas lainnya →</p>
@@ -42,7 +42,7 @@ function fasilitas(){
 
 function tipsPage(){
  const [first,...rest]=tips;
- return `${hero("Tips & Informasi Hunian","Panduan dan informasi bermanfaat seputar rumah, kawasan, dan gaya hidup keluarga.",REAL.clusterStreet,true)}
+ return `${hero("Tips & Informasi Hunian","Panduan dan informasi bermanfaat seputar rumah, kawasan, dan gaya hidup keluarga.",REAL.tips,true)}
  <section class="section"><div class="container">
   <a class="tip-featured" href="#/artikel" style="background-image:linear-gradient(90deg,rgba(19,28,27,.86),rgba(19,28,27,.18)),url('${first[2]}')"><span class="tip-tag">${first[3]}</span><h2>${first[0]}</h2><p>${first[1]}</p><span class="link-btn" style="color:#fff">Baca Selengkapnya →</span></a>
   <div class="grid-3 tip-grid">${rest.map(t=>`<a class="card image-card tip-card" href="#/artikel"><div class="pic" style="background-image:url('${t[2]}')"><span class="tip-tag tip-tag-card">${t[3]}</span></div><div class="body"><h3>${t[0]}</h3><p>${t[1]}</p><span class="link-btn">Baca Selengkapnya →</span></div></a>`).join("")}</div>
@@ -63,12 +63,12 @@ function berita(){
 }
 
 function eventPage(){
- return `${hero("Event Terdekat","Jangan lewatkan berbagai aktivitas, festival, dan kegiatan keluarga di Grand Galaxy City.",REAL.mallMalam,true)}
+ return `${hero("Event Terdekat","Jangan lewatkan berbagai aktivitas, festival, dan kegiatan keluarga di Grand Galaxy City.",REAL.event,true)}
  <section class="section"><div class="container"><div class="event-list">${events.map(eventRow).join("")}</div></div></section>`;
 }
 
 function contact(){
- return `${hero("Hubungi Kami","Kami siap membantu Anda mendapatkan informasi mengenai hunian, fasilitas, dan kawasan.",REAL.signage,true)}
+ return `${hero("Hubungi Kami","Kami siap membantu Anda mendapatkan informasi mengenai hunian, fasilitas, dan kawasan.",REAL.hubung,true)}
  <section class="section"><div class="container"><div class="grid-2"><div class="contact-info">
  ${[["fa-solid fa-location-dot","Alamat","Grand Galaxy City, Bekasi Selatan, Jawa Barat"],["fa-solid fa-phone","Telepon","021 1234 5678"],["fa-solid fa-envelope","Email","info@grandgalaxycity.id"],["fa-solid fa-clock","Jam Operasional","Senin–Minggu, 09.00–18.00 WIB"]].map(x=>`<div class="contact-item"><div class="facility-icon" style="margin:0"><i class="${x[0]}"></i></div><div><b>${x[1]}</b><span>${x[2]}</span></div></div>`).join("")}
  </div><div class="card" style="padding:22px"><form onsubmit="submitContact(event)"><div class="form-grid"><div class="field"><label>Nama Lengkap</label><input required placeholder="Nama Anda"></div><div class="field"><label>Email</label><input required type="email" placeholder="email@contoh.com"></div><div class="field full"><label>Subjek</label><input required placeholder="Keperluan Anda"></div><div class="field full"><label>Pesan</label><textarea required placeholder="Tulis pertanyaan Anda..."></textarea></div><div class="field full"><button class="btn btn-dark" type="submit">Kirim Pesan</button></div></div></form></div></div></div></section>
@@ -123,7 +123,7 @@ function struktur(){
 }
 
 function article(){
- return `${hero("Tips Memilih Hunian untuk Keluarga","Panduan singkat agar proses memilih rumah menjadi lebih terarah.",REAL.clusterExterior,true)}
+ return `${hero("Tips Memilih Hunian untuk Keluarga","Panduan singkat agar proses memilih rumah menjadi lebih terarah.",REAL.tips,true)}
  <section class="section"><div class="container article"><div class="breadcrumb">Beranda › Tips › Artikel</div><h2>Mulai dari Kebutuhan, Bukan Sekadar Tampilan</h2><p>Memilih rumah adalah keputusan penting. Tentukan lebih dahulu kebutuhan keluarga, jumlah ruang, aktivitas harian, dan akses yang paling sering digunakan.</p><p>Selanjutnya, perhatikan lingkungan sekitar. Kedekatan dengan sekolah, pusat belanja, ruang terbuka, fasilitas kesehatan, dan akses transportasi dapat membuat rutinitas menjadi jauh lebih praktis.</p><p>Terakhir, bandingkan beberapa pilihan berdasarkan luas, desain, fasilitas, dan rencana keuangan. Dengan begitu, rumah yang dipilih bukan hanya terlihat menarik, tetapi juga nyaman untuk ditempati dalam jangka panjang.</p><a class="btn btn-dark" href="#/tips">← Kembali ke Tips</a></div></section>`;
 }
 

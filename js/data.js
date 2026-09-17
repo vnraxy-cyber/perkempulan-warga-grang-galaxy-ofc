@@ -12,7 +12,7 @@ const REAL = {
   mall:"assets/images/real/01_grand_galaxy_mall.jpg",
   mallEntrance:"assets/images/real/02_entrance_mall.jpg",
   jalanUtama:"assets/images/real/03_jalan_utama.jpg",
-  gate:"assets/images/real/04_gate_kawasan.jpg",
+  gate:"assets/images/real/grand.png",
   clusterExterior:"assets/images/real/05_cluster_perumahan.jpg",
   clusterStreet:"assets/images/real/06_suasana_cluster.jpg",
   clusterGate:"assets/images/real/07_pintu_cluster.jpg",
@@ -24,7 +24,13 @@ const REAL = {
   signage:"assets/images/real/13_signage_grand_galaxy.jpg",
   ruko:"assets/images/real/14_ruko_area_komersial.jpg",
   jalanKawasan:"assets/images/real/15_jalan_kawasan.jpg",
-  mallMalam:"assets/images/real/16_mall_malam.jpg"
+  mallMalam:"assets/images/real/16_mall_malam.jpg",
+  tentangKami:"assets/images/real/tentang_kami.png",
+  tenant:"assets/images/real/tenant.png",
+  fasilitas:"assets/images/real/fasilitas.png",
+  tips:"assets/images/real/tips.png",
+  event:"assets/images/real/event.png",
+  hubung:"assets/images/real/hubung.png"
 };
 
 const LOGO = "assets/images/brand/logo-perkumpulan.png";
