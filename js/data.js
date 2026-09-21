@@ -36,8 +36,12 @@ const REAL = {
 const LOGO = "assets/images/brand/logo-perkumpulan.png";
 const LOGO_LIGHT = "assets/images/brand/logo-perkumpulan-light.png";
 
-const MAP_EMBED = "https://www.google.com/maps?q=Grand+Galaxy+City,+Bekasi+Selatan,+Jawa+Barat&output=embed";
-const MAP_LINK = "https://www.google.com/maps/search/Grand+Galaxy+City+Bekasi+Selatan";
+const MAP_EMBED = "https://www.google.com/maps/embed?pb=!4v1789964640343!6m8!1m7!1sx3i4cHqZL0ZonYTjFxvPeg!2m2!1d-6.277537280499284!2d106.9742500059473!3f295.1359!4f0!5f0.7820865974627469";
+const MAP_LINK = "https://maps.app.goo.gl/vTGbumhpAfJ3SvA26";
+
+/* Lokasi HalteV — dipakai sebagai peta di setiap halaman detail tenant */
+const HALTEV_MAP_EMBED = MAP_EMBED;
+const HALTEV_MAP_LINK = MAP_LINK;
 
 const tenantCategories = ["Semua","Traveling","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Agency Digital Marketing","Florist & Tanaman","Lifestyle & Hobi"];
 
@@ -85,7 +89,10 @@ const facilities = [
 const promos = [
   ["✦ Promo Terbatas","Bebas Biaya AJB & BPHTB","Wujudkan rumah idaman tanpa beban biaya tambahan. Proses cepat, transparan, dan didampingi tim profesional dari awal hingga serah terima kunci.","Klaim Promo Sekarang","#/kontak", REAL.clusterExterior],
   ["✦ Promo Spesial","Cashback Renovasi Ruko","Dapatkan cashback menarik untuk renovasi ruko Anda bersama mitra kontraktor terpercaya kami.","Pelajari Lebih Lanjut","#/kontak", REAL.ruko],
-  ["✦ Event Spesial","Festival Kuliner Akhir Pekan","Nikmati beragam kuliner favorit dari tenant kawasan setiap akhir pekan di area komersial.","Lihat Jadwal Event","#/event", REAL.mallMalam]
+  ["✦ Event Spesial","Festival Kuliner Akhir Pekan","Nikmati beragam kuliner favorit dari tenant kawasan setiap akhir pekan di area komersial.","Lihat Jadwal Event","#/event", REAL.mallMalam],
+  ["✦ Penawaran Ruko","Sewa Ruko Strategis","Pilihan ruko siap pakai di lokasi ramai dengan akses mudah untuk memulai atau mengembangkan usaha Anda.","Lihat Sewa & Jual","#/sewa-jual", REAL.jalanKawasan],
+  ["✦ Gaya Hidup","Nikmati Taman & Danau Kawasan","Ruang terbuka hijau yang asri untuk berolahraga, bersantai, dan berkumpul bersama keluarga.","Jelajahi Fasilitas","#/fasilitas", REAL.danau],
+  ["✦ Tenant Pilihan","Temukan Tenant Favorit Anda","Dari kuliner, kesehatan, hingga edukasi — semua kebutuhan tersedia dalam satu kawasan.","Jelajahi Tenant","#/kawasan", REAL.mall]
 ];
 
 const news = [
@@ -111,36 +118,26 @@ const events = [
   ["05","SEP","Lomba Mewarnai Anak","Grand Galaxy Mall","09.00–12.00 WIB", REAL.playground]
 ];
 
-/* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional)] */
+/* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional), jam operasional, produk tersedia, sosial media] */
 const tenants = [
-  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Ruko Blok A No. 1", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728"],
-  ["Kawasan Travel & Tour", "Layanan tiket, tur, dan perjalanan wisata untuk warga kawasan.", "Ruko Blok A No. 2", "Traveling", IMG.modern, null, "6287800092728"],
-  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior, null, "6287800092728"],
-  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko, null, "6287800092728"],
-  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Stationery & Buku", IMG.building, null, "6287800092728"],
-  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan & Bimbel", IMG.modern, null, "6287800092728"],
-  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Apotek", IMG.modern, null, "6287800092728"],
-  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Beauty & Salon", IMG.house, null, "6287800092728"],
-  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Fashion", IMG.villa, null, "6287800092728"],
-  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Elektronik & Gadget", IMG.building, null, "6287800092728"],
-  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Laundry", IMG.interior, null, "6287800092728"],
-  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa Profesional", IMG.building, null, "6287800092728"]
-];
-
-/* Struktur Organisasi — [jabatan, nama] */
-const orgStructure = [
- ["Ketua", "Bapak Hendra Wijaya"],
- ["Wakil Ketua", "Bapak Susanto Halim"],
- ["Sekretaris", "Ibu Ratna Kusuma"],
- ["Bendahara", "Ibu Melinda Sari"],
- ["Koordinator Keamanan", "Bapak Agus Prasetyo"],
- ["Koordinator Lingkungan", "Ibu Dewi Anggraini"]
+  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Ruko Blok A No. 1", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728", "08.00–20.00 WIB", ["Kursus Programming & Coding","Kelas AI & Cyber Security","Digital Marketing & SEO","Konsultasi Microsoft Office"], {instagram:"instagram.com/haltev.id", tiktok:"tiktok.com/@haltev.id"}],
+  ["Kawasan Travel & Tour", "Layanan tiket, tur, dan perjalanan wisata untuk warga kawasan.", "Ruko Blok A No. 2", "Traveling", IMG.modern, "https://kawasantravel.id", "6287800092728", "09.00–18.00 WIB", ["Tiket Pesawat & Kereta","Paket Tur Domestik","Paket Tur Internasional","Reservasi Hotel"], {instagram:"instagram.com/kawasantravel.ggc"}],
+  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior, "https://kopinusantara.id", "6287800092728", "07.00–22.00 WIB", ["Kopi Racikan Khas","Non-Coffee & Mocktail","Camilan Ringan","Kopi Kemasan"], {instagram:"instagram.com/kafekopinusantara"}],
+  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko, "https://nusantararasa.id", "6287800092728", "10.00–21.00 WIB", ["Nasi & Lauk Rumahan","Aneka Sambal Nusantara","Paket Catering","Menu Prasmanan"], {instagram:"instagram.com/nusantararasa.ggc"}],
+  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Stationery & Buku", IMG.building, "https://tokobukuilmu.id", "6287800092728", "08.00–19.00 WIB", ["Buku Pelajaran","Alat Tulis Kantor","Buku Anak & Cerita","Perlengkapan Sekolah"], {instagram:"instagram.com/tokobukuilmu"}],
+  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan & Bimbel", IMG.modern, "https://bimbelcerdas.id", "6287800092728", "13.00–20.00 WIB", ["Bimbel SD","Bimbel SMP","Bimbel SMA","Persiapan Ujian Masuk"], {instagram:"instagram.com/bimbelcerdas.ggc"}],
+  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Apotek", IMG.modern, "https://apoteksehatkeluarga.id", "6287800092728", "07.00–22.00 WIB", ["Obat Resep Dokter","Obat Bebas & Vitamin","Alat Kesehatan","Konsultasi Apoteker"], {instagram:"instagram.com/apoteksehatkeluarga"}],
+  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Beauty & Salon", IMG.house, "https://griyacantiksalonspa.id", "6287800092728", "09.00–20.00 WIB", ["Potong & Styling Rambut","Perawatan Wajah","Spa & Pijat Relaksasi","Perawatan Kuku"], {instagram:"instagram.com/griyacantiksalonspa"}],
+  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Fashion", IMG.villa, "https://butikfashionelegan.id", "6287800092728", "10.00–21.00 WIB", ["Busana Kasual","Busana Formal & Kerja","Aksesoris Fashion","Layanan Custom Jahit"], {instagram:"instagram.com/butikfashionelegan"}],
+  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Elektronik & Gadget", IMG.building, "https://griyaelektronikmodern.id", "6287800092728", "09.00–20.00 WIB", ["Smartphone & Aksesoris","Elektronik Rumah Tangga","Laptop & Komputer","Servis & Garansi Resmi"], {instagram:"instagram.com/griyaelektronikmodern"}],
+  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Laundry", IMG.interior, "https://laundrykilatbersih.id", "6287800092728", "07.00–21.00 WIB", ["Cuci Kiloan","Cuci Satuan & Setrika","Cuci Sepatu","Dry Clean"], {instagram:"instagram.com/laundrykilatbersih"}],
+  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa Profesional", IMG.building, "https://notarisppat.id", "6287800092728", "08.00–17.00 WIB", ["Akta Jual Beli","Balik Nama Sertifikat","Pendirian Badan Usaha","Legalisasi Dokumen"], {instagram:"instagram.com/notarisppat.ggc"}]
 ];
 
 /* Sewa / Jual — [nama tempat, tipe ("Disewakan"/"Dijual"), luas bangunan, harga, kontak (nomor WA), foto] */
 const listings = [
-  ["Ruko 2 Lantai Blok A No. 5", "Disewakan", "72 m²", "Rp 45 Juta / tahun", "6281234500001", REAL.ruko],
-  ["Ruko Sudut Blok D No. 2", "Dijual", "96 m²", "Rp 2.1 Miliar", "6281234500002", REAL.jalanKawasan],
-  ["Ruko 3 Lantai Blok B No. 12", "Disewakan", "84 m²", "Rp 65 Juta / tahun", "6281234500003", REAL.mall],
-  ["Ruko Blok E No. 4", "Dijual", "60 m²", "Rp 1.5 Miliar", "6281234500004", REAL.clusterStreet]
+  ["Ruko 2 Lantai Blok A No. 5", "Disewakan", "72 m²", "Rp 45 Juta / tahun", "6281234500001", REAL.tenant],
+  ["Ruko Sudut Blok D No. 2", "Dijual", "96 m²", "Rp 2.1 Miliar", "6281234500002", REAL.tenant],
+  ["Ruko 3 Lantai Blok B No. 12", "Disewakan", "84 m²", "Rp 65 Juta / tahun", "6281234500003", REAL.tenant],
+  ["Ruko Blok E No. 4", "Dijual", "60 m²", "Rp 1.5 Miliar", "6281234500004", REAL.tenant]
 ];

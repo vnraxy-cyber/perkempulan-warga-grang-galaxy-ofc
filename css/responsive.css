@@ -14,10 +14,10 @@
  .timeline:before{top:0;bottom:0;left:9px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,rgba(214,182,111,0),rgba(214,182,111,.55) 6%,rgba(214,182,111,.55) 94%,rgba(214,182,111,0))}
  .timeline-item{text-align:left;padding:0 0 0 34px}
  .timeline-item:before{top:4px;left:9px;transform:translateX(-50%)}
- .org-infographic{grid-template-columns:1fr;grid-auto-flow:row;grid-template-rows:none;gap:18px}
- .org-item-right{flex-direction:row}
- .org-item-right .org-bar{margin-left:-26px;margin-right:0;padding:14px 20px 14px 40px}
  .tenant-scroll{grid-auto-columns:calc((100% - 16px)/2)}
+ .stat-value{font-size:32px}
+ .stat-label{font-size:14px}
+ .stats{margin-bottom:64px}
 }
 @media(max-width:640px){
  .container{width:min(var(--container),calc(100% - 28px))}
@@ -25,18 +25,29 @@
  .hero-content{padding:55px 0}
  .hero h1{font-size:39px}
  .section-head{flex-direction:column;align-items:flex-start;gap:8px}
- .stats,.grid-2,.grid-3,.grid-4,.checks,.footer-grid,.form-grid,.about-stats,.timeline,.collage{grid-template-columns:1fr}
+ .grid-2,.grid-3,.grid-4,.checks,.footer-grid,.form-grid,.about-stats,.timeline,.collage{grid-template-columns:1fr}
  .collage{grid-template-rows:220px 220px 220px}
  .collage-a{grid-row:auto}
  .section{padding:48px 0}
+ .stats{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:56px}
+ .stat-card{min-height:140px;padding:20px 10px}
+ .stat-value{font-size:28px}
+ .stat-value:after{margin:12px auto}
+ .stat-label{font-size:13.5px}
  .gallery{grid-template-columns:1fr 1fr}
  .gallery .g,.gallery .g.tall{height:150px}
  .gallery .g.tall{grid-row:auto}
- .news-row{grid-template-columns:90px 1fr}
- .news-row .date{display:none}
- .event{grid-template-columns:50px 1fr}
+ .news-row{grid-template-columns:96px minmax(0,1fr);gap:14px;min-height:0;padding:14px}
+ .news-row .thumb{height:96px}
+ .news-row h3{font-size:19px;margin-bottom:6px}
+ .news-row p{font-size:12.5px}
+ .event{grid-template-columns:72px minmax(0,1fr);grid-template-areas:"date info" "btn btn";gap:14px;min-height:0;padding:16px}
  .event-thumb{display:none}
- .event .btn{display:none}
+ .event-date{grid-area:date;width:72px;height:78px}
+ .event-date b{font-size:30px}
+ .event-info{grid-area:info}
+ .event h3{font-size:20px}
+ .event .btn{grid-area:btn;width:100%;height:46px}
  .footer-bottom{flex-direction:column;gap:8px}
  .facility-slide{flex-basis:210px;height:280px}
  .actions{flex-direction:column;align-items:stretch}
@@ -46,10 +57,10 @@
  .tenant-card .body{padding:14px}
  .tenant-card h3{font-size:13px;margin-bottom:6px}
  .tenant-card p{font-size:11.5px;line-height:1.5;margin-bottom:10px}
- .tenant-wa{width:calc(100% - 28px);margin:0 14px 14px;font-size:10px;padding:12px 14px}
+ .card-cta-btn{width:calc(100% - 28px);margin:0 14px 14px;font-size:10px;padding:12px 14px}
 }
 @media(max-width:420px){
  .btn{padding:13px 14px;font-size:9px}
  .pill{padding:8px 12px;font-size:9px}
- .tenant-wa{font-size:9.5px}
+ .card-cta-btn{font-size:9.5px}
 }
