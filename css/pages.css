@@ -147,9 +147,11 @@
 .td-product-body{padding:32px 20px 20px}
 .td-product-body h3{font-size:15px;font-weight:800;line-height:1.35;margin:0 0 6px;color:var(--navy)}
 .td-product-body p{font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px}
+.td-product-actions{display:flex;flex-wrap:wrap;gap:14px 18px}
 .td-product-link{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--td-accent)}
 .td-product-link i{font-size:10px;transition:transform .2s}
 .td-product-link:hover i{transform:translateX(4px)}
+.td-product-link-outline{color:var(--muted)}
 
 .td-panel-map .section-head{margin-bottom:18px}
 .td-panel-map .section-head h2{margin:8px 0 0}

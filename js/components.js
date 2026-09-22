@@ -99,8 +99,10 @@ const PRODUK_ICONS = [
  [/tiket|pesawat|kereta/i,"fa-ticket"],
  [/tur|wisata|hotel|reservasi/i,"fa-plane-departure"],
  [/buku|alat tulis|perlengkapan sekolah/i,"fa-book-open"],
- [/marketing|seo/i,"fa-chart-line"],
- [/kursus|kelas|bimbel|ujian|belajar|programming/i,"fa-graduation-cap"],
+ [/marketing|seo|digital service/i,"fa-chart-line"],
+ [/sertifikasi|sertifikat|bnsp/i,"fa-certificate"],
+ [/corporate|training/i,"fa-briefcase"],
+ [/bootcamp|kursus|kelas|bimbel|ujian|belajar|programming/i,"fa-graduation-cap"],
  [/konsultasi|office/i,"fa-headset"],
  [/rambut|wajah|kuku|spa|pijat|styling/i,"fa-spa"],
  [/busana|fashion|jahit|aksesoris/i,"fa-shirt"],
@@ -108,7 +110,7 @@ const PRODUK_ICONS = [
  [/cuci|setrika|dry clean|laundry/i,"fa-soap"],
  [/akta|balik nama|sertifikat|badan usaha|legalisasi/i,"fa-file-signature"]
 ];
-const produkIcon = p => (PRODUK_ICONS.find(([re])=>re.test(p))||[0,"fa-star"])[1];
+const produkIcon = p => { const s = typeof p==="string"?p:p.nama; return (PRODUK_ICONS.find(([re])=>re.test(s))||[0,"fa-star"])[1]; };
 /* Foto pelengkap: bila tenant belum punya foto per produk, foto tenant dipotong di titik berbeda agar tiap kartu tampil unik */
 const PRODUK_CROPS = ["18% 30%","82% 40%","50% 85%","28% 70%","70% 15%","40% 50%"];
 
@@ -150,12 +152,18 @@ function tenantDetail(idx){
  const sameCat = others.filter(x=>[].concat(x[3]).some(c=>cats.includes(c)));
  const related = sameCat.concat(others.filter(x=>!sameCat.includes(x))).slice(0,4);
  const produkCard = (p,i) => {
+  const pNama = typeof p==="string"?p:p.nama;
+  const pDesc = typeof p==="string"?`Tersedia di ${nama}, ${lokasi}.`:p.desc;
+  const pLink = typeof p==="string"?null:(p.link||link);
   const own = produkFoto[i];
   const style = own?`background-image:url('${own}')`:`background-image:url('${foto}');background-size:230%;background-position:${PRODUK_CROPS[i%PRODUK_CROPS.length]}`;
   return `<article class="td-product reveal" style="animation-delay:${i*70}ms">
    <div class="td-product-img" style="${style}"><span class="td-product-num">${String(i+1).padStart(2,"0")}</span><span class="td-product-icon"><i class="fa-solid ${produkIcon(p)}"></i></span></div>
-   <div class="td-product-body"><h3>${p}</h3><p>Tersedia di ${nama}, ${lokasi}.</p>
-    ${kontak?`<a class="td-product-link" href="${waUrl('Halo, saya ingin tanya tentang '+p+' di '+nama+'.')}" target="_blank" rel="noopener">Tanya via WhatsApp <i class="fa-solid fa-arrow-right"></i></a>`:""}
+   <div class="td-product-body"><h3>${pNama}</h3><p>${pDesc}</p>
+    <div class="td-product-actions">
+    ${pLink?`<a class="td-product-link" href="${pLink}" target="_blank" rel="noopener">Lihat Kelas <i class="fa-solid fa-arrow-right"></i></a>`:""}
+    ${kontak?`<a class="td-product-link td-product-link-outline" href="${waUrl('Halo, saya ingin tanya tentang '+pNama+' di '+nama+'.')}" target="_blank" rel="noopener">Tanya via WhatsApp <i class="fa-solid fa-arrow-right"></i></a>`:""}
+    </div>
    </div>
   </article>`;
  };
