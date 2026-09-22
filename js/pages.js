@@ -58,9 +58,9 @@ function galleryPage(){
 function berita(){
  const [first,...rest]=news;
  return `${hero("Berita & Promo","Informasi terbaru mengenai Grand Galaxy City, promo hunian, fasilitas, dan aktivitas kawasan.",REAL.danau,true)}
- <section class="section"><div class="container"><div class="pills"><button class="pill active">Semua</button><button class="pill">Berita</button><button class="pill">Promo</button><button class="pill">Event</button></div>
- <a class="tip-featured" href="#/artikel" style="background-image:linear-gradient(90deg,rgba(19,28,27,.86),rgba(19,28,27,.18)),url('${first[2]}')"><span class="tip-tag">${first[1]}</span><h2>${first[0]}</h2><p>Grand Galaxy City · Informasi terbaru kawasan dan hunian.</p><span class="link-btn" style="color:#fff">Baca Selengkapnya →</span></a>
- <div class="news-list">${rest.map(n=>newsRow(n)).join("")}</div></div></section>`;
+ <section class="section"><div class="container"><div class="pills"><button class="pill active" onclick="filterNews('Semua',this)">Semua</button><button class="pill" onclick="filterNews('Berita',this)">Berita</button><button class="pill" onclick="filterNews('Promo',this)">Promo</button><button class="pill" onclick="filterNews('Event',this)">Event</button></div>
+ <a id="newsFeatured" class="tip-featured" href="${first[3]}" target="_blank" rel="noopener" style="background-image:linear-gradient(90deg,rgba(19,28,27,.86),rgba(19,28,27,.18)),url('${first[2]}')"><span class="tip-tag">${first[1]}</span><h2>${first[0]}</h2><p>Grand Galaxy City · Baca selengkapnya di sumber asli.</p><span class="link-btn" style="color:#fff">Baca Selengkapnya →</span></a>
+ <div id="newsGrid" class="news-list">${rest.map(n=>newsRow(n)).join("")}</div></div></section>`;
 }
 
 function eventPage(){

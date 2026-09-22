@@ -110,7 +110,7 @@ linear-gradient(115deg,transparent 38%,rgba(255,255,255,.65) 39%,rgba(255,255,25
 .news-row,.event{background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
 .news-row:hover,.event:hover{transform:translateY(-2px);border-color:rgba(182,148,84,.55);box-shadow:0 16px 36px rgba(0,0,0,.14)}
 
-.news-row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:center;min-height:150px;padding:16px}
+.news-row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;align-items:center;min-height:150px;padding:16px;text-decoration:none;color:inherit}
 .news-row .thumb{height:118px;border-radius:14px;overflow:hidden}
 .thumb-img{width:100%;height:100%;background:center/cover no-repeat;transition:transform .5s ease}
 .news-row:hover .thumb-img{transform:scale(1.04)}

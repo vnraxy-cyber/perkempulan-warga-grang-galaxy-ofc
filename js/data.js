@@ -111,12 +111,28 @@ const promos = [
   ["✦ Tenant Pilihan","Temukan Tenant Favorit Anda","Dari kuliner, kesehatan, hingga edukasi — semua kebutuhan tersedia dalam satu kawasan.","Jelajahi Tenant","#/kawasan", REAL.mall]
 ];
 
+/* [judul, sumber, foto, link ke artikel asli (null jika dokumentasi internal), kategori pill: "Berita"/"Promo"/"Event"] */
 const news = [
-  ["Grand Galaxy City Gelar Family Day 2024", "12 Mei 2024", REAL.taman],
-  ["Promo Spesial Akhir Tahun", "03 Desember 2024", REAL.clusterStreet],
-  ["Peningkatan Fasilitas Taman Kota", "21 November 2024", REAL.danau],
-  ["Grand Galaxy Mall Hadirkan Tenant Baru", "15 Oktober 2024", REAL.mallMalam],
-  ["Festival Kuliner Grand Galaxy", "28 September 2024", REAL.ruko]
+  ["Konflik Tata Ruang Kota Bekasi, 13 Tahun PSU GGC Belum Serah Terima", "Bekasi Satu", "assets/images/real/news-psu-ggc-belum-serah-terima.jpg", "https://bekasisatu.com/konflik-tata-ruang-kota-bekasi-13-tahun-psu-ggc-belum-serah-terima/", "Berita"],
+  ["Perkumpulan Warga Ruko GGC Kecewa Mediasi Parkir Berbayar Berakhir Deadlock", "Berita Bekasi", "assets/images/real/news-mediasi-parkir-deadlock.jpg", "https://beritabekasi.co.id/2026/04/28/perkumpulan-warga-ruko-ggc-kecewa-mediasi-parkir-berbayar-berakhir-deadlock/", "Berita"],
+  ["Dishub Kota Bekasi Buka Suara Soal Polemik Parkir Berbayar di Ruko Grand Galaxy City", "Radarbekasi.id", "assets/images/real/news-dishub-parkir-berbayar.jpg", "https://radarbekasi.id/2026/05/27/dishub-kota-bekasi-buka-suara-soal-polemik-parkir-berbayar-di-ruko-grand-galaxy-city/", "Berita"],
+  ["Penghuni dan Pelaku Usaha Demo Jilid 2 Tolak Portal Parkir Berbayar di Grand Galaxy City Bekasi", "MDI News", "assets/images/real/news-demo-tolak-portal-parkir.jpg", "https://www.mdi.news/penghuni-dan-pelaku-usaha-demo-jilid-2-tolak-portal-parkir-berbayar-di-grand-galaxy-city-bekasi/", "Berita"],
+  ["Warga Rukan Grand Galaxy City Tolak Kenaikan IPL Secara Sepihak oleh Pihak Pengelola", "Tagar.id", REAL.clusterStreet, "https://www.tagar.id/warga-rukan-grand-galaxy-city-tolak-kenaikan-ipl-secara-sepihak-oleh-pihak-pengelola", "Berita"],
+  ["Tuntut Serahkan PSU ke Pemkot", "Radarbekasi.id", "assets/images/real/news-tuntut-serahkan-psu.jpg", "https://radarbekasi.id/2023/11/14/tuntut-serahkan-psu-ke-pemkot/", "Berita"],
+  ["Pengembang Diduga Lakukan Pungli, Warga dan Pemilik Ruko Grand Galaxy City Mengadu Ke DPRD Kota Bekasi", "Palapapos", "assets/images/real/news-pengembang-diduga-pungli.jpg", "https://palapapos.co.id/news/detail/pengembang-diduga-lakukan-pungli-warga-dan-pemilik-ruko-grand-galaxy-city-mengadu-ke-dprd-kota-bekasi", "Berita"],
+  ["Warga Grand Galaxy Mengadu ke DPRD Kota Bekasi, Keluhkan Pengelolaan Fasos Fasum Amburadul", "Radarbekasi.id", "assets/images/real/news-warga-mengadu-dprd.jpg", "https://radarbekasi.id/2023/12/04/warga-grand-galaxy-mengadu-ke-dprd-kota-bekasi-keluhkan-pengelolaan-fasos-fasum-amburadul/", "Berita"],
+  ["DPRD Kota Bekasi Bahas Masalah Grand Galaxy City", "Kompas.com", "assets/images/real/news-dprd-bahas-ggc.jpg", "https://lifestyle.kompas.com/read/2013/02/19/12181657/dprd-kota-bekasi-bahas-masalah-grand-galaxy-city", "Berita"],
+  ["Terkait Fasos Fasum Grand Galaxy, Anggota DPRD Nicodemus Godjang Pinta Pemkot Bekasi Agar Tegas", "Klise", "assets/images/real/news-nico-pinta-pemkot-tegas.jpg", "https://klise.news/terkait-fasos-fasum-grand-galaxy-anggota-dprd-nicodemus-godjang-pinta-pemkot-bekasi-agar-tegas/", "Berita"],
+  ["Jalan Grand Galaxy Dibongkar karena Tak Penuhi Standar Geometrik, Ini Penjelasan Pemkot Bekasi", "Wartakota", "assets/images/real/Pembongkaran-jalan-Grand-Galaxy-Bekasi.webp", "https://wartakota.tribunnews.com/bekasi/894833/jalan-grand-galaxy-dibongkar-karena-tak-penuhi-standar-geometrik-ini-penjelasan-pemkot-bekasi", "Berita"],
+  ["Soal Lahan Fasosfasum Di Grand Galaxy, Nico: Pemkot Bekasi Bisa Ambil Alih Paksa", "Berita Bekasi", REAL.taman, "https://beritabekasi.co.id/0000/00/00/soal-lahan-fasosfasum-di-grand-galaxy-nico-pemkot-bekasi-bisa-ambil-alih-paksa/", "Berita"],
+  ["Warga Pasang Spanduk Penolakan IPL Sepihak dan Parkir Berbayar di Area Ruko", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_2.jpeg", null, "Event"],
+  ["Warga Geruduk Kantor Pengelola Grand Galaxy City, Aparat Turun Jaga Ketertiban", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_11.jpeg", null, "Event"],
+  ["Massa Warga Ruko/Rukan GGC Berdialog dengan Aparat Kepolisian di Lokasi Aksi", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_7.jpeg", null, "Event"],
+  ["Perkumpulan Warga Ruko GGC Audiensi dengan Jajaran Pemkot Bekasi", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_3.jpeg", null, "Event"],
+  ["Pengurus Perkumpulan Warga Rapat Koordinasi Bahas Langkah Advokasi Selanjutnya", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_5.jpeg", null, "Event"],
+  ["Silaturahmi dan Koordinasi Internal Pengurus Perkumpulan Warga Ruko GGC", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_9.jpeg", null, "Event"],
+  ["Bebas Biaya AJB & BPHTB untuk Pembelian Rumah di Grand Galaxy City", "Promo Grand Galaxy City", REAL.clusterExterior, "#/kontak", "Promo"],
+  ["Cashback Menarik untuk Renovasi Ruko Bersama Mitra Kontraktor Terpercaya", "Promo Grand Galaxy City", REAL.ruko, "#/kontak", "Promo"]
 ];
 
 const tips = [

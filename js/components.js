@@ -276,7 +276,11 @@ function tenantDetail(idx){
 }
 
 function newsRow(n){
- return `<article class="news-row"><div class="thumb"><div class="thumb-img" style="background-image:url('${n[2]}')"></div></div><div class="news-body"><span class="date"><i class="fa-regular fa-calendar"></i> ${n[1]}</span><h3>${n[0]}</h3><p>Grand Galaxy City · Informasi terbaru kawasan dan hunian.</p></div></article>`;
+ const [judul,sumber,foto,url] = n;
+ const tag = url?`<a class="news-row" href="${url}" target="_blank" rel="noopener">`:`<div class="news-row">`;
+ const closeTag = url?"</a>":"</div>";
+ const caption = url?"Grand Galaxy City · Baca selengkapnya di sumber asli.":"Grand Galaxy City · Dokumentasi kegiatan warga.";
+ return `${tag}<div class="thumb"><div class="thumb-img" style="background-image:url('${foto}')"></div></div><div class="news-body"><span class="date"><i class="fa-regular fa-newspaper"></i> ${sumber}</span><h3>${judul}</h3><p>${caption}</p></div>${closeTag}`;
 }
 
 function eventRow(e){

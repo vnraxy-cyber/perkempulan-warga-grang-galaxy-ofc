@@ -44,6 +44,18 @@ function filterGallery(cat,el){
  const list=cat==="Semua"?galleryImages:galleryImages.filter(g=>g[1]===cat);
  document.getElementById("galleryGrid").innerHTML=list.map(galleryItem).join("");
 }
+function filterNews(cat,el){
+ el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+ const featured=document.getElementById("newsFeatured");
+ if(cat==="Semua"){
+  featured.style.display="";
+  document.getElementById("newsGrid").innerHTML=news.slice(1).map(n=>newsRow(n)).join("");
+  return;
+ }
+ featured.style.display="none";
+ const list=news.filter(n=>n[4]===cat);
+ document.getElementById("newsGrid").innerHTML=list.length?list.map(n=>newsRow(n)).join(""):`<p style="color:var(--muted);padding:24px 0">Belum ada konten untuk kategori ini.</p>`;
+}
 /* Carousel promo: slide aktif di tengah, parallax foto, autoplay, swipe/drag/panah/dots */
 let promoDrag=null,promoDragEnd=0,promoHold=0,promoHover=false;
 const promoSlides=t=>[...t.querySelectorAll(".promo-slide")];
