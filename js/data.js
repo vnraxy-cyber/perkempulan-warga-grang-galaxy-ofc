@@ -65,8 +65,6 @@ const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekrea
 
 const galleryCategories = ["Semua","Kawasan","Fasilitas","Event","Aktivitas"];
 
-const eventCategories = ["Semua","Segera"];
-
 /* [foto, kategori] */
 const galleryImages = [
  [REAL.gate,"Kawasan"],
@@ -75,16 +73,21 @@ const galleryImages = [
  [REAL.clusterStreet,"Kawasan"],
  [REAL.taman,"Fasilitas"],
  [REAL.danau,"Fasilitas"],
- [REAL.playground,"Aktivitas"],
- [REAL.lapangan,"Aktivitas"],
+ ["assets/images/berita&event/berita_9.jpeg","Aktivitas"],
+ ["assets/images/berita&event/berita_11.jpeg","Aktivitas"],
  [REAL.ruko,"Fasilitas"],
  [REAL.jalanUtama,"Kawasan"],
- [REAL.mallMalam,"Event"],
  [REAL.signage,"Kawasan"],
  [REAL.mallEntrance,"Fasilitas"],
  [REAL.clusterGate,"Kawasan"],
- [REAL.danauArea,"Aktivitas"],
- [REAL.jalanKawasan,"Kawasan"]
+ ["assets/images/berita&event/berita_3.jpeg","Aktivitas"],
+ [REAL.jalanKawasan,"Kawasan"],
+ ["assets/images/berita&event/berita_2.jpeg","Event"],
+ ["assets/images/berita&event/berita_3.jpeg","Event"],
+ ["assets/images/berita&event/berita_5.jpeg","Event"],
+ ["assets/images/berita&event/berita_7.jpeg","Event"],
+ ["assets/images/berita&event/berita_9.jpeg","Event"],
+ ["assets/images/berita&event/berita_11.jpeg","Event"]
 ];
 
 /* [emoji, judul, deskripsi, foto, kategori] */
