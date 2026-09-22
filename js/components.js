@@ -284,11 +284,11 @@ function tenantDetail(idx){
 }
 
 function newsRow(n){
- const [judul,sumber,foto,url] = n;
+ const [judul,sumber,foto,url,,tanggal] = n;
  const tag = url?`<a class="news-row" href="${url}" target="_blank" rel="noopener">`:`<div class="news-row">`;
  const closeTag = url?"</a>":"</div>";
  const caption = url?"Grand Galaxy City · Baca selengkapnya di sumber asli.":"Grand Galaxy City · Dokumentasi kegiatan warga.";
- return `${tag}<div class="thumb"><div class="thumb-img" style="background-image:url('${foto}')"></div></div><div class="news-body"><span class="date"><i class="fa-regular fa-newspaper"></i> ${sumber}</span><h3>${judul}</h3><p>${caption}</p></div>${closeTag}`;
+ return `${tag}${tanggal?`<span class="news-date-badge"><i class="fa-regular fa-calendar"></i> ${tanggal}</span>`:""}<div class="thumb"><div class="thumb-img" style="background-image:url('${foto}')"></div></div><div class="news-body"><span class="date"><i class="fa-regular fa-newspaper"></i> ${sumber}</span><h3>${judul}</h3><p>${caption}</p></div>${closeTag}`;
 }
 
 function eventRow(e){

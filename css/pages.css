@@ -373,7 +373,9 @@
 .scroll-hint{text-align:center;font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:-4px}
 
 /* Tips & Berita featured */
-.tip-featured{display:block;min-height:280px;border-radius:var(--radius-lg);background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:#fff;margin-bottom:24px}
+.tip-featured{position:relative;display:block;min-height:280px;border-radius:var(--radius-lg);background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;color:#fff;margin-bottom:24px}
+.tip-featured .news-date-badge{top:26px;right:26px;color:#f4f0e7;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.tip-featured .news-date-badge i{color:#e7cd8f}
 .tip-featured h2{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,3vw,34px);margin:10px 0}
 .tip-featured p{font-size:13px;color:#e4ddcd;max-width:560px;line-height:1.7;margin:0 0 10px}
 .tip-tag{display:inline-block;align-self:flex-start;background:rgba(214,182,111,.18);border:1px solid rgba(214,182,111,.55);color:#e7cd8f;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:30px}
