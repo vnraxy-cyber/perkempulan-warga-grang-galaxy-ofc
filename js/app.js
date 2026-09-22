@@ -44,17 +44,35 @@ function filterGallery(cat,el){
  const list=cat==="Semua"?galleryImages:galleryImages.filter(g=>g[1]===cat);
  document.getElementById("galleryGrid").innerHTML=list.map(galleryItem).join("");
 }
-function filterNews(cat,el){
- el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
- const featured=document.getElementById("newsFeatured");
- if(cat==="Semua"){
-  featured.style.display="";
-  document.getElementById("newsGrid").innerHTML=news.slice(1).map(n=>newsRow(n)).join("");
+let newsCat="Semua", newsSortOrder="terbaru";
+function renderNewsSection(){
+ const filtered = newsCat==="Semua" ? news : news.filter(n=>n[4]===newsCat);
+ const sorted = sortNewsList(filtered,newsSortOrder);
+ const featured = document.getElementById("newsFeatured");
+ if(newsCat==="Semua"){
+  const [first,...rest]=sorted;
+  if(featured){ featured.outerHTML=newsFeaturedHTML(first); }
+  document.getElementById("newsGrid").innerHTML=rest.map(n=>newsRow(n)).join("");
   return;
  }
- featured.style.display="none";
- const list=news.filter(n=>n[4]===cat);
- document.getElementById("newsGrid").innerHTML=list.length?list.map(n=>newsRow(n)).join(""):`<p style="color:var(--muted);padding:24px 0">Belum ada konten untuk kategori ini.</p>`;
+ if(featured) featured.style.display="none";
+ document.getElementById("newsGrid").innerHTML=sorted.length?sorted.map(n=>newsRow(n)).join(""):`<p style="color:var(--muted);padding:24px 0">Belum ada konten untuk kategori ini.</p>`;
+}
+function filterNews(cat,el){
+ el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+ newsCat=cat;
+ renderNewsSection();
+}
+function sortNews(order,el){
+ el.closest(".sort-toggle").querySelectorAll(".sort-btn").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+ newsSortOrder=order;
+ renderNewsSection();
+}
+let eventSortOrder="terbaru";
+function sortEvents(order,el){
+ el.closest(".sort-toggle").querySelectorAll(".sort-btn").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+ eventSortOrder=order;
+ document.getElementById("eventGrid").innerHTML=sortEventsList(events,eventSortOrder).map(eventRow).join("");
 }
 /* Carousel promo: slide aktif di tengah, parallax foto, autoplay, swipe/drag/panah/dots */
 let promoDrag=null,promoDragEnd=0,promoHold=0,promoHover=false;

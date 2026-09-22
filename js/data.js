@@ -65,6 +65,8 @@ const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekrea
 
 const galleryCategories = ["Semua","Kawasan","Fasilitas","Event","Aktivitas"];
 
+const eventCategories = ["Semua","Segera"];
+
 /* [foto, kategori] */
 const galleryImages = [
  [REAL.gate,"Kawasan"],
@@ -146,10 +148,10 @@ const tips = [
 ];
 
 const events = [
-  ["15","AUG","Grand Galaxy Run","Taman Kota","06.00–10.00 WIB", REAL.taman],
-  ["22","AUG","Bazaar & Kuliner Nusantara","Food Festival","10.00–21.00 WIB", REAL.ruko],
-  ["28","AUG","Konser Musik Akustik","Live Performance","19.00–21.00 WIB", REAL.mallMalam],
-  ["05","SEP","Lomba Mewarnai Anak","Grand Galaxy Mall","09.00–12.00 WIB", REAL.playground]
+  ["15","AUG","Grand Galaxy Run","Taman Kota","06.00–10.00 WIB", "assets/images/berita&event/berita_2.jpeg"],
+  ["22","AUG","Bazaar & Kuliner Nusantara","Food Festival","10.00–21.00 WIB", "assets/images/berita&event/berita_7.jpeg"],
+  ["28","AUG","Konser Musik Akustik","Live Performance","19.00–21.00 WIB", "assets/images/berita&event/berita_9.jpeg"],
+  ["05","SEP","Lomba Mewarnai Anak","Grand Galaxy Mall","09.00–12.00 WIB", "assets/images/berita&event/berita_11.jpeg"]
 ];
 
 /* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional), jam operasional, produk tersedia, sosial media, link pesan/belanja online (opsional)] */

@@ -58,16 +58,25 @@ function galleryPage(){
 }
 
 function berita(){
- const [first,...rest]=news;
+ if(typeof newsCat!=="undefined"){newsCat="Semua";newsSortOrder="terbaru";}
+ const [first,...rest]=sortNewsList(news,"terbaru");
  return `${hero("Berita & Promo","Informasi terbaru mengenai Grand Galaxy City, promo hunian, fasilitas, dan aktivitas kawasan.",REAL.danau,true)}
- <section class="section"><div class="container"><div class="pills"><button class="pill active" onclick="filterNews('Semua',this)">Semua</button><button class="pill" onclick="filterNews('Berita',this)">Berita</button><button class="pill" onclick="filterNews('Promo',this)">Promo</button><button class="pill" onclick="filterNews('Event',this)">Event</button><button class="pill" onclick="filterNews('Jasa',this)">Jasa</button></div>
- <a id="newsFeatured" class="tip-featured" href="${first[3]}" target="_blank" rel="noopener" style="background-image:linear-gradient(90deg,rgba(19,28,27,.86),rgba(19,28,27,.18)),url('${first[2]}')">${first[5]?`<span class="news-date-badge"><i class="fa-regular fa-calendar"></i> ${first[5]}</span>`:""}<span class="tip-tag">${first[1]}</span><h2>${first[0]}</h2><p>Grand Galaxy City · Baca selengkapnya di sumber asli.</p><span class="link-btn" style="color:#fff">Baca Selengkapnya →</span></a>
+ <section class="section"><div class="container">
+ <div class="berita-controls">
+  <div class="pills"><button class="pill active" onclick="filterNews('Semua',this)">Semua</button><button class="pill" onclick="filterNews('Berita',this)">Berita</button><button class="pill" onclick="filterNews('Promo',this)">Promo</button><button class="pill" onclick="filterNews('Event',this)">Event</button><button class="pill" onclick="filterNews('Jasa',this)">Jasa</button></div>
+  <div class="sort-toggle"><span class="sort-label">Urutkan</span><button class="sort-btn active" onclick="sortNews('terbaru',this)"><i class="fa-solid fa-arrow-down-wide-short"></i> Terbaru</button><button class="sort-btn" onclick="sortNews('terlama',this)"><i class="fa-solid fa-arrow-up-wide-short"></i> Terlama</button></div>
+ </div>
+ ${newsFeaturedHTML(first)}
  <div id="newsGrid" class="news-list">${rest.map(n=>newsRow(n)).join("")}</div></div></section>`;
 }
 
 function eventPage(){
+ if(typeof eventSortOrder!=="undefined"){eventSortOrder="terbaru";}
+ const sorted = sortEventsList(events,"terbaru");
  return `${hero("Event Terdekat","Jangan lewatkan berbagai aktivitas, festival, dan kegiatan keluarga di Grand Galaxy City.",REAL.event,true)}
- <section class="section"><div class="container"><div class="event-list">${events.map(eventRow).join("")}</div></div></section>`;
+ <section class="section"><div class="container">
+ <div class="sort-toggle event-sort"><span class="sort-label">Urutkan</span><button class="sort-btn active" onclick="sortEvents('terbaru',this)"><i class="fa-solid fa-arrow-down-wide-short"></i> Terbaru</button><button class="sort-btn" onclick="sortEvents('terlama',this)"><i class="fa-solid fa-arrow-up-wide-short"></i> Terlama</button></div>
+ <div id="eventGrid" class="event-list">${sorted.map(eventRow).join("")}</div></div></section>`;
 }
 
 function contact(){

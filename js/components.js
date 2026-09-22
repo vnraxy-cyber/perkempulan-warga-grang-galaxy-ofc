@@ -291,6 +291,46 @@ function newsRow(n){
  return `${tag}${tanggal?`<span class="news-date-badge"><i class="fa-regular fa-calendar"></i> ${tanggal}</span>`:""}<div class="thumb"><div class="thumb-img" style="background-image:url('${foto}')"></div></div><div class="news-body"><span class="date"><i class="fa-regular fa-newspaper"></i> ${sumber}</span><h3>${judul}</h3><p>${caption}</p></div>${closeTag}`;
 }
 
+/* Urutan tanggal berita — format tanggal "D MMM YYYY" (mis. "30 Apr 2026") */
+const NEWS_MONTHS = {Jan:0,Feb:1,Mar:2,Apr:3,Mei:4,Jun:5,Jul:6,Agu:7,Sep:8,Okt:9,Nov:10,Des:11};
+function newsTimestamp(n){
+ const t = n[5];
+ if(!t) return null;
+ const m = t.match(/(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/);
+ if(!m || NEWS_MONTHS[m[2]]===undefined) return null;
+ return new Date(+m[3], NEWS_MONTHS[m[2]], +m[1]).getTime();
+}
+function sortNewsList(list, order){
+ return [...list].sort((a,b)=>{
+  const ta=newsTimestamp(a), tb=newsTimestamp(b);
+  if(ta===null && tb===null) return 0;
+  if(ta===null) return 1;
+  if(tb===null) return -1;
+  return order==="terlama" ? ta-tb : tb-ta;
+ });
+}
+function newsFeaturedHTML(n){
+ const [judul,sumber,foto,url,,tanggal] = n;
+ return `<a id="newsFeatured" class="tip-featured" href="${url}" target="_blank" rel="noopener" style="background-image:linear-gradient(90deg,rgba(19,28,27,.86),rgba(19,28,27,.18)),url('${foto}')">${tanggal?`<span class="news-date-badge"><i class="fa-regular fa-calendar"></i> ${tanggal}</span>`:""}<span class="tip-tag">${sumber}</span><h2>${judul}</h2><p>Grand Galaxy City · Baca selengkapnya di sumber asli.</p><span class="link-btn" style="color:#fff">Baca Selengkapnya →</span></a>`;
+}
+
 function eventRow(e){
  return `<article class="event"><div class="event-thumb" style="background-image:url('${e[5]}')"></div><div class="event-date"><b>${e[0]}</b><span>${e[1]}</span></div><div class="event-info"><h3>${e[2]}</h3><p>${e[3]} · ${e[4]}</p></div><button class="btn btn-primary" onclick="showToast('Event disimpan ke Festival')">Lihat Detail</button></article>`;
+}
+
+/* Urutan tanggal event — hari + bulan singkat Inggris (mis. "15" "AUG"), diasumsikan tahun berjalan situs (2026) */
+const EVENT_MONTHS = {JAN:0,FEB:1,MAR:2,APR:3,MAY:4,JUN:5,JUL:6,AUG:7,SEP:8,OCT:9,NOV:10,DEC:11};
+function eventTimestamp(e){
+ const mi = EVENT_MONTHS[e[1]];
+ if(mi===undefined) return null;
+ return new Date(2026, mi, +e[0]).getTime();
+}
+function sortEventsList(list, order){
+ return [...list].sort((a,b)=>{
+  const ta=eventTimestamp(a), tb=eventTimestamp(b);
+  if(ta===null && tb===null) return 0;
+  if(ta===null) return 1;
+  if(tb===null) return -1;
+  return order==="terlama" ? ta-tb : tb-ta;
+ });
 }
