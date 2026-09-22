@@ -118,7 +118,7 @@ const news = [
   ["Dishub Kota Bekasi Buka Suara Soal Polemik Parkir Berbayar di Ruko Grand Galaxy City", "Radarbekasi.id", "assets/images/real/news-dishub-parkir-berbayar.jpg", "https://radarbekasi.id/2026/05/27/dishub-kota-bekasi-buka-suara-soal-polemik-parkir-berbayar-di-ruko-grand-galaxy-city/", "Berita"],
   ["Penghuni dan Pelaku Usaha Demo Jilid 2 Tolak Portal Parkir Berbayar di Grand Galaxy City Bekasi", "MDI News", "assets/images/real/news-demo-tolak-portal-parkir.jpg", "https://www.mdi.news/penghuni-dan-pelaku-usaha-demo-jilid-2-tolak-portal-parkir-berbayar-di-grand-galaxy-city-bekasi/", "Berita"],
   ["Warga Rukan Grand Galaxy City Tolak Kenaikan IPL Secara Sepihak oleh Pihak Pengelola", "Tagar.id", REAL.clusterStreet, "https://www.tagar.id/warga-rukan-grand-galaxy-city-tolak-kenaikan-ipl-secara-sepihak-oleh-pihak-pengelola", "Berita"],
-  ["Tuntut Serahkan PSU ke Pemkot", "Radarbekasi.id", "assets/images/real/news-tuntut-serahkan-psu.jpg", "https://radarbekasi.id/2023/11/14/tuntut-serahkan-psu-ke-pemkot/", "Berita"],
+  ["Tuntut Serahkan PSU ke Pemkot", "Radarbekasi.id", "assets/images/berita&event/berita_5.jpeg", "https://radarbekasi.id/2023/11/14/tuntut-serahkan-psu-ke-pemkot/", "Berita"],
   ["Pengembang Diduga Lakukan Pungli, Warga dan Pemilik Ruko Grand Galaxy City Mengadu Ke DPRD Kota Bekasi", "Palapapos", "assets/images/real/news-pengembang-diduga-pungli.jpg", "https://palapapos.co.id/news/detail/pengembang-diduga-lakukan-pungli-warga-dan-pemilik-ruko-grand-galaxy-city-mengadu-ke-dprd-kota-bekasi", "Berita"],
   ["Warga Grand Galaxy Mengadu ke DPRD Kota Bekasi, Keluhkan Pengelolaan Fasos Fasum Amburadul", "Radarbekasi.id", "assets/images/real/news-warga-mengadu-dprd.jpg", "https://radarbekasi.id/2023/12/04/warga-grand-galaxy-mengadu-ke-dprd-kota-bekasi-keluhkan-pengelolaan-fasos-fasum-amburadul/", "Berita"],
   ["DPRD Kota Bekasi Bahas Masalah Grand Galaxy City", "Kompas.com", "assets/images/real/news-dprd-bahas-ggc.jpg", "https://lifestyle.kompas.com/read/2013/02/19/12181657/dprd-kota-bekasi-bahas-masalah-grand-galaxy-city", "Berita"],
@@ -132,7 +132,9 @@ const news = [
   ["Pengurus Perkumpulan Warga Rapat Koordinasi Bahas Langkah Advokasi Selanjutnya", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_5.jpeg", null, "Event"],
   ["Silaturahmi dan Koordinasi Internal Pengurus Perkumpulan Warga Ruko GGC", "Dokumentasi Warga GGC", "assets/images/berita&event/berita_9.jpeg", null, "Event"],
   ["Bebas Biaya AJB & BPHTB untuk Pembelian Rumah di Grand Galaxy City", "Promo Grand Galaxy City", REAL.clusterExterior, "#/kontak", "Promo"],
-  ["Cashback Menarik untuk Renovasi Ruko Bersama Mitra Kontraktor Terpercaya", "Promo Grand Galaxy City", REAL.ruko, "#/kontak", "Promo"]
+  ["Cashback Menarik untuk Renovasi Ruko Bersama Mitra Kontraktor Terpercaya", "Promo Grand Galaxy City", REAL.ruko, "#/kontak", "Promo"],
+  ["Digitalisasi UMKM Bersama Haltev.id", "Haltev.id", "assets/images/real/ruko_haltev.png", "https://haltev.id/digitalisasi-umkm", "Jasa"],
+  ["Digital Growth & Revenue Optimization Bersama Haltev.id", "Haltev.id", "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "Jasa"]
 ];
 
 const tips = [
@@ -155,9 +157,10 @@ const tenants = [
   ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Grand Galaxy City, Jl. Boulevard Raya Blok RGA No.30, Bekasi Selatan ", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "62878000927286", "08.00–20.00 WIB", [
     {nama:"Bootcamp Program", desc:"Program bootcamp intensif terintegrasi AI untuk mempercepat pemahaman, adaptif, persiapan karier hingga penyaluran magang dan kerja."},
     {nama:"Program Kursus Unggulan", desc:"Menyediakan pilihan berbagai kelas dengan kurikulum terintegrasi AI dengan waktu belajar yang fleksibel sesuai pilihan dan passionmu."},
+    {nama:"Digitalisasi UMKM", desc:"Pendampingan digitalisasi usaha UMKM, mulai dari branding online, digital marketing, hingga sistem penjualan digital untuk mempercepat pertumbuhan bisnis.", link:"https://haltev.id/digitalisasi-umkm"},
+    {nama:"Digital Growth & Revenue Optimization", desc:"Layanan pengembangan website, manajemen media sosial & iklan digital, serta keamanan siber dengan dukungan AI untuk optimasi performa, efisiensi, dan hasil yang terukur.", link:"https://haltev.id/digital-growth-revenue-optimation/"},
     {nama:"Corporate Training", desc:"Pelatihan perusahaan terintegrasi AI untuk pengembangan kompetensi strategis dan peningkatan kinerja tim secara adaptif dan terukur."},
     {nama:"Sertifikasi BNSP & Internasional", desc:"Sertifikasi kompetensi dapat meningkatkan kredibilitas, peluang karier, gaji dan imbalan lainnya, menjaga kualitas kerja."},
-    {nama:"Digital Services", desc:"Layanan pengembangan website, manajemen media sosial & iklan digital, serta keamanan siber dengan dukungan AI untuk optimasi performa, efisiensi, dan hasil yang terukur."},
     {nama:"Belajar Mandiri (haltevacademy.com)", desc:"Platform pelatihan online yang menyediakan kursus Programming & Digital Skill dengan metode belajar fleksibel: video, live session, atau hybrid."}
   ], {instagram:"instagram.com/haltev.id", tiktok:"tiktok.com/@haltev.id"}],
   ["Kita Steamboat & Yakiniku", "Steamboat dan yakiniku ala rumahan dengan bahan segar dan bumbu pilihan.", "Jl. Boulevard Raya Blok RGA No. 58-59", "Makanan & Minuman", REAL.tenantKitaSteamboat, null, "6281973949494", "10.00–22.00 WIB", ["Paket Steamboat Keluarga","Aneka Yakiniku","Menu All You Can Eat","Minuman & Dessert"], {instagram:"instagram.com/kitasteamboat", tiktok:"tiktok.com/@kitasteamboat"}],

@@ -46,7 +46,7 @@
 .kicker{font-size:10px;color:#9b7739;font-weight:800;text-transform:uppercase;letter-spacing:.2em}
 
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-42px;margin-bottom:80px;position:relative}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:-42px;margin-bottom:80px;position:relative}
 .stat-card{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:168px;padding:28px 16px}
 .stat-value{display:block;font-family:"Cormorant Garamond",serif;font-size:38px;font-weight:700;line-height:1.1;letter-spacing:.01em;white-space:nowrap;color:var(--navy)}
 .stat-value:after{content:"";display:block;width:34px;height:2px;margin:16px auto;border-radius:2px;background:#c09d5d}

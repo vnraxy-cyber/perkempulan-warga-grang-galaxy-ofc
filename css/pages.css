@@ -278,21 +278,90 @@
 }
 
 /* About page */
-.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
-.about-stats div{padding:14px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface)}
-.about-stats strong{display:block;font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--navy)}
-.about-stats span{font-size:11px;color:var(--muted)}
-.collage{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:12px;min-height:360px}
-.collage-a{grid-row:1/3;background:center/cover no-repeat;border-radius:var(--radius-lg)}
-.collage-b,.collage-c{background:center/cover no-repeat;border-radius:var(--radius-md)}
+.kicker{display:inline-flex;align-items:center;gap:10px}
+.kicker-rule{display:inline-block;width:22px;height:1px;background:#c09d5d}
+.about-stats-float{margin-bottom:64px}
+.about-stats-float .stat-card{transition:transform .3s,box-shadow .3s,border-color .3s}
+.about-stats-float .stat-card:hover{transform:translateY(-6px);border-color:#c09d5d;box-shadow:0 20px 44px rgba(38,45,41,.16)}
+.copy-accent{position:relative;padding-left:18px;border-left:2px solid #e4d3a8;margin:20px 0 10px}
+.copy-accent p{margin:0 0 12px}
+.copy-accent p:last-child{margin-bottom:0}
+.about-link{position:relative}
+.about-link:after{content:"";display:block;width:0;height:1px;background:#96733a;transition:width .3s ease;margin-top:2px}
+.about-link:hover:after{width:100%}
+.collage{position:relative;display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:12px;min-height:360px}
+.collage-a,.collage-b,.collage-c{position:relative;overflow:hidden;background:center/cover no-repeat;isolation:isolate}
+.collage-a{grid-row:1/3;border-radius:var(--radius-lg)}
+.collage-b,.collage-c{border-radius:var(--radius-md)}
+.collage-a:after,.collage-b:after,.collage-c:after{content:"";position:absolute;inset:0;background-image:inherit;background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.collage-a:hover:after,.collage-b:hover:after,.collage-c:hover:after{transform:scale(1.1)}
+.collage-badge{position:absolute;left:-18px;bottom:28px;z-index:2;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 20px;box-shadow:0 18px 40px rgba(38,45,41,.18);text-align:center}
+.collage-badge strong{display:block;font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--navy);line-height:1}
+.collage-badge span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9b7739;margin-top:4px}
+
+/* Pull quote */
+.quote-band{padding-top:8px}
+.pull-quote{position:relative;margin:0 auto;max-width:760px;padding:34px 20px 0;text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(21px,2.6vw,29px);line-height:1.55;color:var(--navy);border:none}
+.pull-quote:before{content:"“";position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:74px;font-style:normal;font-family:Georgia,serif;color:#e4d3a8;line-height:1}
+.pull-quote cite{display:block;margin-top:22px;font-family:"Manrope",sans-serif;font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pull-quote cite:before{content:"— "}
+
+/* Manifesto — Visi/Misi/Nilai tanpa kotak kartu */
+.manifesto{display:grid;grid-template-columns:repeat(3,1fr);margin-top:12px}
+.manifesto-item{position:relative;padding:0 34px;transition:transform .3s}
+.manifesto-item:first-child{padding-left:0}
+.manifesto-item:last-child{padding-right:0}
+.manifesto-item+.manifesto-item{border-left:1px solid var(--border)}
+.manifesto-item{overflow:hidden}
+.manifesto-item:hover{transform:translateY(-4px)}
+.manifesto-item:before{content:attr(data-num);position:absolute;top:-14px;right:8px;font-family:"Cormorant Garamond",serif;font-size:96px;font-weight:600;color:var(--navy);opacity:.045;line-height:1;pointer-events:none;transition:opacity .3s,transform .3s}
+.manifesto-item:hover:before{opacity:.09;transform:translateY(-4px)}
+.manifesto-num{display:block;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:15px;letter-spacing:.06em;color:#c09d5d;margin-bottom:18px}
+.manifesto-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#f3ead9;color:#c09d5d;font-size:18px;margin-bottom:16px}
+.manifesto-icon .facility-icon-img{background:#c09d5d;height:20px;width:20px}
+.manifesto-item h3{font-family:"Cormorant Garamond",serif;font-size:25px;margin:0 0 10px;color:var(--navy)}
+.manifesto-item p{font-size:13px;line-height:1.75;color:var(--muted);margin:0}
+.manifesto-item:after{content:"";display:block;width:0;height:2px;background:#c09d5d;margin-top:18px;transition:width .35s ease}
+.manifesto-item:hover:after{width:38px}
+@media(max-width:760px){
+ .manifesto{grid-template-columns:1fr;gap:32px}
+ .manifesto-item{padding:0!important;border-left:none!important;border-top:1px solid var(--border);padding-top:28px!important}
+ .manifesto-item:first-child{border-top:none;padding-top:0!important}
+}
+
+/* Komitmen — daftar editorial bernomor, bukan kartu ikon */
+.commitment-list{margin-top:14px;border-top:1px solid rgba(255,255,255,.14)}
+.commitment-row{position:relative;overflow:hidden;display:grid;grid-template-columns:44px 48px 1fr 20px;align-items:center;gap:20px;padding:22px 6px;border-bottom:1px solid rgba(255,255,255,.14);transition:background .3s,padding-left .3s}
+.commitment-row:before{content:attr(data-num);position:absolute;top:50%;right:10px;transform:translateY(-50%);font-family:"Cormorant Garamond",serif;font-size:88px;font-weight:600;color:#fff;opacity:.03;line-height:1;pointer-events:none;transition:opacity .3s}
+.commitment-row:hover:before{opacity:.06}
+.commitment-row:hover{background:rgba(255,255,255,.045);padding-left:16px}
+.commitment-index{font-family:"Cormorant Garamond",serif;font-size:22px;color:rgba(255,255,255,.3)}
+.commitment-icon{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#e7cd8f;font-size:16px;transition:transform .3s,background .3s}
+.commitment-icon .facility-icon-img{background:#e7cd8f}
+.commitment-row:hover .commitment-icon{transform:rotate(-8deg) scale(1.1);background:rgba(231,205,143,.2)}
+.commitment-text h3{font-size:15px;margin:0 0 4px;color:#fff}
+.commitment-text p{font-size:12px;color:#b9cbd6;margin:0;line-height:1.65}
+.commitment-arrow{color:rgba(255,255,255,.32);transition:transform .3s,color .3s}
+.commitment-row:hover .commitment-arrow{transform:translateX(6px);color:#e7cd8f}
+@media(max-width:640px){
+ .commitment-row{grid-template-columns:36px 1fr;grid-template-areas:"index text" "icon text"}
+ .commitment-index{grid-area:index}
+ .commitment-icon{grid-area:icon}
+ .commitment-text{grid-area:text}
+ .commitment-arrow{display:none}
+}
 
 .timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
 .timeline:before{content:"";position:absolute;top:9px;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(214,182,111,0),rgba(214,182,111,.55) 6%,rgba(214,182,111,.55) 94%,rgba(214,182,111,0))}
-.timeline-item{position:relative;text-align:center;padding:32px 10px 0}
-.timeline-item:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:#d7b66f;border:4px solid var(--ink);box-shadow:0 0 0 3px rgba(214,182,111,.35)}
+.timeline-item{position:relative;text-align:center;padding:32px 10px 0;transition:transform .3s}
+.timeline-item:hover{transform:translateY(-4px)}
+.timeline-item:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:#d7b66f;border:4px solid var(--ink);box-shadow:0 0 0 3px rgba(214,182,111,.35);transition:box-shadow .3s,transform .3s}
+.timeline-item:hover:before{box-shadow:0 0 0 6px rgba(214,182,111,.35);transform:translateX(-50%) scale(1.15)}
 .timeline-year{font-family:"Cormorant Garamond",serif;font-size:26px;color:#d7b66f;margin-bottom:6px}
 .timeline-item h3{font-size:14px;margin:0 0 6px;color:#fff}
 .timeline-item p{font-size:12px;color:#b9cbd6;line-height:1.6;margin:0}
+
+.facility-icon{transition:transform .3s}
 
 /* Fasilitas — horizontal scroll */
 .facility-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px}
