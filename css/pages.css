@@ -170,6 +170,8 @@
 .td-wa-number b{font-size:15px;color:var(--navy)}
 .td-contact-actions{display:grid;gap:10px;margin:16px 0 20px}
 .td-hours{display:grid;gap:10px;padding-top:18px;border-top:1px dashed var(--border)}
+.td-hours-title{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.td-hours-title i{color:var(--td-accent);margin-right:4px}
 .td-hours-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .td-hours-row span{font-size:11px;color:var(--muted)}
 .td-hours-row span i{color:var(--td-accent);margin-right:4px}
@@ -182,6 +184,11 @@
 .td-social b{display:block;font-size:12px;color:var(--navy)}
 .td-social small{display:block;font-size:11px;color:var(--muted);margin-top:1px}
 .td-social-go{margin-left:auto;font-size:10px;color:var(--muted)}
+.td-marketplaces{margin-top:18px;padding-top:18px;border-top:1px dashed var(--border)}
+.td-marketplace{display:flex;align-items:center;gap:10px;padding:9px 10px;margin-top:7px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:11px;font-weight:700;color:var(--navy);transition:background .2s,border-color .2s}
+.td-marketplace:hover{background:var(--td-tint);border-color:#c09d5d}
+.td-marketplace-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:var(--td-tint);color:var(--td-accent)}
+.td-marketplace>i{margin-left:auto;font-size:10px;color:var(--muted)}
 
 /* Banner ajakan berkunjung */
 .td-cta-wrap{padding-top:8px}

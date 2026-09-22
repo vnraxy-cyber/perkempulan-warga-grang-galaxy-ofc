@@ -30,7 +30,14 @@ const REAL = {
   fasilitas:"assets/images/real/fasilitas.png",
   tips:"assets/images/real/tips.png",
   event:"assets/images/real/event.png",
-  hubung:"assets/images/real/hubung.png"
+  hubung:"assets/images/real/hubung.png",
+  tenantKitaSteamboat:"assets/images/real/Kita Steamboat & Yakiniku.png",
+  tenantOutdare:"assets/images/real/Outdare.png",
+  tenantSinarasa:"assets/images/real/Sinarasa - Suguhan Nusantara.jpg",
+  tenantBanTruk:"assets/images/real/Ban Truk Grand Galaxy.png",
+  tenantPrizyEatery:"assets/images/real/Prizy Eatery.png",
+  tenantSanset:"assets/images/real/sanset.jpg",
+  tenantMieAyamBangka:"assets/images/real/Mie ayam Bangka Chandra.png"
 };
 
 const LOGO = "assets/images/brand/logo-perkumpulan.png";
@@ -42,6 +49,15 @@ const MAP_LINK = "https://maps.app.goo.gl/vTGbumhpAfJ3SvA26";
 /* Lokasi HalteV — dipakai sebagai peta di setiap halaman detail tenant */
 const HALTEV_MAP_EMBED = MAP_EMBED;
 const HALTEV_MAP_LINK = MAP_LINK;
+
+/* Ikon & label platform pesan/belanja online — ditampilkan per tenant hanya jika tenant punya link-nya di field "marketplace" */
+const MARKETPLACE_META = {
+  shopeefood: ["ShopeeFood", "fa-solid fa-bowl-food"],
+  grabfood: ["GrabFood", "fa-solid fa-motorcycle"],
+  shopee: ["Shopee", "fa-solid fa-cart-shopping"],
+  bukalapak: ["Bukalapak", "fa-solid fa-bag-shopping"],
+  tokopedia: ["Tokopedia", "fa-solid fa-store"]
+};
 
 const tenantCategories = ["Semua","Traveling","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Agency Digital Marketing","Florist & Tanaman","Lifestyle & Hobi"];
 
@@ -118,20 +134,17 @@ const events = [
   ["05","SEP","Lomba Mewarnai Anak","Grand Galaxy Mall","09.00–12.00 WIB", REAL.playground]
 ];
 
-/* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional), jam operasional, produk tersedia, sosial media] */
+/* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional), jam operasional, produk tersedia, sosial media, link pesan/belanja online (opsional)] */
 const tenants = [
   ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Ruko Blok A No. 1", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728", "08.00–20.00 WIB", ["Kursus Programming & Coding","Kelas AI & Cyber Security","Digital Marketing & SEO","Konsultasi Microsoft Office"], {instagram:"instagram.com/haltev.id", tiktok:"tiktok.com/@haltev.id"}],
-  ["Kawasan Travel & Tour", "Layanan tiket, tur, dan perjalanan wisata untuk warga kawasan.", "Ruko Blok A No. 2", "Traveling", IMG.modern, "https://kawasantravel.id", "6287800092728", "09.00–18.00 WIB", ["Tiket Pesawat & Kereta","Paket Tur Domestik","Paket Tur Internasional","Reservasi Hotel"], {instagram:"instagram.com/kawasantravel.ggc"}],
-  ["Kafe Kopi Nusantara", "Tempat nongkrong nyaman dengan racikan kopi khas Nusantara.", "Ruko Blok A No. 5", "Café & Coffee Shop", IMG.interior, "https://kopinusantara.id", "6287800092728", "07.00–22.00 WIB", ["Kopi Racikan Khas","Non-Coffee & Mocktail","Camilan Ringan","Kopi Kemasan"], {instagram:"instagram.com/kafekopinusantara"}],
-  ["Restoran Nusantara Rasa", "Sajian masakan rumahan dengan cita rasa autentik Nusantara.", "Ruko Blok A No. 8", "Makanan & Minuman", REAL.ruko, "https://nusantararasa.id", "6287800092728", "10.00–21.00 WIB", ["Nasi & Lauk Rumahan","Aneka Sambal Nusantara","Paket Catering","Menu Prasmanan"], {instagram:"instagram.com/nusantararasa.ggc"}],
-  ["Toko Buku Ilmu", "Menyediakan buku, alat tulis, dan kebutuhan edukasi keluarga.", "Ruko Blok B No. 12", "Stationery & Buku", IMG.building, "https://tokobukuilmu.id", "6287800092728", "08.00–19.00 WIB", ["Buku Pelajaran","Alat Tulis Kantor","Buku Anak & Cerita","Perlengkapan Sekolah"], {instagram:"instagram.com/tokobukuilmu"}],
-  ["Bimbingan Belajar Cerdas", "Program belajar tambahan untuk siswa SD hingga SMA.", "Ruko Blok B No. 14", "Pendidikan & Bimbel", IMG.modern, "https://bimbelcerdas.id", "6287800092728", "13.00–20.00 WIB", ["Bimbel SD","Bimbel SMP","Bimbel SMA","Persiapan Ujian Masuk"], {instagram:"instagram.com/bimbelcerdas.ggc"}],
-  ["Apotek Sehat Keluarga", "Layanan obat dan konsultasi kesehatan untuk warga kawasan.", "Ruko Blok C No. 3", "Kesehatan & Apotek", IMG.modern, "https://apoteksehatkeluarga.id", "6287800092728", "07.00–22.00 WIB", ["Obat Resep Dokter","Obat Bebas & Vitamin","Alat Kesehatan","Konsultasi Apoteker"], {instagram:"instagram.com/apoteksehatkeluarga"}],
-  ["Griya Cantik Salon & Spa", "Perawatan kecantikan dan relaksasi untuk keluarga modern.", "Ruko Blok A No. 9", "Beauty & Salon", IMG.house, "https://griyacantiksalonspa.id", "6287800092728", "09.00–20.00 WIB", ["Potong & Styling Rambut","Perawatan Wajah","Spa & Pijat Relaksasi","Perawatan Kuku"], {instagram:"instagram.com/griyacantiksalonspa"}],
-  ["Butik Fashion Elegan", "Koleksi busana kasual dan formal untuk pria dan wanita.", "Ruko Blok D No. 2", "Fashion", IMG.villa, "https://butikfashionelegan.id", "6287800092728", "10.00–21.00 WIB", ["Busana Kasual","Busana Formal & Kerja","Aksesoris Fashion","Layanan Custom Jahit"], {instagram:"instagram.com/butikfashionelegan"}],
-  ["Griya Elektronik Modern", "Pusat elektronik dan gadget dengan garansi resmi.", "Ruko Blok D No. 6", "Elektronik & Gadget", IMG.building, "https://griyaelektronikmodern.id", "6287800092728", "09.00–20.00 WIB", ["Smartphone & Aksesoris","Elektronik Rumah Tangga","Laptop & Komputer","Servis & Garansi Resmi"], {instagram:"instagram.com/griyaelektronikmodern"}],
-  ["Laundry Kilat Bersih", "Layanan cuci dan setrika cepat untuk kebutuhan harian.", "Ruko Blok E No. 1", "Laundry", IMG.interior, "https://laundrykilatbersih.id", "6287800092728", "07.00–21.00 WIB", ["Cuci Kiloan","Cuci Satuan & Setrika","Cuci Sepatu","Dry Clean"], {instagram:"instagram.com/laundrykilatbersih"}],
-  ["Kantor Notaris & PPAT", "Layanan legalitas dan administrasi properti terpercaya.", "Ruko Blok E No. 4", "Jasa Profesional", IMG.building, "https://notarisppat.id", "6287800092728", "08.00–17.00 WIB", ["Akta Jual Beli","Balik Nama Sertifikat","Pendirian Badan Usaha","Legalisasi Dokumen"], {instagram:"instagram.com/notarisppat.ggc"}]
+  ["Kita Steamboat & Yakiniku", "Steamboat dan yakiniku ala rumahan dengan bahan segar dan bumbu pilihan.", "Jl. Boulevard Raya Blok RGA No. 58-59", "Makanan & Minuman", REAL.tenantKitaSteamboat, null, "6281973949494", "10.00–22.00 WIB", ["Paket Steamboat Keluarga","Aneka Yakiniku","Menu All You Can Eat","Minuman & Dessert"], {instagram:"instagram.com/kitasteamboat", tiktok:"tiktok.com/@kitasteamboat"}],
+  ["Outdare", "Brand fashion streetwear lokal dengan desain kasual dan berkualitas.", "Jl. Boulevard Raya Blok RGA No. 58", "Fashion", REAL.tenantOutdare, "https://outdare.id", "6281973949494", "10.00–21.00 WIB", ["Kaos & Hoodie","Jaket Streetwear","Aksesoris Fashion","Koleksi Terbaru"], {instagram:"instagram.com/outdare"}, {shopee:"https://shopee.co.id/outdarebekasi"}],
+  ["Sinarasa - Suguhan Nusantara", "Warung makan dengan sajian khas Nusantara untuk santap harian keluarga.", "Jl. Boulevard Raya Blok RGA No. 59", "Makanan & Minuman", REAL.tenantSinarasa, null, "6281973949494", "08.00–20.00 WIB", ["Nasi & Lauk Nusantara","Aneka Lauk Pilihan","Paket Hemat","Menu Kekinian"], {instagram:"instagram.com/sinarasa"}],
+  ["Ban Truk Grand Galaxy", "Pusat ban truk dan kendaraan komersial dengan berbagai merek terpercaya.", "Jl. Boulevard Raya Blok RSNB 08", "Otomotif", REAL.tenantBanTruk, "https://pusatbantruk.com", "62818622919", "08.00–17.00 WIB", ["Ban Truk & Niaga","Velg & Aksesoris","Jasa Pemasangan","Konsultasi Ban"], {instagram:"instagram.com/pusatbantruk", tiktok:"tiktok.com/@pusatbantruk"}, {shopee:"https://shopee.co.id/3qNAd7VAcR"}],
+  ["Prizy Eatery", "Cafe kekinian dengan menu kopi, makanan ringan, dan tempat nongkrong nyaman.", "Jl. Boulevard Raya Barat Blok RGA 53", "Café & Coffee Shop", REAL.tenantPrizyEatery, null, "6281219067973", "09.00–22.00 WIB", ["Kopi & Non-Coffee","Menu Sarapan & Snack","Dessert Kekinian","Paket Nongkrong"], {instagram:"instagram.com/prizy.eatery"}],
+  ["Sanset Music Store, Studio & Cafe", "Toko alat musik, studio latihan, dan cafe santai dalam satu tempat.", "RRGB 28", ["Lifestyle & Hobi","Café & Coffee Shop"], REAL.tenantSanset, null, "6282125000706", "10.00–21.00 WIB", ["Alat Musik & Aksesoris","Sewa Studio Latihan","Servis Alat Musik","Menu Cafe"], {instagram:"instagram.com/sansetmusicstore"}],
+  ["Mie Ayam Bangka Chandra", "Mie ayam khas Bangka dengan cita rasa autentik dan porsi mengenyangkan.", "Jl. Rose Garden 3 Blok RRG3 No. 10", "Makanan & Minuman", REAL.tenantMieAyamBangka, null, "6281388222138", "09.00–20.00 WIB", ["Mie Ayam Original","Mie Ayam Bakso","Pangsit Goreng & Rebus","Es Teh & Minuman"], {}],
+  ["Sepatu Pengaman Kings & Alat Safety", "Penyedia sepatu safety dan perlengkapan keselamatan kerja berkualitas.", "Jl. RSN 2 Blok RRG2 No. 33", "Sepatu & Tas", IMG.building, "https://lestariid.com", "6281999817618", "08.00–17.00 WIB", ["Sepatu Safety","Helm & APD","Sarung Tangan Kerja","Perlengkapan K3"], {}]
 ];
 
 /* Sewa / Jual — [nama tempat, tipe ("Disewakan"/"Dijual"), luas bangunan, harga, kontak (nomor WA), foto] */

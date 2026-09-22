@@ -129,15 +129,21 @@ function tenantOpenStatus(jam){
 function tenantDetail(idx){
  const t = tenants[idx];
  if(!t) return notFound();
- const [nama,desc,lokasi,kategori,foto,link,kontak,jam,produk=[],sosmed={},produkFoto=[]] = t;
+ const [nama,desc,lokasi,kategori,foto,link,kontak,jam,produk=[],sosmed={},marketplace={},produkFoto=[]] = t;
  const cats = Array.isArray(kategori) ? kategori : [kategori];
+ const jamWeekday = jam || "09.00–18.00 WIB";
+ const jamWeekend = jam || "09.00–18.00 WIB";
  const waUrl = msg => `https://wa.me/${kontak}?text=${encodeURIComponent(msg)}`;
  const waLink = kontak?waUrl('Halo, saya tertarik dengan '+nama+'. Boleh info lebih lanjut?'):null;
- const status = tenantOpenStatus(jam);
+ const status = tenantOpenStatus(jamWeekday);
  const statusPill = status?`<span class="td-status ${status.isOpen?'is-open':'is-closed'}"><i></i>${status.text}</span>`:"";
  const socials = Object.entries(sosmed).map(([k,v])=>{
   const handle = v.split("/").filter(Boolean).pop();
   return `<a class="td-social" href="https://${v}" target="_blank" rel="noopener"><span class="td-social-icon"><i class="${SOSMED_ICONS[k]||'fa-solid fa-link'}"></i></span><span><b>${SOSMED_NAMES[k]||k}</b><small>${handle.startsWith('@')?handle:'@'+handle}</small></span><i class="fa-solid fa-arrow-up-right-from-square td-social-go"></i></a>`;
+ }).join("");
+ const marketplaces = Object.entries(marketplace).filter(([,url])=>url).map(([k,url])=>{
+  const [label,icon] = MARKETPLACE_META[k]||[k,"fa-solid fa-cart-shopping"];
+  return `<a class="td-marketplace" href="${url}" target="_blank" rel="noopener"><span class="td-marketplace-icon"><i class="${icon}"></i></span><span>${label}</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
  }).join("");
  /* Tenant lain: prioritaskan kategori yang sama, sisanya menyusul */
  const others = tenants.filter(x=>x!==t);
@@ -179,7 +185,7 @@ function tenantDetail(idx){
  <div class="container">
   <div class="td-facts card">
    <div class="td-fact"><span class="td-fact-icon"><i class="fa-solid fa-location-dot"></i></span><div><small>Lokasi</small><b>${lokasi}</b></div></div>
-   <div class="td-fact"><span class="td-fact-icon"><i class="fa-solid fa-clock"></i></span><div><small>Jam Operasional</small><b>${jam}</b></div></div>
+  <div class="td-fact"><span class="td-fact-icon"><i class="fa-solid fa-clock"></i></span><div><small>Jam Operasional</small><b>Weekday & Weekend</b></div></div>
    <div class="td-fact"><span class="td-fact-icon"><i class="fa-solid fa-tag"></i></span><div><small>Kategori</small><b>${cats.join(" · ")}</b></div></div>
    <div class="td-fact"><span class="td-fact-icon"><i class="fa-solid fa-bag-shopping"></i></span><div><small>Produk & Layanan</small><b>${produk.length} Pilihan</b></div></div>
   </div>
@@ -199,10 +205,10 @@ function tenantDetail(idx){
     <div class="kicker">Tentang Tenant</div>
     <h2>Mengenal ${nama}</h2>
     <p class="td-lead">${desc}</p>
-    <p>${nama} berlokasi di <b>${lokasi}</b>, kawasan Ruko Grand Galaxy City, Bekasi Selatan, dan melayani pelanggan setiap hari pada pukul <b>${jam}</b>.</p>
+    <p>${nama} berlokasi di <b>${lokasi}</b>, kawasan Ruko Grand Galaxy City, Bekasi Selatan, dan melayani pelanggan sesuai jadwal berikut.</p>
     <div class="td-highlights">
      <div class="td-hl"><span><i class="fa-solid fa-map-location-dot"></i></span><div><b>Lokasi Strategis</b><small>${lokasi}, kawasan Grand Galaxy City</small></div></div>
-     <div class="td-hl"><span><i class="fa-solid fa-clock"></i></span><div><b>Jam Layanan</b><small>Buka ${jam}</small></div></div>
+    <div class="td-hl"><span><i class="fa-solid fa-clock"></i></span><div><b>Jam Layanan</b><small>Weekday ${jamWeekday}<br>Weekend ${jamWeekend}</small></div></div>
      <div class="td-hl"><span><i class="fa-brands fa-whatsapp"></i></span><div><b>Mudah Dihubungi</b><small>Chat langsung ke admin via WhatsApp</small></div></div>
     </div>
    </div>
@@ -240,9 +246,12 @@ function tenantDetail(idx){
      <button class="btn btn-outline-navy" onclick="shareTenant()"><i class="fa-solid fa-share-nodes"></i> Bagikan Tenant</button>
     </div>
     <div class="td-hours">
-     <div class="td-hours-row"><span><i class="fa-solid fa-clock"></i> Jam Operasional</span><b>${jam}</b></div>
+      <div class="td-hours-title"><i class="fa-solid fa-clock"></i> Jam Operasional</div>
+      <div class="td-hours-row"><span>Weekday</span><b>${jamWeekday}</b></div>
+      <div class="td-hours-row"><span>Weekend</span><b>${jamWeekend}</b></div>
      ${statusPill?`<div class="td-hours-row">${statusPill}</div>`:""}
     </div>
+        ${marketplaces?`<div class="td-marketplaces"><div class="td-side-label">Pesan & Belanja Online</div>${marketplaces}</div>`:""}
     ${socials?`<div class="td-socials"><div class="td-side-label">Ikuti Kami</div>${socials}</div>`:""}
    </div>
   </aside>
