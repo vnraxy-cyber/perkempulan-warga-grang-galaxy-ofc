@@ -159,7 +159,7 @@ const events = [
 
 /* [nama toko, deskripsi, lokasi, kategori, foto, link eksternal (opsional), kontak WA (opsional), jam operasional, produk tersedia, sosial media, link pesan/belanja online (opsional)] */
 const tenants = [
-  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Grand Galaxy City, Jl. Boulevard Raya Blok RGA No.30, Bekasi Selatan ", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "62878000927286", "08.00–20.00 WIB", [
+  ["Haltev.id", "Digital growth & revenue optimization untuk bisnis Anda.", "Grand Galaxy City, Jl. Boulevard Raya Blok RGA No.30, Bekasi Selatan ", ["Pendidikan & Bimbel","Agency Digital Marketing"], "assets/images/real/ruko_haltev.png", "https://haltev.id/digital-growth-revenue-optimation/", "6287800092728", "08.00–20.00 WIB", [
     {nama:"Bootcamp Program", desc:"Program bootcamp intensif terintegrasi AI untuk mempercepat pemahaman, adaptif, persiapan karier hingga penyaluran magang dan kerja."},
     {nama:"Program Kursus Unggulan", desc:"Menyediakan pilihan berbagai kelas dengan kurikulum terintegrasi AI dengan waktu belajar yang fleksibel sesuai pilihan dan passionmu."},
     {nama:"Digitalisasi UMKM", desc:"Pendampingan digitalisasi usaha UMKM, mulai dari branding online, digital marketing, hingga sistem penjualan digital untuk mempercepat pertumbuhan bisnis.", link:"https://haltev.id/digitalisasi-umkm"},
@@ -167,7 +167,7 @@ const tenants = [
     {nama:"Corporate Training", desc:"Pelatihan perusahaan terintegrasi AI untuk pengembangan kompetensi strategis dan peningkatan kinerja tim secara adaptif dan terukur."},
     {nama:"Sertifikasi BNSP & Internasional", desc:"Sertifikasi kompetensi dapat meningkatkan kredibilitas, peluang karier, gaji dan imbalan lainnya, menjaga kualitas kerja."},
     {nama:"Belajar Mandiri (haltevacademy.com)", desc:"Platform pelatihan online yang menyediakan kursus Programming & Digital Skill dengan metode belajar fleksibel: video, live session, atau hybrid."}
-  ], {instagram:"instagram.com/haltev.id", tiktok:"tiktok.com/@haltev.id"}],
+  ], {instagram:"instagram.com/haltev.id", tiktok:"tiktok.com/@haltev.id", linkedin:"https://www.linkedin.com/company/haltev/"}],
   ["Kita Steamboat & Yakiniku", "Steamboat dan yakiniku ala rumahan dengan bahan segar dan bumbu pilihan.", "Jl. Boulevard Raya Blok RGA No. 58-59", "Makanan & Minuman", REAL.tenantKitaSteamboat, null, "6281973949494", "10.00–22.00 WIB", ["Paket Steamboat Keluarga","Aneka Yakiniku","Menu All You Can Eat","Minuman & Dessert"], {instagram:"instagram.com/kitasteamboat", tiktok:"tiktok.com/@kitasteamboat"}],
   ["Outdare", "Brand fashion streetwear lokal dengan desain kasual dan berkualitas.", "Jl. Boulevard Raya Blok RGA No. 58", "Fashion", REAL.tenantOutdare, "https://outdare.id", "6281973949494", "10.00–21.00 WIB", ["Kaos & Hoodie","Jaket Streetwear","Aksesoris Fashion","Koleksi Terbaru"], {instagram:"instagram.com/outdare"}, {shopee:"https://shopee.co.id/outdarebekasi"}],
   ["Sinarasa - Suguhan Nusantara", "Warung makan dengan sajian khas Nusantara untuk santap harian keluarga.", "Jl. Boulevard Raya Blok RGA No. 59", "Makanan & Minuman", REAL.tenantSinarasa, null, "6281973949494", "08.00–20.00 WIB", ["Nasi & Lauk Nusantara","Aneka Lauk Pilihan","Paket Hemat","Menu Kekinian"], {instagram:"instagram.com/sinarasa"}],
