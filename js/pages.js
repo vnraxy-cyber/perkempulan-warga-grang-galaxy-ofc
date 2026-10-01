@@ -30,8 +30,9 @@ function about(){
 }
 
 function kawasan(){
+ tenantCat="Semua";
  return `${hero("Tenant Kawasan","Temukan berbagai tenant dan usaha pilihan di kawasan Ruko Grand Galaxy City, Bekasi Selatan.",REAL.tenant,true)}
- <section class="section"><div class="container"><div class="pills">${tenantCategories.map((c,i)=>`<button class="pill ${i===0?'active':''}" onclick="filterTenants('${c}',this)">${c}</button>`).join("")}</div><div id="tenantGrid" class="tenant-scroll">${tenants.map(tenantCard).join("")}</div><p class="scroll-hint">← Geser untuk melihat tenant lainnya →</p></div></section>
+ <section class="section"><div class="container"><form class="tenant-search" role="search" onsubmit="event.preventDefault();searchTenants()"><i class="fa-solid fa-magnifying-glass"></i><input id="tenantSearch" type="search" placeholder="Cari nama tenant, produk, atau lokasi..." aria-label="Cari tenant" oninput="searchTenants()" autocomplete="off"><button type="submit" class="tenant-search-btn">Cari</button></form><div class="pills">${tenantCategories.map((c,i)=>`<button class="pill ${i===0?'active':''}" onclick="filterTenants('${c}',this)">${c}</button>`).join("")}</div><div id="tenantGrid" class="tenant-scroll">${tenants.map(tenantCard).join("")}</div><p id="tenantEmpty" class="tenant-empty" hidden>Tenant tidak ditemukan. Coba kata kunci atau kategori lain.</p><p class="scroll-hint">← Geser untuk melihat tenant lainnya →</p></div></section>
  <section class="section compact"><div class="container"><div class="section-head"><div><div class="kicker">Peta Kawasan</div><h2>Lokasi Strategis</h2></div><a class="link-btn" href="${MAP_LINK}" target="_blank" rel="noopener">Buka di Google Maps →</a></div>${mapEmbed('Peta Lokasi Grand Galaxy City')}</div></section>`;
 }
 

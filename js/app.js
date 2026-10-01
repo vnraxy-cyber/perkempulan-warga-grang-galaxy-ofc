@@ -29,10 +29,23 @@ function showToast(msg){const t=document.getElementById("toast");t.textContent=m
 function submitContact(e){e.preventDefault();e.target.reset();showToast("Pesan berhasil dikirim. Terima kasih!")}
 function submitLogin(e){e.preventDefault();e.target.reset();showToast("Berhasil masuk. Selamat datang kembali!")}
 function submitRegister(e){e.preventDefault();e.target.reset();showToast("Pendaftaran berhasil. Silakan masuk.");location.hash="#/login"}
+/* Filter tenant: kategori aktif + kata kunci pencarian (nama, deskripsi, alamat, kategori, produk) */
+let tenantCat="Semua";
 function filterTenants(cat,el){
  el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
- const list=cat==="Semua"?tenants:tenants.filter(t=>Array.isArray(t[3])?t[3].includes(cat):t[3]===cat);
+ tenantCat=cat;searchTenants();
+}
+function searchTenants(){
+ const input=document.getElementById("tenantSearch");
+ const q=input?input.value.trim().toLowerCase():"";
+ const list=tenants.filter(t=>{
+  const cats=Array.isArray(t[3])?t[3]:[t[3]];
+  if(tenantCat!=="Semua"&&!cats.includes(tenantCat))return false;
+  if(!q)return true;
+  return [t[0],t[1],t[2],...cats,...(t[8]||[])].join(" ").toLowerCase().includes(q);
+ });
  document.getElementById("tenantGrid").innerHTML=list.map(tenantCard).join("");
+ document.getElementById("tenantEmpty").hidden=list.length>0;
 }
 function filterFacilities(cat,el){
  el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");

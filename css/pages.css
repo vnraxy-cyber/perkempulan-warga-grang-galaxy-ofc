@@ -77,6 +77,15 @@
 .tenant-card p{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px}
 .tenant-loc{font-size:11px;color:var(--navy);font-weight:600}
 .tenant-card-link{display:block;flex:1}
+/* Kotak pencarian tenant */
+.tenant-search{display:flex;align-items:center;gap:10px;max-width:560px;margin:0 auto 18px;padding:6px 6px 6px 18px;background:var(--surface);border:1px solid var(--border);border-radius:30px;box-shadow:var(--shadow);transition:border-color .2s}
+.tenant-search:focus-within{border-color:#c09d5d}
+.tenant-search>i{color:#b69454;font-size:14px}
+.tenant-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--navy);font:inherit;font-size:13px;padding:8px 0}
+.tenant-search input::placeholder{color:var(--muted)}
+.tenant-search-btn{flex:none;border:0;border-radius:24px;padding:10px 20px;background:#263331;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;cursor:pointer}
+.tenant-search-btn:hover{background:#b69454}
+.tenant-empty{text-align:center;font-size:13px;color:var(--muted);padding:40px 0}
 .card-cta-btn{width:calc(100% - 36px);margin:0 18px 18px;display:flex;align-items:center;justify-content:center;gap:8px}
 
 /* Halaman detail tenant */
