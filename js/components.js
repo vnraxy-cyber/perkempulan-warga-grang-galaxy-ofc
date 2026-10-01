@@ -74,6 +74,13 @@ function mapEmbed(title,src=MAP_EMBED){
  return `<div class="map-box map-embed"><iframe src="${src}" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="${title||'Peta Lokasi Grand Galaxy City'}"></iframe></div>`;
 }
 
+/* Peta per tenant: dicari dari nama + alamat tenant; Haltev.id memakai titik peta yang sudah ditentukan */
+function tenantMap(nama, lokasi){
+ if(nama==="Haltev.id") return {embed:HALTEV_MAP_EMBED, link:HALTEV_MAP_LINK};
+ const q = encodeURIComponent(`${nama}, ${lokasi}, Grand Galaxy City, Bekasi`);
+ return {embed:`https://www.google.com/maps?q=${q}&output=embed`, link:`https://www.google.com/maps/search/?api=1&query=${q}`};
+}
+
 function hero(title, subtitle, image=REAL.gate, small=false){
  return `<section class="hero ${small?'small':''}" style="background-image:linear-gradient(90deg,rgba(2,29,48,.78),rgba(2,29,48,.25)),url('${image}')"><div class="container"><div class="hero-content reveal"><div class="eyebrow">GRAND GALAXY CITY</div><h1>${title}</h1><p>${subtitle}</p></div></div></section>`;
 }
@@ -87,8 +94,8 @@ function tenantCard(t){
  return `<div class="tenant-card reveal"><a class="tenant-card-link" href="${href}">${inner}</a><a class="tenant-cta" href="${href}" aria-label="Lihat detail ${nama}"><span>Lihat Detail</span><i class="fa-solid fa-arrow-right"></i></a></div>`;
 }
 
-const SOSMED_ICONS = {instagram:"fa-brands fa-instagram", facebook:"fa-brands fa-facebook", tiktok:"fa-brands fa-tiktok"};
-const SOSMED_NAMES = {instagram:"Instagram", facebook:"Facebook", tiktok:"TikTok"};
+const SOSMED_ICONS = {instagram:"fa-brands fa-instagram", facebook:"fa-brands fa-facebook", tiktok:"fa-brands fa-tiktok", linkedin:"fa-brands fa-linkedin"};
+const SOSMED_NAMES = {instagram:"Instagram", facebook:"Facebook", tiktok:"TikTok", linkedin:"LinkedIn"};
 
 /* Ikon produk dipilih dari kata kunci nama produk/layanan */
 const PRODUK_ICONS = [
@@ -133,13 +140,15 @@ function tenantDetail(idx){
  if(!t) return notFound();
  const [nama,desc,lokasi,kategori,foto,link,kontak,jam,produk=[],sosmed={},marketplace={},produkFoto=[]] = t;
  const cats = Array.isArray(kategori) ? kategori : [kategori];
+ const peta = tenantMap(nama, lokasi);
  const jamWeekday = jam || "09.00–18.00 WIB";
  const jamWeekend = jam || "09.00–18.00 WIB";
  const waUrl = msg => `https://wa.me/${kontak}?text=${encodeURIComponent(msg)}`;
  const waLink = kontak?waUrl('Halo, saya tertarik dengan '+nama+'. Boleh info lebih lanjut?'):null;
  const status = tenantOpenStatus(jamWeekday);
  const statusPill = status?`<span class="td-status ${status.isOpen?'is-open':'is-closed'}"><i></i>${status.text}</span>`:"";
- const socials = Object.entries(sosmed).map(([k,v])=>{
+ /* Satu platform bisa punya beberapa akun: tulis sebagai array, mis. instagram:["...","..."] */
+ const socials = Object.entries(sosmed).flatMap(([k,v])=>[].concat(v).map(v=>[k,v])).map(([k,v])=>{
   const handle = v.split("/").filter(Boolean).pop();
   return `<a class="td-social" href="https://${v}" target="_blank" rel="noopener"><span class="td-social-icon"><i class="${SOSMED_ICONS[k]||'fa-solid fa-link'}"></i></span><span><b>${SOSMED_NAMES[k]||k}</b><small>${handle.startsWith('@')?handle:'@'+handle}</small></span><i class="fa-solid fa-arrow-up-right-from-square td-social-go"></i></a>`;
  }).join("");
@@ -236,8 +245,8 @@ function tenantDetail(idx){
    </div>
 
    <div class="td-panel td-panel-map reveal" id="td-lokasi">
-    <div class="section-head"><div><div class="kicker">Lokasi</div><h2>Peta Lokasi</h2></div><a class="link-btn" href="${HALTEV_MAP_LINK}" target="_blank" rel="noopener">Buka di Google Maps →</a></div>
-    ${mapEmbed('Lokasi '+nama, HALTEV_MAP_EMBED)}
+    <div class="section-head"><div><div class="kicker">Lokasi</div><h2>Peta Lokasi</h2></div><a class="link-btn" href="${peta.link}" target="_blank" rel="noopener">Buka di Google Maps →</a></div>
+    ${mapEmbed('Lokasi '+nama, peta.embed)}
     <p class="td-address"><i class="fa-solid fa-location-dot"></i> ${lokasi}, Grand Galaxy City, Bekasi Selatan</p>
    </div>
   </div>
@@ -270,7 +279,7 @@ function tenantDetail(idx){
    <div><div class="kicker">Kunjungi Kami</div><h2>Siap berkunjung ke ${nama}?</h2><p>Hubungi admin untuk info produk, harga, dan jadwal kunjungan. Kami siap membantu.</p></div>
    <div class="td-cta-actions">
     ${waLink?`<a class="btn btn-primary" href="${waLink}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>`:""}
-    <a class="btn btn-outline" href="${HALTEV_MAP_LINK}" target="_blank" rel="noopener"><i class="fa-solid fa-route"></i> Petunjuk Arah</a>
+    <a class="btn btn-outline" href="${peta.link}" target="_blank" rel="noopener"><i class="fa-solid fa-route"></i> Petunjuk Arah</a>
    </div>
   </div>
  </div></section>
