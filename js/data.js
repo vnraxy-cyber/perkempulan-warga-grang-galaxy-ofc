@@ -112,14 +112,14 @@ const facilities = [
   ["fa-solid fa-truck-medical","Klinik 24 Jam","Layanan kesehatan darurat siap sedia setiap saat.", IMG.modern, "Kesehatan"]
 ];
 
-/* [brand/tenant, nama promo, foto poster] — kartu mengikuti rasio foto poster */
+/* [brand, nama promo, foto poster, nama tenant tujuan saat diklik] — kartu mengikuti rasio foto poster */
 const promos = [
-  ["D'crepes","Serdadu Serba 20 Ribu", REAL.promo1],
-  ["Ta Wan","Jadikan Momen Berarti — Hanya 99 Ribu", REAL.promo2],
-  ["Pepper Lunch","Buy 2 Get 2", REAL.promo3],
-  ["National Nori Taco Day","Buy 2 Get 1 Free", REAL.promo4],
-  ["D'Cost Xpress","Murah Banget Gaes", REAL.promo5],
-  ["Ua Li","Dealsember", REAL.promo6]
+  ["D'crepes","Serdadu Serba 20 Ribu", REAL.promo1, "Prizy Eatery"],
+  ["Ta Wan","Jadikan Momen Berarti — Hanya 99 Ribu", REAL.promo2, "Mie Ayam Bangka Chandra"],
+  ["Pepper Lunch","Buy 2 Get 2", REAL.promo3, "Kita Steamboat & Yakiniku"],
+  ["National Nori Taco Day","Buy 2 Get 1 Free", REAL.promo4, "Sanset Music Store, Studio & Cafe"],
+  ["D'Cost Xpress","Murah Banget Gaes", REAL.promo5, "Sinarasa - Suguhan Nusantara"],
+  ["Ua Li","Dealsember", REAL.promo6, "Mie Ayam Bangka Chandra"]
 ];
 
 /* [judul, sumber, foto, link ke artikel asli (null jika dokumentasi internal), kategori pill: "Berita"/"Promo"/"Event"] */

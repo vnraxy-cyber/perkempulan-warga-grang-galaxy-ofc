@@ -32,10 +32,14 @@ function footer(){
  </div></footer>`;
 }
 
-function promoBox([eyebrow,title,img],i){
+function promoBox([eyebrow,title,img,tenantName],i){
+ const idx = tenants.findIndex(t=>t[0]===tenantName);
+ const href = idx>=0 ? `#/tenant/${idx}` : "#/kawasan";
  return `<article class="promo-slide" data-index="${i}">
-  <img class="promo-img" src="${img}" alt="Poster promo ${title} — ${eyebrow}" loading="lazy">
-  <div class="promo-box-content"><span class="promo-eyebrow">${eyebrow}</span><h3>${title}</h3></div>
+  <a class="promo-link" href="${href}" aria-label="${title} — lihat ${idx>=0?tenantName:"halaman Tenant"}">
+   <img class="promo-img" src="${img}" alt="Poster promo ${title} — ${eyebrow}" loading="lazy">
+   <div class="promo-box-content"><span class="promo-eyebrow">${eyebrow}</span><h3>${title}</h3></div>
+  </a>
  </article>`;
 }
 function promoBoxes(){
