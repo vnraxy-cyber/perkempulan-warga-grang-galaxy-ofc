@@ -104,7 +104,7 @@ linear-gradient(115deg,transparent 38%,rgba(255,255,255,.65) 39%,rgba(255,255,25
 .dark-band .section-head h2,.dark-band h2{color:#fff}
 .dark-band p{color:#b9cbd6}
 
-.cta{background:linear-gradient(90deg,rgba(4,39,63,.85),rgba(4,39,63,.5)),url("../assets/images/real/09_danau_grand_galaxy.jpg") center/cover;border-radius:var(--radius-lg);padding:52px;color:#fff}
+.cta{background:linear-gradient(90deg,rgba(4,39,63,.85),rgba(4,39,63,.5)),url("../assets/images/real/09_danau_grand_galaxy.webp") center/cover;border-radius:var(--radius-lg);padding:52px;color:#fff}
 .cta h2{font-family:"Cormorant Garamond",serif;margin:0 0 8px;font-size:38px}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}

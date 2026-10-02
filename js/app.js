@@ -87,7 +87,7 @@ function sortEvents(order,el){
  eventSortOrder=order;
  document.getElementById("eventGrid").innerHTML=sortEventsList(events,eventSortOrder).map(eventRow).join("");
 }
-/* Carousel promo: slide aktif di tengah, parallax foto, autoplay, swipe/drag/panah/dots */
+/* Carousel promo: slide aktif di tengah, autoplay, swipe/drag/panah/dots */
 let promoDrag=null,promoDragEnd=0,promoHold=0,promoHover=false;
 const promoSlides=t=>[...t.querySelectorAll(".promo-slide")];
 const promoActive=t=>Math.max(0,promoSlides(t).findIndex(s=>s.classList.contains("is-active")));
@@ -108,7 +108,6 @@ function promoSync(t){
  let best=0,bd=Infinity;
  s.forEach((el,i)=>{
   const d=el.offsetLeft+el.offsetWidth/2-mid;
-  el.style.setProperty("--p",Math.max(-1.5,Math.min(1.5,d/el.offsetWidth)).toFixed(3));
   if(Math.abs(d)<bd){bd=Math.abs(d);best=i}
  });
  s.forEach((el,i)=>el.classList.toggle("is-active",i===best));

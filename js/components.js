@@ -32,18 +32,16 @@ function footer(){
  </div></footer>`;
 }
 
-function promoBox([eyebrow,title,desc,btnText,href,img],i){
+function promoBox([eyebrow,title,img],i){
  return `<article class="promo-slide" data-index="${i}">
-  <div class="promo-bg" style="background-image:url('${img}')"></div>
-  <div class="promo-shade"></div>
-  <span class="promo-num">${String(i+1).padStart(2,"0")}</span>
-  <div class="promo-box-content"><span class="promo-eyebrow">${eyebrow}</span><h3>${title}</h3><p class="promo-desc">${desc}</p><a class="btn btn-primary promo-box-btn" href="${href}">${btnText} <i class="fa-solid fa-arrow-right"></i></a></div>
+  <img class="promo-img" src="${img}" alt="Poster promo ${title} — ${eyebrow}" loading="lazy">
+  <div class="promo-box-content"><span class="promo-eyebrow">${eyebrow}</span><h3>${title}</h3></div>
  </article>`;
 }
 function promoBoxes(){
  return `<div class="promo-carousel">
   <div class="promo-head">
-   <div><div class="promo-kicker"><i class="fa-solid fa-gift"></i> Promo & Penawaran</div><h2>Penawaran Spesial Untuk Anda</h2><p>Promo, event, dan penawaran pilihan dari kawasan Grand Galaxy City. Geser untuk melihat semuanya.</p></div>
+   <div><div class="promo-kicker"><i class="fa-solid fa-gift"></i> Promo & Penawaran</div><h2>Promo</h2><p>Promo, event, dan penawaran pilihan dari kawasan Grand Galaxy City. Geser untuk melihat semuanya.</p></div>
    <div class="promo-ctrl"><span class="promo-count"><b>01</b> / ${String(promos.length).padStart(2,"0")}</span>
     <div class="promo-arrows"><button class="promo-arrow" onclick="promoScroll(this,-1)" aria-label="Promo sebelumnya"><i class="fa-solid fa-chevron-left"></i></button><button class="promo-arrow" onclick="promoScroll(this,1)" aria-label="Promo berikutnya"><i class="fa-solid fa-chevron-right"></i></button></div>
    </div>
