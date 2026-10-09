@@ -4,19 +4,17 @@ function nav(){
     <a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img logo-on-light" src="${LOGO}" alt="Perkumpulan Warga Ruko Grand Galaxy City"><img class="logo-img logo-on-dark" src="${LOGO_LIGHT}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a>
     <nav class="nav-links" id="navLinks">
       ${[
-        ["Beranda","#/"],["Tentang","#/tentang"],["Tenant","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"],
-        ["Tips","#/tips"],["Galeri","#/galeri"],["Berita","#/berita"],["Event","#/event"],["Kontak","#/kontak"]
+        ["Beranda","#/"],["Tenant","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"],
+        ["Update","#/update"],["Merch","#/merch"],["Kontak","#/kontak"]
       ].map(([x,y])=>`<a href="${y}" data-route="${y}">${x}</a>`).join("")}
       <div class="nav-links-auth"><a href="#/login" data-route="#/login">Masuk / Daftar</a></div>
     </nav>
     <div class="nav-utility">
-      <div class="nav-auth-group">
-        <a class="nav-auth-desktop" href="#/login">Masuk</a>
-      </div>
+      <a class="nav-auth-desktop" href="#/login"><i class="fa-regular fa-user"></i> Masuk</a>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Ganti mode terang/gelap"><i class="fa-solid fa-moon"></i></button>
-      <button class="menu" onclick="toggleMenu()">☰</button>
+      <a class="nav-cta" href="#/kawasan">Jelajahi Tenant</a>
+      <button class="menu" onclick="toggleMenu()" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
     </div>
-    <a class="nav-cta" href="#/kawasan">Jelajahi Tenant</a>
   </div></header>`;
 }
 
@@ -24,8 +22,8 @@ function footer(){
  return `<footer class="footer"><div class="container">
   <div class="footer-grid">
   <div><a class="logo" href="#/" aria-label="Grand Galaxy City"><img class="logo-img" src="${LOGO_LIGHT}" alt="Perkumpulan Warga Ruko Grand Galaxy City"></a><p>Hunian modern, fasilitas lengkap, dan lingkungan yang dirancang untuk kehidupan keluarga yang lebih nyaman.</p></div>
-   <div><h3>Menu</h3><a href="#/tentang">Tentang Kami</a><a href="#/kawasan">Kawasan</a><a href="#/sewa-jual">Sewa & Jual</a><a href="#/fasilitas">Fasilitas</a><a href="#/galeri">Galeri</a></div>
-   <div><h3>Informasi</h3><a href="#/berita">Berita & Promo</a><a href="#/event">Event</a><a href="#/tips">Tips Hunian</a><a href="#/kontak">Kontak</a><a href="#/struktur">Struktur Situs</a></div>
+   <div><h3>Menu</h3><a href="#/kawasan">Kawasan</a><a href="#/sewa-jual">Sewa & Jual</a><a href="#/fasilitas">Fasilitas</a><a href="#/merch">Merchandise</a></div>
+   <div><h3>Informasi</h3><a href="#/update">Update</a><a href="#/kontak">Kontak</a><a href="#/struktur">Struktur Situs</a></div>
    <div><h3>Hubungi Kami</h3><p>Grand Galaxy City, Bekasi Selatan<br>Jawa Barat, Indonesia</p><p>021 1234 5678<br>info@grandgalaxycity.id</p></div>
   </div>
   <div class="footer-bottom"><span>© 2026 Grand Galaxy City. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
@@ -57,10 +55,6 @@ function promoBoxes(){
 
 function iconBox(icon){
  return icon.startsWith("assets/")?`<span class="facility-icon-img" style="-webkit-mask-image:url('${icon}');mask-image:url('${icon}')"></span>`:`<i class="${icon}"></i>`;
-}
-
-function galleryItem([img],i){
- return `<div class="g zoom ${i===0?'tall':''}" style="background-image:url('${img}')"></div>`;
 }
 
 function facilityTile(f){

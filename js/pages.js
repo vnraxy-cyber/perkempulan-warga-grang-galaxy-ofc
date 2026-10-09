@@ -13,20 +13,8 @@ function home(){
  </div></section>
  <section class="section compact"><div class="container"><div class="cta"><div class="kicker">Temukan Tenant</div><h2>Temukan Tenant Pilihan Anda<br>di Grand Galaxy City</h2><p>Pilih tenant yang sesuai dengan kebutuhan bisnis dan gaya hidup Anda.</p><div class="actions"><a class="btn btn-primary" href="#/kawasan">Jelajahi Kawasan</a><a class="btn btn-outline" href="#/kontak">Hubungi Kami</a></div></div></div></section>
  <section class="section area-section"><div class="container"><div class="section-head"><div><div class="kicker">Kawasan Kami</div><h2>Semua yang Anda Butuhkan</h2></div><a class="link-btn" href="#/kawasan">Lihat detail →</a></div><div class="area-grid">${mapEmbed('Peta Grand Galaxy City')}<div class="area-gallery">${facilities.slice(0,4).map(facilityTile).join("")}</div></div></div></section>
- <section class="section compact"><div class="container"><div class="section-head"><div><div class="kicker">Galeri</div><h2>Suasana Grand Galaxy City</h2></div><a class="link-btn" href="#/galeri">Lihat semua →</a></div><div class="gallery">${[REAL.gate,REAL.clusterStreet,REAL.taman,REAL.mallEntrance,REAL.danau].map((x,i)=>`<div class="g ${i===0?'tall':''}" style="background-image:url('${x}')"></div>`).join("")}</div></div></section>
- <section class="section info-section"><div class="container"><div class="info-grid"><div class="info-col"><div class="section-head"><div><div class="kicker">Berita & Promo</div><h2>Info Terbaru</h2></div></div><div class="news-list">${news.slice(0,2).map(n=>newsRow(n)).join("")}</div></div><div class="info-col"><div class="section-head"><div><div class="kicker">Event Terdekat</div><h2>Festival Kawasan</h2></div></div><div class="event-list">${events.slice(0,3).map(eventRow).join("")}</div></div></div></div></section>
+ <section class="section info-section"><div class="container"><div class="info-grid"><div class="info-col"><div class="section-head"><div><div class="kicker">Berita & Promo</div><h2>Info Terbaru</h2></div><a class="link-btn" href="#/update">Lihat semua →</a></div><div class="news-list">${news.slice(0,2).map(n=>newsRow(n)).join("")}</div></div><div class="info-col"><div class="section-head"><div><div class="kicker">Event Terdekat</div><h2>Festival Kawasan</h2></div><a class="link-btn" href="#/update">Lihat semua →</a></div><div class="event-list">${events.slice(0,3).map(eventRow).join("")}</div></div></div></div></section>
  </main>`;
-}
-
-function about(){
- return `${hero("Tentang Kami","Mengenal Grand Galaxy City lebih dekat — kawasan yang dirancang untuk menghadirkan kehidupan modern dan nyaman.",REAL.tentangKami,true)}
- <div class="container"><div class="stats about-stats-float">${[["500+ Ha","Total Kawasan"],["50+","Tenant Usaha"],["20+","Titik Fasilitas"],["10K+","Keluarga Bergabung"]].map(([a,b],i)=>`<div class="stat-card card reveal" style="animation-delay:${i*80}ms"><span class="stat-value">${a}</span><span class="stat-label">${b}</span></div>`).join("")}</div></div>
- <section class="section"><div class="container"><div class="grid-2"><div class="copy reveal"><div class="kicker"><span class="kicker-rule"></span>Sejarah Grand Galaxy City</div><h2>Ruang Hidup yang Tumbuh Bersama Keluarga</h2><div class="copy-accent"><p>Grand Galaxy City merupakan kawasan terpadu di Bekasi Selatan yang menggabungkan hunian, ruang komersial, fasilitas pendidikan, rekreasi, dan ruang terbuka hijau.</p><p>Dengan perencanaan kawasan yang matang, setiap area dirancang agar aktivitas sehari-hari menjadi lebih mudah dan menyenangkan.</p></div><a class="link-btn about-link" href="#/kawasan">Jelajahi Kawasan Kami →</a></div><div class="collage reveal" style="animation-delay:120ms"><div class="collage-a" style="background-image:url('${REAL.gate}')"></div><div class="collage-b" style="background-image:url('${REAL.clusterExterior}')"></div><div class="collage-c" style="background-image:url('${REAL.taman}')"></div><div class="collage-badge"><strong>2016</strong><span>Sejak Berdiri</span></div></div></div></div></section>
- <section class="section compact quote-band"><div class="container"><blockquote class="pull-quote reveal">Grand Galaxy City dibangun bukan sekadar sebagai tempat tinggal, melainkan ruang tumbuh bagi setiap keluarga yang memilihnya.<cite>Pengelola Kawasan Grand Galaxy City</cite></blockquote></div></section>
- <section class="section compact dark-band"><div class="container"><div class="section-head"><div><div class="kicker"><span class="kicker-rule"></span>Perjalanan Kami</div><h2>Tumbuh Bersama Bekasi Selatan</h2></div></div><div class="timeline">${[["2016","Peletakan Batu Pertama","Grand Galaxy City mulai dibangun sebagai kawasan hunian terpadu."],["2019","Fasilitas Utama Rampung","Grand Galaxy Mall dan area komersial resmi beroperasi."],["2022","Ekspansi Kawasan","Penambahan area ruko dan tenant usaha baru dengan konsep modern."],["2026","Kawasan Matang","Ribuan keluarga menetap dengan fasilitas lengkap dan lingkungan asri."]].map(([y,t,d],i)=>`<div class="timeline-item reveal" style="animation-delay:${i*100}ms"><div class="timeline-year">${y}</div><h3>${t}</h3><p>${d}</p></div>`).join("")}</div></div></section>
- <section class="section compact"><div class="container"><div class="section-head"><div><div class="kicker"><span class="kicker-rule"></span>Fondasi Kami</div><h2>Visi, Misi & Nilai</h2></div></div><div class="manifesto">${[["01","assets/icon/visi.webp","Visi Kami","Membangun lingkungan hidup yang nyaman dan berkelanjutan."],["02","assets/icon/mission.webp","Misi Kami","Menghadirkan hunian dan fasilitas yang mendukung kualitas hidup."],["03","assets/icon/profit.webp","Nilai Kami","Kenyamanan, keamanan, kebersamaan, dan pertumbuhan."]].map(([num,icon,a,b],idx)=>`<div class="manifesto-item reveal" data-num="${num}" style="animation-delay:${idx*100}ms"><span class="manifesto-num">${num}</span><span class="manifesto-icon">${iconBox(icon)}</span><h3>${a}</h3><p>${b}</p></div>`).join("")}</div></div></section>
- <section class="section dark-band"><div class="container"><div class="section-head"><div><div class="kicker"><span class="kicker-rule"></span>Komitmen Kami</div><h2>Kawasan untuk Hidup Lebih Baik</h2></div></div><div class="commitment-list">${[["assets/icon/climate.webp","Lingkungan Asri","Ruang hijau dan udara segar yang terjaga di setiap sudut kawasan."],["fa-solid fa-shield-halved","Keamanan Terintegrasi","Sistem keamanan 24 jam dengan CCTV dan petugas berpengalaman."],["assets/icon/rest-area.webp","Fasilitas Lengkap","Beragam fasilitas modern yang mendukung aktivitas sehari-hari."],["assets/icon/growth.webp","Pertumbuhan Berkelanjutan","Pengembangan kawasan yang terus meningkatkan nilai investasi."]].map(([i,a,b],idx)=>`<div class="commitment-row reveal" data-num="${String(idx+1).padStart(2,"0")}" style="animation-delay:${idx*80}ms"><span class="commitment-index">${String(idx+1).padStart(2,"0")}</span><span class="commitment-icon">${iconBox(i)}</span><div class="commitment-text"><h3>${a}</h3><p>${b}</p></div><i class="fa-solid fa-arrow-right commitment-arrow"></i></div>`).join("")}</div></div></section>
- <section class="section compact"><div class="container"><div class="cta reveal"><h2>Bersama Membangun Masa Depan</h2><p>Temukan alasan mengapa banyak keluarga memilih Grand Galaxy City.</p><a class="btn btn-primary" href="#/kawasan">Jelajahi Kawasan</a></div></div></section>`;
 }
 
 function kawasan(){
@@ -44,40 +32,56 @@ function fasilitas(){
  </div></section>`;
 }
 
-function tipsPage(){
- const [first,...rest]=tips;
- return `${hero("Tips & Informasi Hunian","Panduan dan informasi bermanfaat seputar rumah, kawasan, dan gaya hidup keluarga.",REAL.tips,true)}
- <section class="section"><div class="container">
-  <a class="tip-featured" href="#/artikel" style="background-image:linear-gradient(90deg,rgba(19,28,27,.86),rgba(19,28,27,.18)),url('${first[2]}')"><span class="tip-tag">${first[3]}</span><h2>${first[0]}</h2><p>${first[1]}</p><span class="link-btn" style="color:#fff">Baca Selengkapnya →</span></a>
-  <div class="grid-3 tip-grid">${rest.map(t=>`<a class="card image-card tip-card" href="#/artikel"><div class="pic" style="background-image:url('${t[2]}')"><span class="tip-tag tip-tag-card">${t[3]}</span></div><div class="body"><h3>${t[0]}</h3><p>${t[1]}</p><span class="link-btn">Baca Selengkapnya →</span></div></a>`).join("")}</div>
- </div></section>`;
-}
-
-function galleryPage(){
- return `${hero("Galeri","Lihat berbagai suasana hunian, fasilitas, ruang hijau, dan aktivitas di Grand Galaxy City.",REAL.gate,true)}
- <section class="section"><div class="container"><div class="pills">${galleryCategories.map((c,i)=>`<button class="pill ${i===0?'active':''}" onclick="filterGallery('${c}',this)">${c}</button>`).join("")}</div><div id="galleryGrid" class="gallery">${galleryImages.map(galleryItem).join("")}</div></div></section>`;
-}
-
-function berita(){
- if(typeof newsCat!=="undefined"){newsCat="Semua";newsSortOrder="terbaru";}
+function updatePage(){
+ newsCat="Semua";newsSortOrder="terbaru";eventSortOrder="terbaru";
  const [first,...rest]=sortNewsList(news,"terbaru");
- return `${hero("Berita & Promo","Informasi terbaru mengenai Grand Galaxy City, promo hunian, fasilitas, dan aktivitas kawasan.",REAL.danau,true)}
+ return `${hero("Update","Berita, promo, dan event terbaru seputar kawasan Grand Galaxy City dalam satu tempat.",REAL.danau,true)}
  <section class="section"><div class="container">
+ <div class="section-head"><div><div class="kicker">Berita & Promo</div><h2>Kabar Terbaru</h2></div></div>
  <div class="berita-controls">
-  <div class="pills"><button class="pill active" onclick="filterNews('Semua',this)">Semua</button><button class="pill" onclick="filterNews('Berita',this)">Berita</button><button class="pill" onclick="filterNews('Promo',this)">Promo</button><button class="pill" onclick="filterNews('Event',this)">Event</button><button class="pill" onclick="filterNews('Jasa',this)">Jasa</button></div>
+  <div class="pills"><button class="pill active" onclick="filterNews('Semua',this)">Semua</button><button class="pill" onclick="filterNews('Berita',this)">Berita</button><button class="pill" onclick="filterNews('Promo',this)">Promo</button><button class="pill" onclick="filterNews('Event',this)">Kegiatan Warga</button><button class="pill" onclick="filterNews('Jasa',this)">Jasa</button></div>
   <div class="sort-toggle"><span class="sort-label">Urutkan</span><button class="sort-btn active" onclick="sortNews('terbaru',this)"><i class="fa-solid fa-arrow-down-wide-short"></i> Terbaru</button><button class="sort-btn" onclick="sortNews('terlama',this)"><i class="fa-solid fa-arrow-up-wide-short"></i> Terlama</button></div>
  </div>
  ${newsFeaturedHTML(first)}
- <div id="newsGrid" class="news-list">${rest.map(n=>newsRow(n)).join("")}</div></div></section>`;
+ <div id="newsGrid" class="news-list">${rest.map(n=>newsRow(n)).join("")}</div></div></section>
+ <section class="section compact"><div class="container">
+ <div class="section-head"><div><div class="kicker">Event Terdekat</div><h2>Agenda Kawasan</h2></div>
+ <div class="sort-toggle event-sort"><span class="sort-label">Urutkan</span><button class="sort-btn active" onclick="sortEvents('terbaru',this)"><i class="fa-solid fa-arrow-down-wide-short"></i> Terbaru</button><button class="sort-btn" onclick="sortEvents('terlama',this)"><i class="fa-solid fa-arrow-up-wide-short"></i> Terlama</button></div></div>
+ <div id="eventGrid" class="event-list">${sortEventsList(events,"terbaru").map(eventRow).join("")}</div></div></section>`;
 }
 
-function eventPage(){
- if(typeof eventSortOrder!=="undefined"){eventSortOrder="terbaru";}
- const sorted = sortEventsList(events,"terbaru");
- return `${hero("Event Terdekat","Jangan lewatkan berbagai aktivitas, festival, dan kegiatan keluarga di Grand Galaxy City.",REAL.event,true)}
- <section class="section"><div class="container">
- <div class="sort-toggle event-sort"><span class="sort-label">Urutkan</span><button class="sort-btn active" onclick="sortEvents('terbaru',this)"><i class="fa-solid fa-arrow-down-wide-short"></i> Terbaru</button><button class="sort-btn" onclick="sortEvents('terlama',this)"><i class="fa-solid fa-arrow-up-wide-short"></i> Terlama</button></div>
- <div id="eventGrid" class="event-list">${sorted.map(eventRow).join("")}</div></div></section>`;
+function merchPage(){
+ const m=merchProduct;
+ merchSize="";merchQty=1;
+ return `${hero("Merchandise","Seluruh keuntungan penjualan akan masuk ke kas perkumpulan.",REAL.tenant,true)}
+ <section class="section"><div class="container"><div class="merch-product">
+  <div class="merch-gallery">
+   <div class="merch-main"><img id="merchMain" src="${m.foto[0][0]}" alt="${m.nama} — ${m.foto[0][1]}"></div>
+   <div class="merch-thumbs">${m.foto.map(([src,label],i)=>`<button class="merch-thumb ${i===0?'active':''}" onclick="merchPhoto(${i},this)" aria-label="Lihat foto ${label}"><img src="${src}" alt="" loading="lazy"><span>${label}</span></button>`).join("")}</div>
+  </div>
+  <div class="merch-detail">
+   <div class="kicker">Merchandise Resmi</div>
+   <h2>${m.nama}</h2>
+   <div class="merch-price">${m.harga}</div>
+   <p class="merch-lead">${m.desc}</p>
+   <ul class="merch-features">${m.fitur.map(f=>`<li><i class="fa-solid fa-check"></i> ${f}</li>`).join("")}</ul>
+   <div class="merch-opt"><div class="merch-opt-label">Warna <b>${m.warna}</b></div><span class="merch-swatch" style="background:${m.warnaHex}" title="${m.warna}"></span></div>
+   <div class="merch-opt"><div class="merch-opt-label">Ukuran <b id="merchSizeLabel">Pilih ukuran</b><a href="#merchSizeChart" onclick="event.preventDefault();document.getElementById('merchSizeChart').scrollIntoView({behavior:'smooth',block:'center'})">Panduan ukuran</a></div>
+    <div class="merch-sizes">${m.ukuran.map(u=>`<button class="merch-size" onclick="merchPickSize('${u}',this)">${u}</button>`).join("")}</div>
+   </div>
+   <div class="merch-opt"><div class="merch-opt-label">Jumlah</div>
+    <div class="merch-qty"><button onclick="merchStep(-1)" aria-label="Kurangi jumlah"><i class="fa-solid fa-minus"></i></button><span id="merchQty">1</span><button onclick="merchStep(1)" aria-label="Tambah jumlah"><i class="fa-solid fa-plus"></i></button></div>
+   </div>
+   <button class="btn btn-primary merch-buy" onclick="orderMerch()"><i class="fa-brands fa-whatsapp"></i> Pesan Sekarang via WhatsApp</button>
+   <p class="merch-hint"><i class="fa-solid fa-circle-info"></i> Pesanan dikirim ke WhatsApp admin perkumpulan (+${MERCH_WA}) untuk konfirmasi stok dan pembayaran.</p>
+  </div>
+ </div></div></section>
+ <section class="section compact"><div class="container"><div class="grid-2 merch-info">
+  <div class="card merch-panel"><div class="kicker">Cara Pemesanan</div><h2>Pesan dalam 4 Langkah</h2><ol class="merch-steps">${[["Pilih ukuran & jumlah","Cek panduan ukuran agar polo pas di badan."],["Klik Pesan Sekarang","WhatsApp terbuka otomatis dengan detail pesanan Anda."],["Konfirmasi dengan admin","Admin akan mengonfirmasi ketersediaan stok dan cara pembayaran."],["Terima pesanan","Atur pengambilan atau pengiriman langsung dengan admin."]].map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join("")}</ol></div>
+  <div class="card merch-panel" id="merchSizeChart"><div class="kicker">Panduan Ukuran</div><h2>T-Shirt & Polo Shirt</h2><div class="merch-table-wrap"><table class="merch-table"><thead><tr><th>Ukuran</th><th>Panjang Badan</th><th>Lebar Dada</th><th>Panjang Lengan</th></tr></thead><tbody>${[["S","63","45","19"],["M","64","48","20"],["L","69","52","21"],["XL","70","55","22"],["XXL (2XL)","74","58","23"],["XXXL (3XL)","77","61","24"],["XXXXL (4XL)","78","63","25"]].map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div><p class="merch-note">Ukuran dalam cm, toleransi 1–2 cm.</p></div>
+ </div></div></section>
+ <section class="section compact"><div class="container"><div class="section-head"><div><div class="kicker">FAQ</div><h2>Pertanyaan Umum</h2></div></div><div class="merch-faq">${[["Apakah bisa pesan dalam jumlah banyak?","Bisa. Untuk pemesanan kolektif (komunitas, acara, atau kantor), sampaikan jumlah dan ukurannya ke admin melalui WhatsApp."],["Berapa lama proses pesanan?","Admin akan menginformasikan ketersediaan stok dan estimasi waktu saat mengonfirmasi pesanan Anda."],["Bagaimana cara pembayarannya?","Metode pembayaran akan diinformasikan oleh admin saat konfirmasi pesanan."],["Apakah bisa dikirim?","Bisa diambil langsung atau dikirim. Detail pengiriman dan ongkos kirim diatur bersama admin."]].map(([q,a])=>`<details class="merch-q"><summary>${q}<i class="fa-solid fa-chevron-down"></i></summary><p>${a}</p></details>`).join("")}</div></div></section>
+ <section class="section compact"><div class="container"><div class="cta"><div class="kicker">Ada Pertanyaan?</div><h2>Tanya Soal Merchandise</h2><p>Admin kami siap membantu soal stok, ukuran, dan pemesanan kolektif.</p><div class="actions"><a class="btn btn-primary" href="https://wa.me/${MERCH_WA}?text=${encodeURIComponent("Halo Admin, saya ingin bertanya tentang merchandise Perkumpulan Warga Ruko Grand Galaxy City.")}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Chat Admin</a><a class="btn btn-outline" href="#/kontak">Hubungi Kami</a></div></div></div></section>`;
 }
 
 function contact(){
@@ -126,18 +130,13 @@ function registerPage(){
 
 function struktur(){
  const groups=[
-  ["Halaman Utama",[["Beranda","#/"],["Tentang Kami","#/tentang"],["Kawasan","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"]]],
-  ["Informasi",[["Tips Hunian","#/tips"],["Galeri","#/galeri"],["Berita & Promo","#/berita"],["Event","#/event"]]],
+  ["Halaman Utama",[["Beranda","#/"],["Kawasan","#/kawasan"],["Sewa & Jual","#/sewa-jual"],["Fasilitas","#/fasilitas"],["Merchandise","#/merch"]]],
+  ["Informasi",[["Update (Berita, Promo & Event)","#/update"]]],
   ["Akun",[["Masuk","#/login"],["Daftar","#/register"]]],
   ["Lainnya",[["Kontak","#/kontak"],["Struktur Situs","#/struktur"]]]
  ];
  return `${hero("Struktur Situs","Peta seluruh halaman yang tersedia di website Grand Galaxy City.",REAL.jalanKawasan,true)}
  <section class="section"><div class="container"><div class="grid-2">${groups.map(([g,links])=>`<div class="card sitemap-group"><h3>${g}</h3><ul>${links.map(([t,h])=>`<li><a href="${h}">${t}</a></li>`).join("")}</ul></div>`).join("")}</div></div></section>`;
-}
-
-function article(){
- return `${hero("Tips Memilih Hunian untuk Keluarga","Panduan singkat agar proses memilih rumah menjadi lebih terarah.",REAL.tips,true)}
- <section class="section"><div class="container article"><div class="breadcrumb">Beranda › Tips › Artikel</div><h2>Mulai dari Kebutuhan, Bukan Sekadar Tampilan</h2><p>Memilih rumah adalah keputusan penting. Tentukan lebih dahulu kebutuhan keluarga, jumlah ruang, aktivitas harian, dan akses yang paling sering digunakan.</p><p>Selanjutnya, perhatikan lingkungan sekitar. Kedekatan dengan sekolah, pusat belanja, ruang terbuka, fasilitas kesehatan, dan akses transportasi dapat membuat rutinitas menjadi jauh lebih praktis.</p><p>Terakhir, bandingkan beberapa pilihan berdasarkan luas, desain, fasilitas, dan rencana keuangan. Dengan begitu, rumah yang dipilih bukan hanya terlihat menarik, tetapi juga nyaman untuk ditempati dalam jangka panjang.</p><a class="btn btn-dark" href="#/tips">← Kembali ke Tips</a></div></section>`;
 }
 
 function notFound(){
@@ -148,8 +147,8 @@ function comingSoon(){
 }
 
 const routes={
- "/":home,"/tentang":about,"/kawasan":kawasan,"/sewa-jual":sewaJual,"/fasilitas":fasilitas,
- "/tips":tipsPage,"/galeri":galleryPage,"/berita":berita,"/event":eventPage,"/kontak":contact,
+ "/":home,"/kawasan":kawasan,"/sewa-jual":sewaJual,"/fasilitas":fasilitas,
+ "/update":updatePage,"/merch":merchPage,"/kontak":contact,
  "/login":loginPage,"/register":registerPage,"/struktur":struktur,
- "/artikel":article,"/coming-soon":comingSoon
+ "/coming-soon":comingSoon
 };

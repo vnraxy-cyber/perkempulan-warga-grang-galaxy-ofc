@@ -26,7 +26,7 @@ css/
   pages.css       gaya khusus per section (promo banner, tenant card, fasilitas scroll, dll)
   responsive.css  media query mobile & tablet
 js/
-  data.js         path aset gambar + data konten (tenant, fasilitas, berita, event, tips)
+  data.js         path aset gambar + data konten (tenant, fasilitas, berita, event, merchandise)
   components.js   fungsi render komponen (nav, footer, hero, card)
   pages.js        fungsi render tiap halaman + daftar routing
   app.js          routing hash, interaksi (menu, toast, form, filter tenant)
@@ -44,7 +44,7 @@ Tidak perlu framework atau build tool.
 
 ## Catatan
 - Semua struktur dibuat dengan HTML, CSS, dan JavaScript vanilla (tanpa build tool).
-- Data tenant, fasilitas, berita, event, dan tips berada di `js/data.js` sehingga mudah diedit.
+- Data tenant, fasilitas, berita, event, dan merchandise berada di `js/data.js` sehingga mudah diedit.
 - Halaman Kawasan Kami menampilkan direktori tenant yang bisa difilter per kategori (Kuliner, Pendidikan, Kesehatan & Kecantikan, Retail & Fashion, Jasa & Perkantoran).
 - Peta menggunakan embed Google Maps asli (iframe), bukan ilustrasi CSS.
 - Desain dibuat responsif untuk desktop, tablet, dan HP.

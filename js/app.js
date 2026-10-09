@@ -52,10 +52,31 @@ function filterFacilities(cat,el){
  const list=cat==="Semua"?facilities:facilities.filter(f=>f[4]===cat);
  document.getElementById("facilityScroll").innerHTML=list.map(f=>`<div class="facility-slide" style="background-image:linear-gradient(180deg,rgba(19,28,27,0) 38%,rgba(19,28,27,.92) 100%),url('${f[3]}')"><span class="facility-slide-icon"><i class="${f[0]}"></i></span><span class="facility-slide-eyebrow">FASILITAS</span><h3>${f[1]}</h3><p>${f[2]}</p></div>`).join("");
 }
-function filterGallery(cat,el){
- el.closest(".pills").querySelectorAll(".pill").forEach(x=>x.classList.remove("active"));el.classList.add("active");
- const list=cat==="Semua"?galleryImages:galleryImages.filter(g=>g[1]===cat);
- document.getElementById("galleryGrid").innerHTML=list.map(galleryItem).join("");
+/* Merchandise: ganti foto, pilih ukuran & jumlah, lalu pesan via WhatsApp */
+let merchSize="",merchQty=1;
+function merchPhoto(i,el){
+ const [src,label]=merchProduct.foto[i];
+ const img=document.getElementById("merchMain");img.src=src;img.alt=`${merchProduct.nama} — ${label}`;
+ el.closest(".merch-thumbs").querySelectorAll(".merch-thumb").forEach(x=>x.classList.toggle("active",x===el));
+}
+function merchPickSize(size,el){
+ merchSize=size;
+ el.closest(".merch-sizes").querySelectorAll(".merch-size").forEach(x=>x.classList.toggle("active",x===el));
+ document.getElementById("merchSizeLabel").textContent=size;
+ document.querySelector(".merch-sizes").classList.remove("need");
+}
+function merchStep(d){
+ merchQty=Math.max(1,Math.min(99,merchQty+d));
+ document.getElementById("merchQty").textContent=merchQty;
+}
+function orderMerch(){
+ if(!merchSize){
+  const box=document.querySelector(".merch-sizes");box.classList.remove("need");void box.offsetWidth;box.classList.add("need");
+  showToast("Silakan pilih ukuran terlebih dahulu");return;
+ }
+ const m=merchProduct;
+ const msg=`Halo Admin, saya ingin pesan merchandise:\n\n• Produk: ${m.nama}\n• Warna: ${m.warna}\n• Ukuran: ${merchSize}\n• Jumlah: ${merchQty} pcs\n• Harga: ${m.harga} / pcs\n\nApakah stoknya tersedia? Terima kasih.`;
+ window.open(`https://wa.me/${MERCH_WA}?text=${encodeURIComponent(msg)}`,"_blank","noopener");
 }
 let newsCat="Semua", newsSortOrder="terbaru";
 function renderNewsSection(){

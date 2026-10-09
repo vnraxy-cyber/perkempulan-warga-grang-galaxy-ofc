@@ -1,26 +1,27 @@
 /* Grand Galaxy City — reusable components */
 .topbar{background:#1d2928;color:#d9d1bc;padding:9px 0;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .navbar{position:sticky;top:0;z-index:50;background:var(--navbar-bg,rgba(251,250,245,.94));backdrop-filter:blur(16px);border-bottom:1px solid rgba(182,148,84,.22)}
-.nav-inner{height:86px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.logo{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+.nav-inner{height:86px;display:flex;align-items:center;gap:24px}
+.logo{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;flex:0 0 auto}
 .logo-img{height:52px;width:auto;object-fit:contain;border-radius:var(--radius-sm)}
 .navbar .logo-on-dark{display:none}
 :root[data-theme="dark"] .navbar .logo-on-light{display:none}
 :root[data-theme="dark"] .navbar .logo-on-dark{display:block}
 .footer .logo{margin-bottom:16px}
 .footer .logo-img{height:40px}
-.nav-links{display:flex;gap:0;align-items:center}
-.nav-links a{padding:11px 8px;border-radius:var(--radius-sm);font-size:10px;letter-spacing:.01em;text-transform:uppercase;color:var(--nav-link-color,#68736e);font-weight:600;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{background:var(--nav-link-hover-bg,#eee9dd);color:#8b6831}
-.nav-cta{background:var(--cta-bg);color:var(--cta-text);border:0;border-radius:var(--radius-sm);padding:13px 16px;letter-spacing:.04em;text-transform:uppercase;font-size:10px;font-weight:700;white-space:nowrap;transition:opacity .15s}
-.nav-cta:hover{opacity:.85}
-.menu{display:none;background:none;border:0;font-size:25px;color:var(--navy)}
-.nav-utility{display:flex;align-items:center;gap:10px}
-.nav-auth-group{display:flex;align-items:center;gap:4px;padding-right:12px;margin-right:2px;border-right:1px solid var(--border)}
-.nav-auth-desktop{font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--nav-link-color,#68736e);padding:8px 9px;border-radius:var(--radius-sm)}
+.nav-links{flex:1;display:flex;justify-content:center;align-items:center;gap:4px}
+.nav-links a{position:relative;padding:10px 12px;border-radius:var(--radius-sm);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--nav-link-color,#68736e);font-weight:700;white-space:nowrap;transition:color .15s,background .15s}
+.nav-links a:hover{color:#8b6831;background:var(--nav-link-hover-bg,#eee9dd)}
+.nav-links a.active{color:#8b6831}
+.nav-links a.active:after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;border-radius:2px;background:#c09d5d}
+.nav-utility{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+.nav-auth-desktop{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--nav-link-color,#68736e);padding:9px 12px;border-radius:var(--radius-sm);transition:color .15s,background .15s}
 .nav-auth-desktop:hover{color:#8b6831;background:var(--nav-link-hover-bg,#eee9dd)}
-.theme-toggle{background:none;border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:grid;place-items:center;color:var(--navy);font-size:14px;transition:background .15s,color .15s}
+.theme-toggle{flex:0 0 auto;background:none;border:1px solid var(--border);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;color:var(--navy);font-size:14px;cursor:pointer;transition:background .15s,color .15s}
 .theme-toggle:hover{background:var(--nav-link-hover-bg,#eee9dd);color:#8b6831}
+.nav-cta{background:var(--cta-bg);color:var(--cta-text);border:0;border-radius:var(--radius-sm);padding:13px 18px;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;font-weight:700;white-space:nowrap;transition:opacity .15s}
+.nav-cta:hover{opacity:.85}
+.menu{display:none;width:40px;height:40px;place-items:center;background:none;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:16px;color:var(--navy);cursor:pointer}
 .nav-links-auth{display:none}
 
 .hero{min-height:540px;display:flex;align-items:center;background-position:center 58%;background-size:cover}
@@ -104,7 +105,7 @@ linear-gradient(115deg,transparent 38%,rgba(255,255,255,.65) 39%,rgba(255,255,25
 .dark-band .section-head h2,.dark-band h2{color:#fff}
 .dark-band p{color:#b9cbd6}
 
-.cta{background:linear-gradient(90deg,rgba(4,39,63,.85),rgba(4,39,63,.5)),url("../assets/images/real/09_danau_grand_galaxy.webp") center/cover;border-radius:var(--radius-lg);padding:52px;color:#fff}
+.cta{background:linear-gradient(90deg,rgba(4,39,63,.85),rgba(4,39,63,.5)),url("../assets/images/real/tentang_kami.webp") center/cover;border-radius:var(--radius-lg);padding:52px;color:#fff}
 .cta h2{font-family:"Cormorant Garamond",serif;margin:0 0 8px;font-size:38px}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}

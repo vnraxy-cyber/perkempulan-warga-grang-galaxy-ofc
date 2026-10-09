@@ -34,7 +34,6 @@ const REAL = {
   promo5:"assets/promo/promo5.webp",
   promo6:"assets/promo/promo6.webp",
   fasilitas:"assets/images/real/fasilitas.webp",
-  tips:"assets/images/real/tips.webp",
   event:"assets/images/real/event.webp",
   hubung:"assets/images/real/hubung.webp",
   tenantKitaSteamboat:"assets/images/real/Kita Steamboat & Yakiniku.webp",
@@ -68,33 +67,6 @@ const MARKETPLACE_META = {
 const tenantCategories = ["Semua","Traveling","Makanan & Minuman","Fashion","Skincare & Kosmetik","Beauty & Salon","Kesehatan & Apotek","Elektronik & Gadget","Furniture & Interior","Kebutuhan Rumah Tangga","Grocery & Sembako","Fashion Anak","Mainan & Anak","Sepatu & Tas","Perhiasan & Aksesoris","Olahraga & Fitness","Pet Shop & Pet Care","Otomotif","Jasa Keuangan","Pendidikan & Bimbel","Tempat Keagamaan","Hiburan","Gift & Hampers","Stationery & Buku","Laundry","Barbershop","Café & Coffee Shop","Bakery & Dessert","Properti","Jasa Profesional","Agency Digital Marketing","Florist & Tanaman","Lifestyle & Hobi"];
 
 const facilityCategories = ["Semua","Pendidikan","Kesehatan","Komersial","Rekreasi","Ibadah"];
-
-const galleryCategories = ["Semua","Kawasan","Fasilitas","Event","Aktivitas"];
-
-/* [foto, kategori] */
-const galleryImages = [
- [REAL.gate,"Kawasan"],
- [REAL.mall,"Fasilitas"],
- [REAL.clusterExterior,"Kawasan"],
- [REAL.clusterStreet,"Kawasan"],
- [REAL.taman,"Fasilitas"],
- [REAL.danau,"Fasilitas"],
- ["assets/images/berita&event/berita_9.webp","Aktivitas"],
- ["assets/images/berita&event/berita_11.webp","Aktivitas"],
- [REAL.ruko,"Fasilitas"],
- [REAL.jalanUtama,"Kawasan"],
- [REAL.signage,"Kawasan"],
- [REAL.mallEntrance,"Fasilitas"],
- [REAL.clusterGate,"Kawasan"],
- ["assets/images/berita&event/berita_3.webp","Aktivitas"],
- [REAL.jalanKawasan,"Kawasan"],
- ["assets/images/berita&event/berita_2.webp","Event"],
- ["assets/images/berita&event/berita_3.webp","Event"],
- ["assets/images/berita&event/berita_5.webp","Event"],
- ["assets/images/berita&event/berita_7.webp","Event"],
- ["assets/images/berita&event/berita_9.webp","Event"],
- ["assets/images/berita&event/berita_11.webp","Event"]
-];
 
 /* [emoji, judul, deskripsi, foto, kategori] */
 const facilities = [
@@ -148,14 +120,6 @@ const news = [
   ["Digital Growth & Revenue Optimization Bersama Haltev.id", "Haltev.id", "assets/images/real/ruko_haltev.webp", "https://haltev.id/digital-growth-revenue-optimation/", "Jasa"]
 ];
 
-const tips = [
-  ["Tips Memilih Rumah untuk Keluarga Muda", "Kenali kebutuhan ruang, akses, dan fasilitas sebelum memilih hunian.", REAL.clusterExterior, "Panduan"],
-  ["Cara Menjaga Keamanan Rumah", "Mulai dari pencahayaan, kunci, hingga kebiasaan sederhana sehari-hari.", REAL.clusterGate, "Keamanan"],
-  ["Manfaat Tinggal di Kawasan Terpadu", "Akses fasilitas yang dekat membuat aktivitas keluarga lebih praktis.", REAL.taman, "Gaya Hidup"],
-  ["Tips Dekorasi Rumah Minimalis", "Gunakan furnitur fungsional dan pencahayaan yang membuat ruang terasa nyaman.", IMG.interior, "Interior"],
-  ["Investasi Properti di Bekasi Selatan", "Pertimbangkan lokasi, akses, fasilitas, dan perkembangan kawasan.", REAL.jalanUtama, "Investasi"]
-];
-
 const events = [
   ["15","AUG","Grand Galaxy Run","Taman Kota","06.00–10.00 WIB", "assets/images/berita&event/berita_2.webp"],
   ["22","AUG","Bazaar & Kuliner Nusantara","Food Festival","10.00–21.00 WIB", "assets/images/berita&event/berita_7.webp"],
@@ -191,3 +155,20 @@ const listings = [
   ["Ruko 3 Lantai Blok B No. 12", "Disewakan", "84 m²", "Rp 65 Juta / tahun", "6281234500003", REAL.tenant],
   ["Ruko Blok E No. 4", "Dijual", "60 m²", "Rp 1.5 Miliar", "6281234500004", REAL.tenant]
 ];
+
+/* Merchandise — pesanan diarahkan ke WhatsApp admin perkumpulan */
+const MERCH_WA = "628129495611";
+const merchProduct = {
+  nama: "Polo Shirt Perkumpulan Warga Ruko GGC",
+  harga: "Rp 150.000",
+  desc: "Polo shirt resmi Perkumpulan Warga Ruko Grand Galaxy City. Logo perkumpulan di dada depan dan ilustrasi ikon globe Grand Galaxy City berwarna penuh di bagian punggung.",
+  fitur: ["Logo perkumpulan di dada kiri","Print full color ikon globe Grand Galaxy City di punggung","Kerah & ujung lengan dengan aksen list putih","Tersedia ukuran S sampai 4XL"],
+  warna: "Merah",
+  warnaHex: "#c8102e",
+  ukuran: ["S","M","L","XL","2XL","3XL","4XL"],
+  foto: [
+    ["assets/images/merch/polo-depan.webp","Depan"],
+    ["assets/images/merch/polo-belakang.webp","Belakang"],
+    ["assets/images/merch/polo-dipakai.webp","Dipakai"]
+  ]
+};

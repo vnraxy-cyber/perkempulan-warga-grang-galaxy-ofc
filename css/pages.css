@@ -468,3 +468,69 @@
 .sitemap-group a{font-size:13px;color:var(--muted)}
 .sitemap-group a:hover{color:#96733a}
 .gallery .g.zoom:hover{transform:scale(1.02)}
+
+/* Halaman Update: tombol urut event di dalam section-head */
+.section-head .sort-toggle.event-sort{margin-bottom:0}
+
+/* Merchandise */
+.merch-product{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.merch-gallery{position:sticky;top:110px}
+.merch-main{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:#ececec;border:1px solid var(--border)}
+.merch-main img{width:100%;height:100%;object-fit:cover;display:block}
+.merch-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.merch-thumb{position:relative;padding:0;border:2px solid transparent;border-radius:var(--radius-md);overflow:hidden;background:#ececec;aspect-ratio:1;cursor:pointer;transition:border-color .2s}
+.merch-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.merch-thumb span{position:absolute;left:0;right:0;bottom:0;padding:5px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.merch-thumb.active{border-color:#c09d5d}
+.merch-detail h2{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,3.4vw,42px);line-height:1.05;margin:10px 0 12px;color:var(--navy)}
+.merch-price{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:700;color:var(--td-accent)}
+.merch-lead{font-size:14px;color:var(--muted);line-height:1.75;margin:14px 0 16px}
+.merch-features{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:8px}
+.merch-features li{font-size:13px;color:var(--text);display:flex;gap:10px;align-items:baseline}
+.merch-features i{color:var(--td-accent);font-size:11px}
+.merch-opt{padding:16px 0;border-top:1px solid var(--border)}
+.merch-opt-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.merch-opt-label b{color:var(--navy);letter-spacing:.04em}
+.merch-opt-label a{margin-left:auto;font-size:11px;letter-spacing:.02em;text-transform:none;color:var(--td-accent);text-decoration:underline}
+.merch-swatch{display:inline-block;width:30px;height:30px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 2px #c09d5d}
+.merch-sizes{display:flex;flex-wrap:wrap;gap:8px;border-radius:var(--radius-sm)}
+.merch-size{min-width:52px;height:42px;padding:0 12px;border:1px solid var(--border);background:var(--surface);color:var(--navy);border-radius:var(--radius-sm);font-weight:700;font-size:13px;cursor:pointer;transition:all .15s}
+.merch-size:hover{border-color:#c09d5d}
+.merch-size.active{background:var(--cta-bg);color:var(--cta-text);border-color:var(--cta-bg)}
+.merch-sizes.need{animation:merchShake .4s}
+.merch-sizes.need .merch-size{border-color:#d0574a}
+@keyframes merchShake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.merch-qty{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.merch-qty button{width:42px;height:42px;border:0;background:var(--surface);color:var(--navy);cursor:pointer}
+.merch-qty button:hover{background:var(--nav-link-hover-bg,#eee9dd)}
+.merch-qty span{min-width:46px;text-align:center;font-weight:800;color:var(--navy)}
+.merch-buy{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;padding:17px 20px;font-size:12px;cursor:pointer}
+.merch-hint{font-size:12px;color:var(--muted);line-height:1.6;margin:12px 0 0}
+.merch-hint i{color:var(--td-accent);margin-right:4px}
+.merch-panel{padding:26px}
+.merch-panel h2{font-family:"Cormorant Garamond",serif;font-size:30px;margin:8px 0 18px;color:var(--navy)}
+.merch-steps{list-style:none;counter-reset:step;margin:0;padding:0;display:grid;gap:14px}
+.merch-steps li{counter-increment:step;display:grid;grid-template-columns:34px 1fr;column-gap:12px}
+.merch-steps li:before{content:counter(step);grid-row:span 2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--cta-bg);color:var(--cta-text);font-weight:800;font-size:13px}
+.merch-steps b{font-size:13.5px;color:var(--navy)}
+.merch-steps span{font-size:12.5px;color:var(--muted);line-height:1.55}
+.merch-table-wrap{overflow-x:auto}
+.merch-table{width:100%;border-collapse:collapse;font-size:13px}
+.merch-table th,.merch-table td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--text)}
+.merch-table th{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.merch-note{font-size:12px;color:var(--muted);margin:14px 0 0;line-height:1.6}
+.merch-faq{display:grid;gap:10px}
+.merch-q{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0 18px}
+.merch-q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;font-weight:700;font-size:14px;color:var(--navy)}
+.merch-q summary::-webkit-details-marker{display:none}
+.merch-q summary i{color:var(--td-accent);transition:transform .2s}
+.merch-q[open] summary i{transform:rotate(180deg)}
+.merch-q p{margin:0 0 16px;font-size:13px;color:var(--muted);line-height:1.7}
+@media(max-width:900px){
+ .merch-product{grid-template-columns:1fr;gap:28px}
+ .merch-gallery{position:static;max-width:520px;width:100%;margin:0 auto}
+}
+@media(max-width:640px){
+ .merch-panel{padding:20px}
+ .merch-price{font-size:28px}
+}
